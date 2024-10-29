@@ -4,9 +4,6 @@
       - id: get-4cde
         path: /csvgithub
         to: direct:testcsv
-      - id: get-616a
-        path: /csvgithub2
-        to: direct:test02
 - route:
     id: route-6352
     nodePrefixId: route-b4b
@@ -19,15 +16,3 @@
         - process:
             id: process-a61a
             ref: GithubGetProcessor
-- route:
-    id: route-dc70
-    nodePrefixId: route-6c5
-    from:
-      id: from-620e
-      uri: direct
-      parameters:
-        name: test02
-      steps:
-        - process:
-            id: process-0750
-            ref: HealthcareGithub
