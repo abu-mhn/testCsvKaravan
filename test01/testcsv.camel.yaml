@@ -1,7 +1,7 @@
 - rest:
     id: rest-5ff9
-    get:
-      - id: get-4cde
+    post:
+      - id: post-0060
         path: /csvgithub
         to: direct:testcsv
 - route:
@@ -16,3 +16,7 @@
         - process:
             id: process-a61a
             ref: GithubGetProcessor
+        - marshal:
+            id: marshal-7704
+            json:
+              id: json-1dae
