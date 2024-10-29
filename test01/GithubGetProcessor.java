@@ -10,7 +10,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.camel.Exchange;
@@ -19,11 +21,37 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+// Response class to structure the JSON response
+class Response {
+    private String message;
+    private int recordsInserted;
+    private List<Map<String, Object>> data; // New field to hold the inserted data
+
+    public Response(String message, int recordsInserted, List<Map<String, Object>> data) {
+        this.message = message;
+        this.recordsInserted = recordsInserted;
+        this.data = data;
+    }
+
+    // Getters
+    public String getMessage() {
+        return message;
+    }
+
+    public int getRecordsInserted() {
+        return recordsInserted;
+    }
+
+    public List<Map<String, Object>> getData() {
+        return data; // Getter for the new field
+    }
+}
+
 @Component("GithubGetProcessor")
 public class GithubGetProcessor implements Processor {
 
     // URL to the raw CSV file on GitHub
-    private static final String FILE_URL = "https://raw.githubusercontent.com/abu-mhn/testCsvKaravan/main/test01/Spotify%20Most%20Streamed%20Songs.csv";
+    private static final String FILE_URL = "https://raw.githubusercontent.com/abu-mhn/testCsvKaravan/main/Spotify%20Most%20Streamed%20Songs.csv";
 
     // Database connection parameters
     private static final String DB_URL = "jdbc:postgresql://103.91.65.22:5093/staging";
@@ -82,6 +110,9 @@ public class GithubGetProcessor implements Processor {
             throw new IOException("HTTP error code: " + responseCode);
         }
 
+        int totalRecordsInserted = 0; // To count the number of records inserted
+        List<Map<String, Object>> insertedData = new ArrayList<>(); // To hold the inserted data
+
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
              Connection dbConnection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
 
@@ -102,10 +133,10 @@ public class GithubGetProcessor implements Processor {
                 try (PreparedStatement preparedStatement = dbConnection.prepareStatement(insertSQL)) {
                     String line;
                     while ((line = reader.readLine()) != null) {
-                        // Use regex to split the line, respecting quoted values
                         String[] values = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
 
-                        // Set parameters for each column
+                        Map<String, Object> rowData = new HashMap<>(); // To hold the current row's data
+
                         for (int i = 0; i < headers.length; i++) {
                             if (i < values.length) {
                                 String value = values[i].replaceAll("^\"|\"$", "").trim();
@@ -136,11 +167,15 @@ public class GithubGetProcessor implements Processor {
                                         // Check if the value is numeric before parsing
                                         if (value.isEmpty()) {
                                             preparedStatement.setObject(i + 1, null);
+                                            rowData.put(headers[i], null); // Store null in the row data
                                         } else {
                                             try {
-                                                preparedStatement.setObject(i + 1, Double.parseDouble(value));
+                                                double numericValue = Double.parseDouble(value);
+                                                preparedStatement.setObject(i + 1, numericValue);
+                                                rowData.put(headers[i], numericValue); // Store the value in the row data
                                             } catch (NumberFormatException e) {
                                                 preparedStatement.setObject(i + 1, null); // Handle or log invalid values as needed
+                                                rowData.put(headers[i], null); // Store null in the row data
                                             }
                                         }
                                         break;
@@ -149,24 +184,34 @@ public class GithubGetProcessor implements Processor {
                                     case "artistName":
                                     case "coverUrl":
                                         preparedStatement.setObject(i + 1, value.isEmpty() ? null : value);
+                                        rowData.put(headers[i], value.isEmpty() ? null : value); // Store the value in the row data
                                         break;
                                     default:
                                         preparedStatement.setObject(i + 1, value.isEmpty() ? null : value);
+                                        rowData.put(headers[i], value.isEmpty() ? null : value); // Store the value in the row data
                                 }
                             } else {
                                 preparedStatement.setObject(i + 1, null); // Handle missing values
+                                rowData.put(headers[i], null); // Store null in the row data
                             }
                         }
                         preparedStatement.addBatch(); // Add to batch for efficient insertion
+                        insertedData.add(rowData); // Add the row data to the list
                     }
-                    preparedStatement.executeBatch(); // Execute all batched insertions at once
+                    totalRecordsInserted = preparedStatement.executeBatch().length; // Execute batch and get records count
                 }
             }
         }
 
-        // Set a response indicating the operation is complete
-        exchange.getIn().setBody("Data inserted into the database successfully.");
-        exchange.getIn().setHeader(Exchange.CONTENT_TYPE, "text/plain");
+        // Create the response object
+        Response response = new Response("Data inserted into the database successfully.", totalRecordsInserted, insertedData);
+        
+        // Convert response to JSON
+        String jsonResponse = objectMapper.writeValueAsString(response);
+
+        // Set JSON response
+        exchange.getIn().setBody(jsonResponse);
+        exchange.getIn().setHeader(Exchange.CONTENT_TYPE, "application/json");
     }
 
     // Method to create the Spotify data table in the database
@@ -208,15 +253,22 @@ public class GithubGetProcessor implements Processor {
         }
     }
 
-    // Method to rename columns in the CSV header
+    // Method to rename columns based on mapping
     private String renameColumns(String headerLine) {
-        String[] columns = headerLine.split(","); // Adjust the delimiter if needed
-        for (int i = 0; i < columns.length; i++) {
-            // Check if the column needs to be renamed
-            if (COLUMN_RENAMES.containsKey(columns[i].trim())) {
-                columns[i] = COLUMN_RENAMES.get(columns[i].trim()); // Rename the column
-            }
+        String[] headers = headerLine.split(",");
+        StringBuilder modifiedHeaders = new StringBuilder();
+
+        for (String header : headers) {
+            String trimmedHeader = header.trim();
+            String newHeader = COLUMN_RENAMES.getOrDefault(trimmedHeader, trimmedHeader);
+            modifiedHeaders.append(newHeader).append(",");
         }
-        return String.join(",", columns); // Join columns back to a single string
+
+        // Remove trailing comma
+        if (modifiedHeaders.length() > 0) {
+            modifiedHeaders.setLength(modifiedHeaders.length() - 1);
+        }
+
+        return modifiedHeaders.toString();
     }
 }
