@@ -1,3 +1,9 @@
+- rest:
+    id: rest-5ff9
+    get:
+      - id: get-4cde
+        path: /csvgithub
+        to: direct:testcsv
 - route:
     id: route-6352
     nodePrefixId: route-b4b
@@ -10,9 +16,3 @@
         - process:
             id: process-a61a
             ref: GithubGetProcessor
-- rest:
-    id: rest-5ff9
-    post:
-      - id: post-b663
-        path: /csvgithub
-        to: direct:testcsv
