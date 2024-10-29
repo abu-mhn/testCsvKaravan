@@ -1,0 +1,18 @@
+- route:
+    id: route-6352
+    nodePrefixId: route-b4b
+    from:
+      id: from-0318
+      uri: direct
+      parameters:
+        name: testcsv
+      steps:
+        - process:
+            id: process-a61a
+            ref: GithubGetProcessor
+- rest:
+    id: rest-5ff9
+    post:
+      - id: post-b663
+        path: /csvgithub
+        to: direct:testcsv
