@@ -1,5 +1,6 @@
 - rest:
     id: rest-5ff9
+    produces: application/json
     post:
       - id: post-0060
         path: /csvgithub
@@ -16,7 +17,3 @@
         - process:
             id: process-a61a
             ref: GithubGetProcessor
-        - marshal:
-            id: marshal-7704
-            json:
-              id: json-1dae
