@@ -1,0 +1,832 @@
+Age,Date of Data Entry,Gender,Diagnosis,Name of Drug,Dosage (gram),Route,Frequency,Duration (days),Indication
+85,19/12/2019 14:41,Female,"ccf, hypertension, ida, ckd(stage 5), ?icm,",ceftriaxone,1,IV,BD,7,icm
+87,19/12/2019 16:35,Female,"pad(lt u.l), be amputation,/post op, akt",ceftriaxone,1,IV,BD,1,post op
+82,19/12/2019 15:48,Male,"type-2dm, ihd, col, copd, ht",ofloxacin,0.4,IV,BD,3,abd distension with leg swelling
+82,19/12/2019 15:50,Male,"type-2 dm, ihd, col, copd, ht",cefipime,1,IV,BD,5,abd distension with leg swelling
+82,19/12/2019 15:52,Male,"type-2 dm, ihd, col, copd, ht",azithromycin,0.5,Oral,OD,3,abd distension with leg swelling
+82,19/12/2019 15:53,Male,"type-2 dm, ihd, col, copd, ht",ceftazidime,1,IV,TDS,3,abd distension with leg swelling
+55,19/12/2019 16:00,Female,abd tb,ceftriaxone,1,IV,BD,3,abd tb
+55,19/12/2019 16:02,Female,abd tb,septrin,0.96,Oral,OD,1,abd tb
+57,19/12/2019 16:28,Male,"abscess on chin, uncontrolled type 2 dm, koch's lung",co-amoxiclav,1.2,IV,TDS,4,abscess on chin
+57,19/12/2019 16:31,Male,"abscess on chin, uncontrolled type 2 dm, koch's lung",clindamycin,0.2,Oral,TDS,7,abscess on chin
+22,19/12/2019 17:32,Female,acute bacillary dysentery e sepsis,cefoperazone+sulbactam,1,IV,BD,5,acute bacillary dysentry e sepsis
+22,19/12/2019 17:34,Female,acute bacillary dysentry e sepsis,metronidazole,0.5,IV,TDS,5,acute bacillary dysentry e sepsis
+22,19/12/2019 17:34,Female,acute bacillary dysentry e sepsis,cefixime,0.2,Oral,BD,3,acute bacillary dysentry e sepsis
+22,19/12/2019 17:35,Female,acute bacillary dysentry e sepsis,metronidazole,0.5,Oral,TDS,3,acute bacillary dysentry e sepsis
+40,19/12/2019 14:08,Male,acute bronchitis,co-amoxiclav,1.2,IV,TDS,3,acute bronchitis
+74,19/12/2019 16:09,Male,"left sided hemiparesis, acute cerebral infarct, hypertension, ihd",ceftriaxone,1,IV,BD,1,acute cerebral infarct
+74,19/12/2019 16:11,Male,"left sided hemiparesis, acute cerebral infarct, hypertension, ihd",metronidazole,0.75,IV,TDS,1,acute cerebral infarct
+14,19/12/2019 16:11,Male,acute flaccid lower limb weakness,cefixime,0.2,Oral,BD,1,acute flaccid lower limb weakness
+72,19/12/2019 15:22,Female,acute gastritis vomitting ē hk+,co-amoxiclav,0.625,Oral,TDS,7,acute gastritis vomitting ē hk+
+57,19/12/2019 16:27,Male,"acute ge,  septic shock",cefepime,1,IV,TDS,4,acute ge
+57,19/12/2019 16:27,Male,"acute ge,  septic shock",metronidazole,0.75,IV,TDS,4,acute ge
+57,19/12/2019 16:28,Male,"acute ge,  septic shock",cefixime,0.2,Oral,BD,2,acute ge
+57,19/12/2019 16:30,Male,"acute ge,  septic shock",metronidazole,250,Oral,TDS,2,acute ge
+60,19/12/2019 14:35,Male,"acute ge, underlying  heart disease",metronidazole,0.75,IV,TDS,2,acute ge
+53,19/12/2019 16:10,Female,"dm, acute ge, koch's lung",ceftriaxone,1,IV,BD,3,acute ge
+53,19/12/2019 16:11,Female,"dm, acute ge, koch's lung",ciprofloxacin,0.5,Oral,BD,2,acute ge
+32,19/12/2019 14:35,Male,"food poisoing, acute GE, some dehydration",norfloxacin,0.4,Oral,BD,3,acute ge
+48,19/12/2019 16:25,Male,"miliary tb, acute ge",metronidazole,0.75,IV,TDS,1,acute ge
+48,19/12/2019 16:26,Male,"miliary tb, acute ge",ceftriaxone,1,IV,BD,1,acute ge
+48,19/12/2019 16:27,Male,"miliary tb, acute ge",coamoxiclav,0.625,Oral,TDS,5,acute ge
+22,19/12/2019 15:31,Male,bacillary dysentry,cifran,0.5,Oral,BD,7,acute ge
+22,19/12/2019 15:32,Male,bacillary dysentry,cifran,0.4,IV,BD,2,acute ge
+47,19/12/2019 16:06,Male,"hcv(+), pancytopenia, rvi, mtb(+) very low",ceftriaxone,1,IV,BD,1,acute hbv-hcv co-infection
+63,19/12/2019 16:10,Female,"acute liver disease, weil's disease, renal impairment",ceftriaxone,1,IV,BD,3,acute liver disease
+63,19/12/2019 16:11,Female,"acute liver disease, weil's disease, renal impairment",meropenem,0.5,IV,OD,1,acute liver disease
+19,19/12/2019 15:09,Female,avi,ceftriaxone,1,IV,BD,2,acute pain in spa
+64,19/12/2019 14:42,Female,"acute pulmonary edema, ihd, uti, type 2 dm, chest infection",gentamicin,0.8,IV,BD,6,acute pulmonary edema
+64,19/12/2019 14:42,Female,"acute pulmonary edema, ihd, uti, type 2 dm, chest infection",ceftriaxone,1,IV,BD,5,acute pulmonary edema
+76,19/12/2019 14:59,Female,"acute pulmonary edema, left sided hemiparesis, aortic dissection",co-amoxiclav,1.2,IV,TDS,1,acute pulmonary edema
+76,19/12/2019 15:01,Female,"acute pulmonary edema, left sided hemiparesis, aortic dissection",metronidazole,0.75,IV,TDS,1,acute pulmonary edema
+51,19/12/2019 14:03,Female,"acute sever asthma, chest infection",co-amoxiclav,0.625,Oral,TDS,5,asthma
+22,19/12/2019 14:42,Female,acute severe asthma,co-amoxiclav,1.2,IV,TDS,1,asthma
+22,19/12/2019 14:43,Female,acute severe asthma,co-amoxiclav,0.625,Oral,TDS,1,asthma
+36,19/12/2019 14:51,Female,acute severe asthma,co-amoxiclav,1.2,IV,TDS,2,asthma
+57,19/12/2019 15:13,Male,"pre-renal aki, rvi stage 4 on art, koch's lung",ceftriaxone,1,IV,BD,5,acute vomitting
+48,19/12/2019 14:26,Male,"systematic hypoglycemia,  chest infection,  alcoholic COL,  Addision's disease",metronidazole,0.75,IV,TDS,1,Addison's disease
+48,19/12/2019 14:23,Male,"symptomatic hypoglycemia,  chest infection,  alcoholic COL,  Addison's disease",ceftriaxone,1,IV,OD,1,Addison's disease
+48,19/12/2019 14:25,Male,"symptomatic hypoglycemia,  chest infection,  alcoholic COL,  Addison's disease",co-amoxiclav,1.2,IV,TDS,1,Addison's disease
+62,19/12/2019 14:00,Female,"urinary tract infection,  type 2DM, AF,  hypertension",co-amoxiclav,1.2,IV,TDS,1,af
+62,19/12/2019 14:01,Female,"urinay tract infection,  Type 2DM,  AF,  hypertension",cefepime,1,IV,BD,5,af
+77,19/12/2019 15:20,Female,"cardioembolic, stroke",ceftriaxone,1,IV,BD,1,af
+77,19/12/2019 15:22,Female,"cardioembolic, stroke",metronidazole,0.75,IV,TDS,1,af
+77,19/12/2019 15:23,Female,"cardioembolic, stroke",pen v,0.25,Oral,BD,1,af
+47,19/12/2019 14:37,Female,age,ciprofloxacin,0.5,Oral,BD,5,age
+67,19/12/2019 14:07,Female,"consolidation, chest infection, aki",co-amoxiclav,1.2,IV,TDS,5,aki
+67,19/12/2019 14:08,Female,"consolidation, chest infection, aki",clarithromycin,0.5,Oral,BD,10,aki
+32,19/12/2019 16:14,Female,"general debility e excessive vomitting, uraemic gastritis, hcv aki ckd, retro(+)",co-amoxiclav,1.2,IV,TDS,2,aki
+32,19/12/2019 16:15,Female,"general debility e excessive vomitting, uraemic gastritis, hcv aki ckd, retro(+)",co-amoxiclav,0.6,Oral,OD,2,aki
+32,19/12/2019 16:17,Female,"general debility e excessive vomitting, uraemic gastritis, hcv aki ckd, retro(+)",septrin,0.96,Oral,OD,1,aki
+87,19/12/2019 16:35,Female,"pad(lt u.l), be amputation,/post op, akt",ceftriaxone,1,IV,BD,1,akt
+30,19/12/2019 14:15,Male,alcohol withdrawal syndrome,ceftriaxone,1,IV,BD,1,alcohol withdrawal syndrome
+66,19/12/2019 16:30,Male,"alcoholic gastritis, col, ugi tract bleeding, hiv",ceftriaxone,1,IV,BD,4,alcoholic gastritis
+66,19/12/2019 16:32,Male,"alcoholic gastritis, col, ugi tract bleeding, hiv",mirox,0.5,Oral,BD,3,alcoholic gastritis
+66,19/12/2019 16:22,Male,"alcoholic gastritis, early col, hypertension",amoxicillin,0.5,Oral,BD,14,alcoholic gastritis
+66,19/12/2019 16:23,Male,"alcoholic gastritis, early col, hypertension",clarithromycin,0.5,Oral,BD,14,alcoholic gastritis
+48,19/12/2019 15:35,Male,"septic shock, hcv co-infection, col, liver impairment, electrolyte imbalance",ceftriaxone,1,IV,BD,1,alcoholic hcv
+44,19/12/2019 15:25,Male,"alcohol hepatitis, left pleural effusion",cefexime,0.5,Oral,BD,3,alcoholic hepatitis
+53,19/12/2019 16:07,Male,"alcoholic hepatitis,  alcohol col",ceftriaxone,1,IV,BD,5,alcoholic hepatitis
+30,19/12/2019 14:42,Male,"alcoholic withdrawal,  alcoholic hepatitis",ceftriaxone,1,IV,BD,5,alcoholic hepatitis
+30,19/12/2019 14:44,Male,"alcoholic withdrawal,  alcoholic hepatitis",cefixime,0.2,Oral,BD,5,alcoholic hepatitis
+30,19/12/2019 14:42,Male,"alcoholic withdrawal,  alcoholic hepatitis",ceftriaxone,1,IV,BD,5,alcoholic withdrawal
+30,19/12/2019 14:44,Male,"alcoholic withdrawal,  alcoholic hepatitis",cefixime,0.2,Oral,BD,5,alcoholic withdrawal
+15,19/12/2019 15:25,Male,"rvi,  pre art defaulter,  anti tb defaulter, anaemia",septrin,1,Oral,OD,4,anaemia
+70,19/12/2019 14:04,Female,"neutropenia, fever, anaemia, ca buffalo mucosa, type 2 dm",ceftriaxone,1,IV,BD,2,anaemia
+70,19/12/2019 14:05,Female,"neutropenia, fever, anaemia, ca buffalo mucosa, type 2 dm",amikacin,0.5,IV,BD,8,anaemia
+70,19/12/2019 14:06,Female,"neutropenia, fever, anaemia, ca buffalo mucosa, type 2 dm",ceftazidime,2,IV,TDS,2,anaemia
+45,19/12/2019 15:32,Female,"anaemia, hypochromic microcytic anaemia, u/l diabetes mellitus",amoxicillin,1,Oral,BD,14,anaemia with u/l dm
+45,19/12/2019 15:35,Female,"anaemia, hypochromic microcytic anaemia, u/l diabetes mellitus",clarithromycin,0.5,Oral,BD,14,anaemia with u/l dm
+37,19/12/2019 14:24,Male,"anaphyatic, UTI",ceftriaxone,1,IV,BD,3,anaphyatic shock
+37,19/12/2019 14:29,Male,"anaphylatic shock, UTI",cefixime,2,Oral,BD,5,anaphylatic shock
+55,19/12/2019 16:04,Female,and tb,clarithromycin,0.5,Oral,BD,1,and tb
+78,19/12/2019 14:23,Female,"anteroseptal mi, klebsiella pneumonia, hypertension, type 2 dm, old stroke",co-amoxiclav,1.2,IV,TDS,8,anteroseptal mi
+15,19/12/2019 14:42,Female,anxiety neurosis,cefixime,1,Oral,BD,3,anxiety neurosis
+15,19/12/2019 14:43,Female,anxiety neurosis,ceftriaxone,1,IV,BD,1,anxiety neurosis
+76,19/12/2019 14:59,Female,"acute pulmonary edema, left sided hemiparesis, aortic dissection",co-amoxiclav,1.2,IV,TDS,1,aortic dissection
+76,19/12/2019 15:01,Female,"acute pulmonary edema, left sided hemiparesis, aortic dissection",metronidazole,0.75,IV,TDS,1,aortic dissection
+31,19/12/2019 14:26,Female,"rvi stage 4, art noise, hepatitis, bone marrow depression",septrin,0.96,Oral,OD,1,art noise
+31,19/12/2019 14:28,Female,"rvi stage 4, art noise, hepatitis, bone marrow depression",ceftriaxone,1,IV,BD,5,art noise
+31,19/12/2019 14:30,Female,"rvi, stage4, art noise, hepatitis, bone marrow depression",cefipime,1,IV,BD,4,art noise
+37,19/12/2019 13:58,Female,arthralgia,ceftriaxone,1,IV,BD,5,arthralgia
+38,19/12/2019 15:48,Male,"alcoholic  col, ascites",ceftazidine,1,IV,TDS,1,ascites
+38,19/12/2019 15:49,Male,"col, ascites",ceftriaxone,1,IV,BD,2,ascites
+65,19/12/2019 14:40,Male,"aspiration pneumonia, old stroke, cerebral infarct",metronidazole,0.2,Oral,TDS,5,aspiration pneumonia
+65,19/12/2019 14:37,Male,"aspiration pneumonia, old stroke, cerebral infarct",ceftriaxone,1,IV,BD,1,aspiration pneumonia
+65,19/12/2019 14:39,Male,"aspiration pneumonia, old stroke, cerebral infarct",cefixime,0.02,Oral,BD,5,aspiration pneumonia
+86,19/12/2019 16:20,Female,"right sided hemiparaesis, hypertension, dm, aspiration pneumonia",co-amoxiclav,1.2,IV,TDS,1,aspiration pneumonia
+86,19/12/2019 16:20,Female,"right sided hemiparaesis, hypertension, dm, aspiration pneumonia",metronidazole,0.75,IV,TDS,1,aspiration pneumonia
+71,19/12/2019 15:22,Female,aspiration pneumonia,ceftriaxone,1,IV,BD,2,aspiration pneumonia
+71,19/12/2019 15:23,Female,aspiration pneumonia,metronidazole,0.75,IV,TDS,1,aspiration pneumonia
+59,19/12/2019 16:09,Male,"right sided hemoporesis territory cerebral infarct,  hcv,  ospiration pneumonia",ceftriaxone,1,IV,BD,7,aspiration pneumonia
+40,19/12/2019 15:12,Male,"hyponetrimia, hcv(+), hepatic encephalopathy, aspiration pneumonia",rifaximin,0.55,Oral,BD,7,aspiration pneumonia
+40,19/12/2019 15:13,Male,"hyponetrimia, hcv(+), hepatic encephalopathy, aspiration pneumonia",cefixime,0.2,Oral,BD,7,aspiration pneumonia
+40,19/12/2019 15:15,Male,"hyponetrimia, hcv(+), hepatic encephalopathy, aspiration pneumonia",metronidazole,0.25,Oral,TDS,7,aspiration pneumonia
+59,19/12/2019 16:10,Male,"right sided hemoporesis territory cerebral infarct,  hcv,  ospiration pneumonia",metronidazole,0.75,IV,TDS,7,aspiration pneumonia
+42,19/12/2019 16:11,Male,left sided pulmonary tb,ceftriaxone,1,IV,BD,6,aspiration pneumonia
+30,19/12/2019 16:26,Male,asthma,ceftazidine,1,IV,TDS,3,asthma
+30,19/12/2019 15:50,Male,"atypical pneumonia, mycoplasma?, itp, left sided pleural effusion",cefoperazone,1,IV,BD,10,atypical pneumonia
+30,19/12/2019 15:52,Male,"atypical pneumonia, mycoplasma?, itp, left sided pleural effusion",levofloxacin,0.5,IV,OD,10,atypical pneumonia
+30,19/12/2019 15:55,Male,"atypical pneumonia, mycoplasma?, itp, left sided pleural effusion",co-amoxiclav,1.2,IV,TDS,1,atypical pneumonia
+30,19/12/2019 15:57,Male,"atypical pneumonia, mycoplasma?, itp, left sided pleural effusion",clarithromycin,0.5,Oral,BD,8,atypical pneumonia
+34,19/12/2019 16:13,Female,aud,ceftriaxone,1,IV,BD,1,aud
+29,19/12/2019 16:14,Female,"avi,  sle",cefixime,0.2,Oral,BD,6,avi
+29,19/12/2019 16:14,Female,"avi,  sle",ceftriaxone,1,IV,BD,8,avi
+48,19/12/2019 15:42,Female,"pancytopencia, aki, rvi, b,c coinfection",cefoperazone,1,IV,BD,5,b
+48,19/12/2019 15:44,Female,"pancytopenia, aki, rvi, b,c coinfection",septrin,0.96,Oral,OD,3,b
+53,19/12/2019 14:48,Male,"b(+), col, gastritis",ceftriaxone,1,IV,BD,1,b
+87,19/12/2019 16:35,Female,"pad(lt u.l), be amputation,/post op, akt",ceftriaxone,1,IV,BD,1,be amputation
+31,19/12/2019 14:26,Female,"rvi stage 4, art noise, hepatitis, bone marrow depression",septrin,0.96,Oral,OD,1,bone marrow depression
+31,19/12/2019 14:28,Female,"rvi stage 4, art noise, hepatitis, bone marrow depression",ceftriaxone,1,IV,BD,5,bone marrow depression
+31,19/12/2019 14:30,Female,"rvi, stage4, art noise, hepatitis, bone marrow depression",cefipime,1,IV,BD,4,bone marrow depression
+49,19/12/2019 14:39,Female,"bppv, type2 DM, postural hypertension",ceftriaxone,1,IV,BD,1,bppv
+49,19/12/2019 14:40,Female,"bppv, type2 DM, postural hypertension",cefixime,1,Oral,BD,5,bppv
+50,19/12/2019 16:04,Female,bronchial asthma,co-amoxiclav,1.2,IV,TDS,7,asthma
+48,19/12/2019 15:42,Female,"pancytopencia, aki, rvi, b,c coinfection",cefoperazone,1,IV,BD,5,c coinfection
+48,19/12/2019 15:44,Female,"pancytopenia, aki, rvi, b,c coinfection",septrin,0.96,Oral,OD,3,c coinfection
+70,19/12/2019 14:04,Female,"neutropenia, fever, anaemia, ca buffalo mucosa, type 2 dm",ceftriaxone,1,IV,BD,2,ca buffalo mucosa
+70,19/12/2019 14:05,Female,"neutropenia, fever, anaemia, ca buffalo mucosa, type 2 dm",amikacin,0.5,IV,BD,8,ca buffalo mucosa
+70,19/12/2019 14:06,Female,"neutropenia, fever, anaemia, ca buffalo mucosa, type 2 dm",ceftazidime,2,IV,TDS,2,ca buffalo mucosa
+61,19/12/2019 15:37,Male,"ca lung, lung abscess",co-amoxiclav,1.2,IV,TDS,3,ca lung
+61,19/12/2019 15:38,Male,"ca lung, lung abscess",co-amoxiclav,0.625,Oral,TDS,3,ca lung
+58,19/12/2019 15:38,Female,"cap, type 2 dm",ceftriaxone,1,IV,BD,5,cap
+58,19/12/2019 15:39,Female,"cap, type 2 dm",metronidazole,0.75,IV,TDS,5,cap
+58,19/12/2019 15:40,Female,"cap, type 2 dm",cefixime,0.2,Oral,BD,5,cap
+58,19/12/2019 15:40,Female,"chronic cardiac failure, community aquired pneumonia, IHD",ceftriaxone,1,IV,BD,1,cap
+58,19/12/2019 15:43,Female,"chronic cardiac failure, community aquired pneumonia, IHD",coamoxiclav,1.2,IV,TDS,5,cap
+69,19/12/2019 14:04,Female,"gi bleeding, cap, right cerebral infarct, deep vein thrombosis of left leg",metronidazole,0.75,IV,TDS,5,cap
+69,19/12/2019 14:08,Female,"gi bleeding, cap, right cerebral infarct, deep vein thrombosis of left leg",cefipime,1,IV,BD,1,cap
+71,19/12/2019 16:32,Female,"cap, copd, drug inducwd cushing syndrome",co-amoxiclav,1.2,IV,TDS,5,cap
+71,19/12/2019 17:26,Female,"cap, copd, drug inducwd cushing syndrome",ceftriaxone,2,IV,BD,2,cap
+71,19/12/2019 17:27,Female,"cap, copd, drug inducwd cushing syndrome",clarithromycin,0.5,Oral,BD,5,cap
+54,19/12/2019 14:54,Male,"cap, h1n1(+)",cefoperazone,1,IV,BD,14,cap
+54,19/12/2019 14:55,Male,"cap, h1n1(+)",cefixime,0.2,Oral,BD,7,cap
+54,19/12/2019 14:56,Male,"cap, h1n1(+)",clarithromycin,0.5,Oral,BD,5,cap
+36,19/12/2019 15:57,Male,"he grade 3, cap",levofloxacin,0.5,IV,OD,4,cap
+36,19/12/2019 15:59,Male,"he grade 3, cap",co-amoxiclav,1.2,IV,TDS,1,cap
+76,19/12/2019 14:22,Male,"chest infection, cardiogenic shock",ceftriaxone,1,IV,OD,1,cardiogenic shock
+78,19/12/2019 14:00,Male,"copd, chest infection, cardiogenic shock",co-amoxiclav,1.2,IV,TDS,1,cardiogenic shock
+85,19/12/2019 14:41,Female,"ccf, hypertension, ida, ckd(stage 5), ?icm,",ceftriaxone,1,IV,BD,7,ccf
+65,19/12/2019 16:22,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",co-amoxiclav,1,IV,TDS,1,ccf
+65,19/12/2019 16:24,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",co-amoxiclav,0.625,Oral,TDS,2,ccf
+65,19/12/2019 16:25,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",clarithromycin,0.5,Oral,BD,4,ccf
+65,19/12/2019 16:25,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",ceftriaxone,1,IV,BD,2,ccf
+60,19/12/2019 14:31,Female,"heart failure, hcv, col, ihd, ccf, chest infection",co-amoxiclav,1.2,IV,TDS,1,ccf
+60,19/12/2019 14:33,Female,"heart failure, hcv, col, ihd, ccf, chest infection",co-amoxiclav,0.625,Oral,OD,5,ccf
+52,19/12/2019 14:37,Female,"rvi stage 3, ht disease, renal impairment, koch's lungs, ccf, increased lft",septrin,0.96,Oral,OD,1,ccf
+52,19/12/2019 14:38,Female,"rvi stage 3, ht disease, renal impairment, koch's lungs, ccf, increased lft",coamoxiclav,0.6,IV,OD,5,ccf
+52,19/12/2019 14:39,Female,"rvi stage 3, ht disease, renal impairment, koch's lungs, ccf, increased lft",co-amoxiclav,1.2,IV,BD,2,ccf
+85,19/12/2019 14:41,Female,"ccf, hypertension, ida, ckd(stage 5), ?icm,",ceftriaxone,1,IV,BD,7,ccf
+16,19/12/2019 13:58,Male,centepede bite,amoxicillin+flucloxacillin,0.5,Oral,TDS,5,centepede bite
+70,19/12/2019 14:53,Male,"septic shock, miliary tb, cerebral infarct, herpes encephalitis",meropenem,0.5,IV,BD,2,cerebral infarct
+70,19/12/2019 14:54,Male,"septic shock, miliary tb, cerebral infarct, herpes encephalitis",septrin,0.48,Oral,OD,1,cerebral infarct
+37,19/12/2019 18:20,Male,"col,koch's lung, chest infestion, chronic pancreatitis, lumbar spondylosis",co-amoxiclav,1.2,IV,TDS,6,cheat infection
+36,19/12/2019 18:18,Male,"col,koch's lung, chest infestion, chronic pancreatitis, lumbar spondylosis",amikacin,0.5,IV,BD,6,chest indection
+63,19/12/2019 14:46,Male,"acute copd, chest infection",ceftazidime,1,IV,TDS,4,chest infection
+63,19/12/2019 14:47,Male,"acute copd, chest infection",clarithromycin,1,Oral,BD,1,chest infection
+63,19/12/2019 14:48,Male,"acute copd, chest infection",cefixime,1,Oral,BD,7,chest infection
+64,19/12/2019 14:42,Female,"acute pulmonary edema, ihd, uti, type 2 dm, chest infection",gentamicin,0.8,IV,BD,6,chest infection
+64,19/12/2019 14:42,Female,"acute pulmonary edema, ihd, uti, type 2 dm, chest infection",ceftriaxone,1,IV,BD,5,chest infection
+51,19/12/2019 14:03,Female,"acute sever asthma, chest infection",co-amoxiclav,0.625,Oral,TDS,5,chest infection
+53,19/12/2019 16:16,Female,"copd, chest infection, ihd, hypertension, newly dx dm",co-amoxiclav,1.2,IV,TDS,3,chest infection
+53,19/12/2019 16:17,Female,"copd, chest infection, ihd, hypertension, newly dx dm",ceftriaxone,1,IV,BD,2,chest infection
+53,19/12/2019 16:18,Female,"copd, chest infection, ihd, hypertension, newly dx dm",levofloxacin,0.5,Oral,OD,7,chest infection
+65,19/12/2019 16:22,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",co-amoxiclav,1,IV,TDS,1,chest infection
+65,19/12/2019 16:24,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",co-amoxiclav,0.625,Oral,TDS,2,chest infection
+65,19/12/2019 16:25,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",clarithromycin,0.5,Oral,BD,4,chest infection
+65,19/12/2019 16:25,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",ceftriaxone,1,IV,BD,2,chest infection
+19,19/12/2019 18:23,Female,"chest infectio, pid",ceftriaxone,1,IV,BD,1,chest infection
+52,19/12/2019 17:31,Male,"chest infection, old stroke, af, ischaemic ihd, type2 dm, newly dx  rvi",amoxicillin+flucloxacillin,0.5,IV,QID,1,chest infection
+20,19/12/2019 15:20,Male,"chest infection,  retro (+)",ceftriaxone,1,IV,BD,1,chest infection
+20,19/12/2019 15:22,Male,"chest infection,  retro(+)",septrin,0.06,Oral,OD,1,chest infection
+76,19/12/2019 15:48,Female,"ccf,chest infection, af ē rvr",co-amoxiclav,1.2,IV,TDS,1,chest infection
+76,19/12/2019 15:49,Female,"ccf,chest infection, af ē rvr",cefipime,1,IV,BD,1,chest infection
+76,19/12/2019 15:50,Female,"ccf,chest infection, af ē rvr",levofloxacin,1,IV,BD,1,chest infection
+76,19/12/2019 15:52,Female,"ccf,chest infection, af ē rvr",clarithromycin,0.5,Oral,BD,1,chest infection
+80,19/12/2019 15:58,Male,acute exacerbation of copd,co-amoxiclav,1.2,IV,TDS,1,chest infection
+60,19/12/2019 16:00,Male,"ccf with hypertension, dm, chest infection",ceftriaxone,1,IV,BD,7,chest infection
+71,19/12/2019 16:00,Female,"copd, chest infection",co-amoxiclav,1.2,IV,TDS,4,chest infection
+75,19/12/2019 16:02,Male,"ckd, generalized edema, ihd, hypertension, chest infection (right upper zone)",ceftriaxone,1,IV,OD,5,chest infection
+82,19/12/2019 16:02,Male,"chest infection, copd, icm(ef) 29%, type 2 dm",ceftazidime,1,IV,TDS,1,chest infection
+82,19/12/2019 16:04,Male,"chest infection, copd, icm(ef) 29%, type 2 dm",ceftazidime,1,IV,BD,1,chest infection
+82,19/12/2019 16:05,Male,"chest infection, copd, icm(ef) 29%, type 2 dm",cefixime,0.2,Oral,BD,5,chest infection
+77,19/12/2019 16:05,Female,"copd, chest infection, hypertension, newly dx dm, t2 resp:failure(resolved)",ceftriaxone,1,IV,TDS,1,chest infection
+77,19/12/2019 16:06,Female,"copd, chest infection, hypertension, newly dx dm, t2 resp:failure(resolved)",co-amoxiclav,1.2,IV,TDS,1,chest infection
+77,19/12/2019 16:07,Female,"copd, chest infection, hypertension, newly dx dm, t2 resp:failure(resolved)",co-amoxiclav,0.625,Oral,TDS,10,chest infection
+77,19/12/2019 16:08,Female,"copd, chest infection, hypertension, newly dx dm, t2 resp:failure(resolved)",clarithromycin,0.5,Oral,BD,10,chest infection
+57,19/12/2019 16:12,Male,"col, massive ascities, chest infection",ceftriaxone,1,IV,BD,3,chest infection
+51,19/12/2019 16:13,Male,"copd, chest infection, ihd, koch's lung, newly dx dm",ceftazidine,1,IV,TDS,8,chest infection
+51,19/12/2019 16:14,Male,"copd, chest infection, ihd, koch's lung, newly dx dm",linezolid,0.6,Oral,BD,7,chest infection
+20,19/12/2019 16:22,Male,"chest infection, u/l inflammatory arthropathy on steroid, hepatitis",ceftriaxone,1,IV,BD,9,chest infection
+19,19/12/2019 16:33,Female,"chest infection, pid",metronidazole,0.75,IV,TDS,3,chest infection
+73,19/12/2019 16:34,Male,"copd, chest infection, ccf",co-amoxiclav,1.2,IV,TDS,4,chest infection
+52,19/12/2019 16:35,Male,"chest infection,  old stroke,  af,  is he mic hd,  type2 dm,  newly dx rvi",ceftriaxone,1,IV,BD,5,chest infection
+52,19/12/2019 17:29,Male,"chest infection, old stoke, af, ischaemic ihd, type2 dm, newly dx rvi",ceftriaxone,1,IV,BD,5,chest infection
+37,19/12/2019 18:19,Male,"col,koch's lung, chest infestion, chronic pancreatitis, lumbar spondylosis",cefixime,0.2,Oral,BD,6,chest infection
+37,19/12/2019 18:20,Male,"col,koch's lung, chest infestion, chronic pancreatitis, lumbar spondylosis",clarithromycin,0.5,Oral,BD,10,chest infection
+19,19/12/2019 18:22,Female,"chest infectio, pid",metronidazole,0.5,IV,TDS,14,chest infection
+19,19/12/2019 18:24,Female,"chest infectio, pid",ceftriaxone+sulbactam,1,IV,BD,3,chest infection
+19,19/12/2019 18:25,Female,"chest infectio, pid",cefixime,0.2,Oral,TDS,14,chest infection
+44,19/12/2019 13:49,Male,"hepatic encephalopathy, cirrhosis of liver, hypokalemia, chest infection",ceftriaxone,1,IV,BD,5,chest infection
+44,19/12/2019 13:52,Male,"hepatic encephalopathy, cirrhosis of liver, hypokalaemia, chest infection",rifaximin,0.55,Oral,BD,1,chest infection
+74,19/12/2019 14:20,Female,"copd,  type 2DM,  CKD",ceftazidime,1,IV,OD,1,chest infection
+43,19/12/2019 14:52,Male,"dka, chest infection, pancreatic dm",ceftriaxone,1,IV,BD,3,chest infection
+43,19/12/2019 14:55,Female,"dka, chest infection, pancreatic dm",cefoperazone,1,IV,BD,4,chest infection
+43,19/12/2019 14:55,Male,"dka, chest infection, pancreatic dm",cefixime,0.2,Oral,BD,1,chest infection
+75,19/12/2019 15:05,Female,acute on chronic heart failure,co-amoxiclav,1.2,IV,TDS,5,chest infection
+68,19/12/2019 16:06,Female,"ccf, chest infection, uncontrolled type 2 dm, ihd",ceftriaxone,1,IV,BD,3,chest infection
+52,19/12/2019 16:36,Male,"af,  is he mic hd,  type2 dm,  newly dx rvi",amoxicillin+flucoxiacillin,0.5,IV,QID,1,chest infection
+48,19/12/2019 16:23,Male,chest infection with renal impairment,levofloxacin,0.5,IV,BD,3,chest infection
+48,19/12/2019 16:24,Male,chest infection with renal impairment,linezolid,0.6,Oral,BD,1,chest infection
+64,19/12/2019 16:22,Male,"ccf precipated by chest infection,  ckd,  uti",cefepime,1,IV,BD,5,chest infection
+52,19/12/2019 16:22,Male,"chest infection, copd",ceftriaxone,1,IV,BD,4,chest infection
+52,19/12/2019 16:23,Male,"chest infection, copd",clarithromycin,0.5,Oral,BD,4,chest infection
+52,19/12/2019 16:25,Male,"chest infection, copd",co-amoxiclav,2,IV,TDS,4,chest infection
+76,19/12/2019 14:22,Male,"chest infection, cardiogenic shock",ceftriaxone,1,IV,OD,1,chest infection
+25,19/12/2019 16:05,Male,"tb,  hbv",cefepime,0.5,IV,OD,1,chest infection
+25,19/12/2019 16:06,Male,"tb,  hbv",co-amoxiclav,0.6,IV,TDS,8,chest infection
+52,19/12/2019 16:22,Female,"upper gi bleeding d/t analgesis, art defaultes, rvi, chest infection, koch's lung",co-amoxiclav,1.2,IV,TDS,6,chest infection
+60,19/12/2019 14:47,Female,"chest infection, multinodular goiter, rt, hudronephrosis, thyrotoxicosis",co-amoxiclav,0.625,Oral,TDS,2,chest infection
+60,19/12/2019 14:45,Female,"chest infection, multinodular goiter, rt, hydronephrosis, thyrotoxicosis",co-amoxiclav,1.2,IV,TDS,5,chest infection
+65,19/12/2019 15:40,Male,"multiple myeloma, acute ge",co-amoxiclav,0.6,IV,BD,2,chest infection
+65,19/12/2019 15:44,Male,"multiple myeloma, acute ge",levofloxacin,0.5,Oral,OD,10,chest infection
+65,19/12/2019 15:46,Male,"multiple myeloma, acute ge",levofloxacin,0.5,IV,OD,10,chest infection
+65,19/12/2019 15:47,Male,"multiple myeloma, acute ge",cefoperazone,1,IV,BD,10,chest infection
+64,19/12/2019 16:22,Male,"ccf precipated by chest infection, old anterior mi, ckd, uti",ceftriaxone,1,IV,BD,2,chest infection
+67,19/12/2019 14:07,Female,"consolidation, chest infection, aki",co-amoxiclav,1.2,IV,TDS,5,chest infection
+67,19/12/2019 14:08,Female,"consolidation, chest infection, aki",clarithromycin,0.5,Oral,BD,10,chest infection
+74,19/12/2019 14:51,Female,"copd, chest infection",ceftazidime,1,IV,TDS,1,chest infection
+78,19/12/2019 14:00,Male,"copd, chest infection, cardiogenic shock",co-amoxiclav,1.2,IV,TDS,1,chest infection
+60,19/12/2019 14:31,Female,"heart failure, hcv, col, ihd, ccf, chest infection",co-amoxiclav,1.2,IV,TDS,1,chest infection
+60,19/12/2019 14:33,Female,"heart failure, hcv, col, ihd, ccf, chest infection",co-amoxiclav,0.625,Oral,OD,5,chest infection
+68,19/12/2019 15:30,Female,ihd,co-amoxiclav,1.2,IV,TDS,4,chest infection
+68,19/12/2019 15:31,Female,ihd,cefixime,0.2,Oral,BD,1,chest infection
+78,19/12/2019 14:09,Male,"severe anaemia,  multiple myeloma,  CKD,  chest infection",co-amoxiclav,1.2,IV,TDS,1,chest infection
+78,19/12/2019 14:10,Male,"severe anaemia,  multiple myeloma,  CKD,  chest infection",clarthromycin,0.5,Oral,BD,1,chest infection
+78,19/12/2019 14:11,Male,"severe anaemia,  multiple myeloma,  CKD,  chest infection",co-amoxiclav,0.625,Oral,TDS,1,chest infection
+78,19/12/2019 14:13,Male,"severe anaemia,  multiple myeloma,  CKD,  chest infection",ceftriaxone,1,IV,BD,1,chest infection
+73,19/12/2019 14:41,Female,"svt,  chest infection,  old Koch'lung,  hypokalemia",co-amoxiclav,1.2,IV,TDS,4,chest infection
+48,19/12/2019 14:23,Male,"symptomatic hypoglycemia,  chest infection,  alcoholic COL,  Addison's disease",ceftriaxone,1,IV,OD,1,chest infection
+48,19/12/2019 14:25,Male,"symptomatic hypoglycemia,  chest infection,  alcoholic COL,  Addison's disease",co-amoxiclav,1.2,IV,TDS,1,chest infection
+48,19/12/2019 14:26,Male,"systematic hypoglycemia,  chest infection,  alcoholic COL,  Addision's disease",metronidazole,0.75,IV,TDS,1,chest infection
+46,19/12/2019 16:07,Male,"early col, uti, chest infection",ceftriaxone,1,IV,BD,4,chest infection
+46,19/12/2019 16:08,Male,"early col, uti, chest infection",cefixime,0.2,Oral,BD,5,chest infection
+67,19/12/2019 14:39,Female,"uti , mi,  dm,  ckd,  cuf, cff ppt by chest infection",ceftriaxone,1,IV,BD,7,chest infection
+29,19/12/2019 14:51,Female,"right lobe consolidation chest infection,  thrombocytopenia",clarithromycin,0.5,Oral,BD,5,chest infection
+29,19/12/2019 14:47,Female,"right lower lobe consolidation chest infection,  thrombocytopenia",co-amoxiclav,0.625,Oral,TDS,3,chest infection
+45,19/12/2019 16:13,Male,"lung abscess, koch lung, chronic alcoholic",metronidazole,0.75,IV,TDS,1,chronic alcoholic
+45,19/12/2019 16:15,Male,"lung abscess, koch lung, chronic alcoholic",ceftriaxone,1,IV,BD,1,chronic alcoholic
+31,19/12/2019 14:50,Male,"pancreatitis, chronic alcoholics",ceftriaxone,1,IV,BD,4,chronic alcoholic
+48,19/12/2019 14:58,Female,"ccf, ckd",septrin,0.48,Oral,BD,1,chronic cardiac failure
+48,19/12/2019 14:59,Female,"ccf, ckd",septrin,0.48,Oral,OD,3,chronic cardiac failure
+82,19/12/2019 15:35,Male,"chronic cardiac failure ppt by poor drug compliance, degenerative valve disease",co-amoxiclav,0.625,Oral,TDS,5,chronic cardiac failure
+48,19/12/2019 14:56,Female,"ccf, ckd",cefoperazone,1,IV,BD,4,chronic cardiac failure
+67,19/12/2019 14:39,Female,"uti , mi,  dm,  ckd,  cuf, cff ppt by chest infection",ceftriaxone,1,IV,BD,7,chronic cardiac failure
+38,19/12/2019 14:50,Male,"right sided hemiplegia, uncontrolled dm, chronic pancreatitis, chronix diarrhoea",ceftriaxone,1,IV,BD,2,chronic diarrhoea
+38,19/12/2019 14:50,Male,"right sided hemiplegia, uncontrolled dm, chronic pancreatitis, chronix diarrhoea",ceftriaxone,1,IV,BD,2,chronic pancreatitis
+78,19/12/2019 14:09,Male,"severe anaemia,  multiple myeloma,  CKD,  chest infection",co-amoxiclav,1.2,IV,TDS,1,ckd
+78,19/12/2019 14:10,Male,"severe anaemia,  multiple myeloma,  CKD,  chest infection",clarthromycin,0.5,Oral,BD,1,ckd
+78,19/12/2019 14:11,Male,"severe anaemia,  multiple myeloma,  CKD,  chest infection",co-amoxiclav,0.625,Oral,TDS,1,ckd
+78,19/12/2019 14:13,Male,"severe anaemia,  multiple myeloma,  CKD,  chest infection",ceftriaxone,1,IV,BD,1,ckd
+67,19/12/2019 14:39,Female,"uti , mi,  dm,  ckd,  cuf, cff ppt by chest infection",ceftriaxone,1,IV,BD,7,ckd
+85,19/12/2019 14:41,Female,"ccf, hypertension, ida, ckd(stage 5), ?icm,",ceftriaxone,1,IV,BD,7,ckd
+32,19/12/2019 16:14,Female,"general debility e excessive vomitting, uraemic gastritis, hcv aki ckd, retro(+)",co-amoxiclav,1.2,IV,TDS,2,ckd
+32,19/12/2019 16:15,Female,"general debility e excessive vomitting, uraemic gastritis, hcv aki ckd, retro(+)",co-amoxiclav,0.6,Oral,OD,2,ckd
+32,19/12/2019 16:17,Female,"general debility e excessive vomitting, uraemic gastritis, hcv aki ckd, retro(+)",septrin,0.96,Oral,OD,1,ckd
+85,19/12/2019 14:41,Female,"ccf, hypertension, ida, ckd(stage 5), ?icm,",ceftriaxone,1,IV,BD,7,ckd
+29,19/12/2019 14:33,Female,clinical malaria,ceftriaxone,1,IV,BD,6,clinical malaria
+29,19/12/2019 14:34,Female,clinical malaria,ciprofloxacin,0.5,Oral,BD,1,clinical malaria
+53,19/12/2019 16:07,Male,"alcoholic hepatitis,  alcohol col",ceftriaxone,1,IV,BD,5,col
+29,19/12/2019 15:33,Male,col,ceftriaxone,1,IV,BD,1,col
+38,19/12/2019 15:48,Male,"alcoholic  col, ascites",ceftazidine,1,IV,TDS,1,col
+38,19/12/2019 15:49,Male,"col, ascites",ceftriaxone,1,IV,BD,2,col
+66,19/12/2019 16:30,Male,"alcoholic gastritis, col, ugi tract bleeding, hiv",ceftriaxone,1,IV,BD,4,col
+66,19/12/2019 16:32,Male,"alcoholic gastritis, col, ugi tract bleeding, hiv",mirox,0.5,Oral,BD,3,col
+40,19/12/2019 16:20,Male,"he, col, portal hypertension, hrs, koch's lung",ceftriaxone,1,IV,BD,1,col
+40,19/12/2019 16:21,Male,"he, col, portal hypertension, hrs, koch's lung",rifampicin,0.55,Oral,BD,1,col
+37,19/12/2019 16:31,Male,"massive ascites, col, portal hypertension",ceftriaxone,1,IV,BD,4,col
+37,19/12/2019 16:32,Male,"massive ascites, col, portal hypertension",septrin,0.96,Oral,OD,1,col
+48,19/12/2019 14:23,Male,"symptomatic hypoglycemia,  chest infection,  alcoholic COL,  Addison's disease",ceftriaxone,1,IV,OD,1,col
+48,19/12/2019 14:25,Male,"symptomatic hypoglycemia,  chest infection,  alcoholic COL,  Addison's disease",co-amoxiclav,1.2,IV,TDS,1,col
+48,19/12/2019 14:26,Male,"systematic hypoglycemia,  chest infection,  alcoholic COL,  Addision's disease",metronidazole,0.75,IV,TDS,1,col
+53,19/12/2019 14:48,Male,"b(+), col, gastritis",ceftriaxone,1,IV,BD,1,col
+47,19/12/2019 15:57,Male,"hypokakaemia, col",levofloxacin,0.5,Oral,OD,2,col
+36,19/12/2019 16:00,Male,col e portal hypertension,metronidazole,0.2,Oral,TDS,1,col
+44,19/12/2019 14:36,Male,"col, hepatitis,  sbp, he, hk",ceftriaxone,1,IV,BD,1,col
+64,19/12/2019 14:24,Male,"hcv(+), col, koch’s lung",ceftriaxone,1,IV,BD,1,col
+60,19/12/2019 14:31,Female,"heart failure, hcv, col, ihd, ccf, chest infection",co-amoxiclav,1.2,IV,TDS,1,col
+60,19/12/2019 14:33,Female,"heart failure, hcv, col, ihd, ccf, chest infection",co-amoxiclav,0.625,Oral,OD,5,col
+41,19/12/2019 14:12,Male,"hepatic encephalopathy, col, hypokalaemia",ceftriaxone,1,IV,BD,3,col
+41,19/12/2019 14:13,Male,"hepatic encephalopathy, col, hypokalaemia",rifaximin,0.55,Oral,BD,3,col
+41,19/12/2019 14:13,Male,"hepatic encephalopathy, col, hypokalaemia",cefixime,0.2,Oral,BD,3,col
+45,19/12/2019 15:38,Male,"hepatic encephalopathy, col, upper gi bleeding",metronidazole,0.75,IV,TDS,1,col
+45,19/12/2019 15:37,Male,"hepatic encephalopathy, col, upper gi bleeding",ceftriaxone,1,IV,BD,2,col
+66,19/12/2019 16:22,Male,"alcoholic gastritis, early col, hypertension",amoxicillin,0.5,Oral,BD,14,col
+66,19/12/2019 16:23,Male,"alcoholic gastritis, early col, hypertension",clarithromycin,0.5,Oral,BD,14,col
+48,19/12/2019 15:37,Female,"he, rvi with col",ceftriaxone,1,IV,OD,8,col
+48,19/12/2019 15:40,Female,"he,  rvi with col",levofloxacin,0.25,IV,OD,3,col
+48,19/12/2019 15:34,Female,"he,  rvi with col",ceftriaxone,1,IV,BD,8,col
+48,19/12/2019 15:38,Female,"he, rvi with col",levofloxacin,0.5,IV,OD,8,col
+48,19/12/2019 15:41,Female,"he,  rvi with col",rifaximin,0.55,Oral,BD,1,col
+48,19/12/2019 14:17,Female,"confusion, liver impairment,esophagocutaneous fistula",amoxicillin+flucloxacillin,0.5,Oral,TDS,7,confusion
+48,19/12/2019 14:18,Female,"confusion, liver impairment,esophagocutaneous fistula",streptomycin,1,IM,OD,1,confusion
+48,19/12/2019 14:18,Female,"confusion, liver impairment,esophagocutaneous fistula",levofloxacin,0.75,Oral,OD,1,confusion
+67,19/12/2019 14:07,Female,"consolidation, chest infection, aki",co-amoxiclav,1.2,IV,TDS,5,consolidation
+67,19/12/2019 14:08,Female,"consolidation, chest infection, aki",clarithromycin,0.5,Oral,BD,10,consolidation
+63,19/12/2019 14:46,Male,"acute copd, chest infection",ceftazidime,1,IV,TDS,4,copd
+63,19/12/2019 14:47,Male,"acute copd, chest infection",clarithromycin,1,Oral,BD,1,copd
+63,19/12/2019 14:48,Male,"acute copd, chest infection",cefixime,1,Oral,BD,7,copd
+67,19/12/2019 16:29,Female,"dm, copd, koch's lung, cor pulmonale",ceftriaxone,1,IV,BD,3,copd
+67,19/12/2019 16:30,Female,"dm, copd, koch's lung, cor pulmonale",cefixime,0.02,Oral,BD,5,copd
+53,19/12/2019 16:16,Female,"copd, chest infection, ihd, hypertension, newly dx dm",co-amoxiclav,1.2,IV,TDS,3,copd
+53,19/12/2019 16:17,Female,"copd, chest infection, ihd, hypertension, newly dx dm",ceftriaxone,1,IV,BD,2,copd
+53,19/12/2019 16:18,Female,"copd, chest infection, ihd, hypertension, newly dx dm",levofloxacin,0.5,Oral,OD,7,copd
+52,19/12/2019 16:22,Male,"chest infection, copd",ceftriaxone,1,IV,BD,4,copd
+52,19/12/2019 16:23,Male,"chest infection, copd",clarithromycin,0.5,Oral,BD,4,copd
+52,19/12/2019 16:25,Male,"chest infection, copd",co-amoxiclav,2,IV,TDS,4,copd
+65,19/12/2019 16:22,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",co-amoxiclav,1,IV,TDS,1,copd
+65,19/12/2019 16:24,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",co-amoxiclav,0.625,Oral,TDS,2,copd
+65,19/12/2019 16:25,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",clarithromycin,0.5,Oral,BD,4,copd
+65,19/12/2019 16:25,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",ceftriaxone,1,IV,BD,2,copd
+74,19/12/2019 14:51,Female,"copd, chest infection",ceftazidime,1,IV,TDS,1,copd
+78,19/12/2019 14:00,Male,"copd, chest infection, cardiogenic shock",co-amoxiclav,1.2,IV,TDS,1,copd
+67,19/12/2019 13:56,Male,"copd, cor pulmonale, ihd, koch’s lung",ceftazidime,1,IV,TDS,5,copd
+58,19/12/2019 14:14,Male,"copd, piles, cva",ceftazidime,1,IV,TDS,6,copd
+78,19/12/2019 14:12,Male,"lung consodilation(rlz) , COPD",co-amoxiclav,1.2,IV,TDS,1,copd
+78,19/12/2019 14:13,Male,"lung condilation(rlz), CPOD",clarithromycin,0.5,Oral,BD,10,copd
+72,19/12/2019 14:37,Female,"copd ppt chest infection, old Koch,s lung",co-amoxiclav,1.2,IV,TDS,1,"copd, chest infection"
+72,19/12/2019 14:36,Female,"copd ppt chest infection, koch's lung",ceftriaxone,1,IV,TDS,5,"copd, chest infection"
+67,19/12/2019 13:56,Male,"copd, cor pulmonale, ihd, koch’s lung",ceftazidime,1,IV,TDS,5,cor pulmonale
+33,19/12/2019 16:17,Male,"cryptococcal meningitis, pre-renal acute kidney injury, rvi stage 4",ceftriaxone,2,IV,BD,6,cryptococcal meningitis
+33,19/12/2019 16:19,Male,"cryptococcal meningitis, pre-renal acute kidney injury, rvi stage 4",septrin,0.96,Oral,OD,5,cryptococcal meningitis
+67,19/12/2019 14:39,Female,"uti , mi,  dm,  ckd,  cuf, cff ppt by chest infection",ceftriaxone,1,IV,BD,7,cuf
+58,19/12/2019 14:14,Male,"copd, piles, cva",ceftazidime,1,IV,TDS,6,cva
+69,19/12/2019 14:04,Female,"gi bleeding, cap, right cerebral infarct, deep vein thrombosis of left leg",metronidazole,0.75,IV,TDS,5,deep vein thrombosis of left leg
+69,19/12/2019 14:08,Female,"gi bleeding, cap, right cerebral infarct, deep vein thrombosis of left leg",cefipime,1,IV,BD,1,deep vein thrombosis of left leg
+86,19/12/2019 14:08,Female,"haemoptysis, TB , degenerative mr",co-amoxiclav,1.2,IV,TDS,3,degenerative mr
+23,19/12/2019 15:55,Male,"discharge fits, dental caries, facial injury, menilly sinusitis",clindamycin,150,Oral,TDS,5,dental caries
+23,19/12/2019 15:50,Male,"discharge fits, dental caries, facial injury, menilly sinusitis",ceftriaxone,1,IV,BD,1,dental caries
+13,19/12/2019 14:16,Male,"T/T for prolong fever,  dengue fever",ceftriaxone,0.5,IV,BD,4,dhf
+13,19/12/2019 14:18,Male,"T/T for prolong fever,  dengue fever",cefixime,0.2,Oral,BD,3,dhf
+13,19/12/2019 14:31,Male,DHF,cefixime,0.2,Oral,BD,5,dhf
+14,19/12/2019 16:08,Male,dhf,cefixime,0.2,Oral,BD,5,dhf
+13,19/12/2019 14:30,Male,DHF,ceftriaxone,1,IV,BD,4,dhf
+15,19/12/2019 14:42,Male,dhf with warning signs,ceftriaxone,1,IV,BD,7,dhf
+15,19/12/2019 14:45,Male,dhf with warning signs,metronidazole,0.75,IV,TDS,7,dhf
+23,19/12/2019 15:55,Male,"discharge fits, dental caries, facial injury, menilly sinusitis",clindamycin,150,Oral,TDS,5,discharge fits
+23,19/12/2019 15:50,Male,"discharge fits, dental caries, facial injury, menilly sinusitis",ceftriaxone,1,IV,BD,1,discharge fits
+29,19/12/2019 15:11,Female,discharge uti,ciprofloxacin,0.5,Oral,OD,1,discharge uti
+41,19/12/2019 15:47,Male,"right leg cellulitis, col, duodenal erosion, rvi satge",amoxicillin+flucoxacillin,0.5,Oral,TDS,5,duodenal erosion
+41,19/12/2019 15:43,Male,"right leg cellulitis, col, duodenal erosion, rvi stage 2",amoxicillin+flucloxacillin,1,IV,QID,8,duodenal erosion
+41,19/12/2019 15:46,Male,"right leg cellulitis, col, duodenal erosion, rvi satge 2",clindamycin,0.5,Oral,TDS,1,duodenal erosion
+90,19/12/2019 15:04,Female,"sick sinus syndrome, ccf, poor drug adherence, ihd",ceftriaxone,1,IV,BD,4,dyspnoea
+30,19/12/2019 15:03,Female,"rhd, severe ms, mild tr, severe pol ht, large slot in la, on warfarinization",pen v,0.25,Oral,BD,1,dyspnoea
+90,19/12/2019 15:08,Female,"sick sinus syndrome, ccf, poor drug adherence, ihd",cefixime,0.2,Oral,BD,3,dyspnoea
+19,19/12/2019 16:18,Male,electrocution left hand,amoxicillin+flucloxacillin,0.25,Oral,TDS,5,electrocution left hand
+54,19/12/2019 14:45,Female,"hydropneumothorax, empyema, type 2 dm, myoma uterus",metronidazole,0.75,IV,TDS,1,empyema
+54,19/12/2019 14:47,Female,"hydropneumothorax, empyema, type 2 dm, myoma uterus",co-amoxiclav,1.2,IV,TDS,14,empyema
+48,19/12/2019 14:17,Female,"confusion, liver impairment,esophagocutaneous fistula",amoxicillin+flucloxacillin,0.5,Oral,TDS,7,esophagocutaneous fistula
+48,19/12/2019 14:18,Female,"confusion, liver impairment,esophagocutaneous fistula",streptomycin,1,IM,OD,1,esophagocutaneous fistula
+48,19/12/2019 14:18,Female,"confusion, liver impairment,esophagocutaneous fistula",levofloxacin,0.75,Oral,OD,1,esophagocutaneous fistula
+52,19/12/2019 15:35,Male,ESRD,cefixime,0.2,Oral,BD,5,esrd
+52,19/12/2019 15:37,Male,esrd,co-amoxiclav,0.6,Oral,OD,1,esrd
+52,19/12/2019 15:39,Male,esrd,co-amoxiclav,1.2,IV,OD,1,esrd
+52,19/12/2019 15:42,Male,esrd,ceftriaxone+sulbactam,1,IV,BD,4,esrd
+38,19/12/2019 15:26,Male,"alcohol withdrawal, extensive koch's lung, septic shock ē lrti",cefoparazone+sulbactam,2,IV,BD,10,extensive koch's lung
+23,19/12/2019 15:55,Male,"discharge fits, dental caries, facial injury, menilly sinusitis",clindamycin,150,Oral,TDS,5,facial injury
+23,19/12/2019 15:50,Male,"discharge fits, dental caries, facial injury, menilly sinusitis",ceftriaxone,1,IV,BD,1,facial injury
+19,19/12/2019 15:09,Female,avi,ceftriaxone,1,IV,BD,2,fainting attack
+28,19/12/2019 14:10,Male,febrile convulsion d/t avi,cefixime,0.06,Oral,BD,1,febrile convulsion d/t avi
+1,19/12/2019 16:00,Male,fever with malaena,flucloxacillin,0.125,Oral,BD,1,fever
+22,19/12/2019 16:19,Male,fever with capopedal spasm,ceftriaxone,1,IV,BD,3,fever
+22,19/12/2019 16:19,Male,fever with capopedal spasm,cefixime,0.2,Oral,BD,5,fever
+70,19/12/2019 15:46,Male,avi,ceftriaxone,2,IV,BD,7,fever
+70,19/12/2019 15:47,Male,avi,levofloxacin,0.25,IV,OD,7,fever
+70,19/12/2019 15:48,Male,avi,metronidazole,0.75,IV,TDS,7,fever
+63,19/12/2019 13:58,Female,"fever, dyspnoea",imipenem,0.5,IV,TDS,7,fever
+22,19/12/2019 15:13,Male,malaria,ceftriaxone,1,IV,BD,4,fever
+22,19/12/2019 15:14,Male,malaria,doxycycline,0.1,Oral,BD,7,fever
+19,19/12/2019 14:58,Male,avi,co-amoxiclav,0.625,Oral,TDS,3,fever
+70,19/12/2019 14:04,Female,"neutropenia, fever, anaemia, ca buffalo mucosa, type 2 dm",ceftriaxone,1,IV,BD,2,fever
+70,19/12/2019 14:05,Female,"neutropenia, fever, anaemia, ca buffalo mucosa, type 2 dm",amikacin,0.5,IV,BD,8,fever
+70,19/12/2019 14:06,Female,"neutropenia, fever, anaemia, ca buffalo mucosa, type 2 dm",ceftazidime,2,IV,TDS,2,fever
+48,19/12/2019 15:41,Female,"he,  rvi with col",rifaximin,0.55,Oral,BD,1,fever
+15,19/12/2019 15:07,Male,flaccid paraparesis,amoxicillin+flucloxacillin,0.5,Oral,QID,1,flaccid paraparesis
+32,19/12/2019 14:35,Male,"food poisoing, acute GE, some dehydration",norfloxacin,0.4,Oral,BD,3,food poisoing
+47,19/12/2019 15:15,Male,centipede bite,amoxicillin+flucloxacillin,0.5,Oral,TDS,1,for killing according bacteria
+43,19/12/2019 15:32,Male,"hma, dm, dkd",clarithromycin,0.5,Oral,BD,14,for ogd scopy
+43,19/12/2019 15:33,Male,"hma, dm, dkd",amoxiclav,1,Oral,BD,14,for ogd scopy
+53,19/12/2019 14:48,Male,"b(+), col, gastritis",ceftriaxone,1,IV,BD,1,gastritis
+32,19/12/2019 16:14,Female,"general debility e excessive vomitting, uraemic gastritis, hcv aki ckd, retro(+)",co-amoxiclav,1.2,IV,TDS,2,general debility e excessive vomitting
+32,19/12/2019 16:15,Female,"general debility e excessive vomitting, uraemic gastritis, hcv aki ckd, retro(+)",co-amoxiclav,0.6,Oral,OD,2,general debility e excessive vomitting
+32,19/12/2019 16:17,Female,"general debility e excessive vomitting, uraemic gastritis, hcv aki ckd, retro(+)",septrin,0.96,Oral,OD,1,general debility e excessive vomitting
+69,19/12/2019 14:04,Female,"gi bleeding, cap, right cerebral infarct, deep vein thrombosis of left leg",metronidazole,0.75,IV,TDS,5,gi bleeding
+69,19/12/2019 14:08,Female,"gi bleeding, cap, right cerebral infarct, deep vein thrombosis of left leg",cefipime,1,IV,BD,1,gi bleeding
+15,19/12/2019 16:14,Male,"glandular fever, measles, viral encephalitis, fever with confusion",ceftriaxone,2,IV,BD,2,glandular fever
+15,19/12/2019 16:16,Male,"glandular fever, measles, viral encephalitis, fever with confusion",cefixime,0.2,Oral,BD,1,glandular fever
+15,19/12/2019 16:17,Male,"glandular fever, measles, viral encephalitis, fever with confusion",ceftriaxone,1,IV,BD,2,glandular fever
+22,19/12/2019 14:20,Female,green snake bite,amoxicillin+flucloxacillin,0.5,Oral,TDS,5,snake bite
+55,19/12/2019 14:36,Female,green snake bite,amoxicillin+flucoxacillin,0.5,Oral,TDS,1,snake bite
+51,19/12/2019 14:48,Female,green snake bite,amoxicillin+flucloaxcin,0.5,Oral,TDS,5,snake bite
+35,19/12/2019 15:05,Female,green snake bite,amoxicillin+flucloxacillin,0.5,Oral,QID,5,snake bite
+58,19/12/2019 15:46,Male,green snake bite,amoxicillin+flucloxacillin,0.5,Oral,TDS,5,snake bite
+58,19/12/2019 15:47,Male,green snake bite,dazolic,0.5,Oral,BD,1,snake bite
+68,19/12/2019 16:02,Male,green snake bite,amoxicillin+flucloxacillin,0.25,Oral,TDS,5,snake bite
+32,19/12/2019 16:30,Male,green snake bite,amoxicillin+flucloxacillin,0.25,Oral,TDS,3,snake bite
+58,19/12/2019 15:43,Male,green snake bite,metronidazole,0.75,IV,TDS,1,snake bite
+53,19/12/2019 15:10,Male,green snake bite,amoxicillin+flucloxacillin,0.5,Oral,TDS,5,snake bite
+54,19/12/2019 14:54,Male,"cap, h1n1(+)",cefoperazone,1,IV,BD,14,h1n1(+)
+54,19/12/2019 14:55,Male,"cap, h1n1(+)",cefixime,0.2,Oral,BD,7,h1n1(+)
+54,19/12/2019 14:56,Male,"cap, h1n1(+)",clarithromycin,0.5,Oral,BD,5,h1n1(+)
+13,19/12/2019 13:53,Male,"haematological,  maglinancy",cefaziclime,1,IV,TDS,5,haematological
+13,19/12/2019 13:54,Male,"haematological,  maglinancy",amikacin,0.25,IV,BD,5,haematological
+86,19/12/2019 14:08,Female,"haemoptysis, TB , degenerative mr",co-amoxiclav,1.2,IV,TDS,3,haemoptysis
+58,19/12/2019 15:05,Female,"mitral valve prolapse, haemoptysis",ceftriaxone,1,IV,BD,3,haemoptysis and epistaxis
+56,19/12/2019 14:44,Male,"uti, type 2 dm, ihd, hbs ag(+)",ceftriaxone,1,IV,BD,1,hbs ag(+)
+56,19/12/2019 14:45,Male,"uti, type 2 dm, ihd, hbs ag(+)",levofloxacin,0.2,Oral,OD,7,hbs ag(+)
+25,19/12/2019 16:05,Male,"tb,  hbv",cefepime,0.5,IV,OD,1,hbv infection
+25,19/12/2019 16:06,Male,"tb,  hbv",co-amoxiclav,0.6,IV,TDS,8,hbv infection
+42,19/12/2019 15:08,Female,"koch's lung, hbv infection",cefixime,0.2,Oral,BD,5,hbv infection
+59,19/12/2019 16:09,Male,"right sided hemoporesis territory cerebral infarct,  hcv,  ospiration pneumonia",ceftriaxone,1,IV,BD,7,hcv
+40,19/12/2019 15:12,Male,"hyponetrimia, hcv(+), hepatic encephalopathy, aspiration pneumonia",rifaximin,0.55,Oral,BD,7,hcv
+40,19/12/2019 15:13,Male,"hyponetrimia, hcv(+), hepatic encephalopathy, aspiration pneumonia",cefixime,0.2,Oral,BD,7,hcv
+40,19/12/2019 15:15,Male,"hyponetrimia, hcv(+), hepatic encephalopathy, aspiration pneumonia",metronidazole,0.25,Oral,TDS,7,hcv
+59,19/12/2019 16:10,Male,"right sided hemoporesis territory cerebral infarct,  hcv,  ospiration pneumonia",metronidazole,0.75,IV,TDS,7,hcv
+42,19/12/2019 16:11,Male,left sided pulmonary tb,ceftriaxone,1,IV,BD,6,hcv
+64,19/12/2019 14:24,Male,"hcv(+), col, koch’s lung",ceftriaxone,1,IV,BD,1,hcv
+24,19/12/2019 14:20,Male,"left empyema , HCV infection",ceftiaxone,1,IV,BD,1,hcv
+24,19/12/2019 14:21,Male,"left empyema , HCV infection",co-amoxiclav,1.5,IV,TDS,1,hcv
+60,19/12/2019 14:31,Female,"heart failure, hcv, col, ihd, ccf, chest infection",co-amoxiclav,1.2,IV,TDS,1,hcv
+60,19/12/2019 14:33,Female,"heart failure, hcv, col, ihd, ccf, chest infection",co-amoxiclav,0.625,Oral,OD,5,hcv
+32,19/12/2019 16:14,Female,"general debility e excessive vomitting, uraemic gastritis, hcv aki ckd, retro(+)",co-amoxiclav,1.2,IV,TDS,2,hcv
+32,19/12/2019 16:15,Female,"general debility e excessive vomitting, uraemic gastritis, hcv aki ckd, retro(+)",co-amoxiclav,0.6,Oral,OD,2,hcv
+32,19/12/2019 16:17,Female,"general debility e excessive vomitting, uraemic gastritis, hcv aki ckd, retro(+)",septrin,0.96,Oral,OD,1,hcv
+44,19/12/2019 14:36,Male,"col, hepatitis,  sbp, he, hk",ceftriaxone,1,IV,BD,1,he
+46,19/12/2019 15:13,Male,"he,  alcoholic hepatitis,  col,  portal ht,  hma,  uti",linezolid,0.6,Oral,BD,7,he
+46,19/12/2019 15:08,Male,"he,  alcoholic hepatitis,  col,  portal ht,  hma,  uti",cefteiaxone,1,IV,BD,3,he
+46,19/12/2019 15:10,Male,"he,  alcoholic hepatitis,  alcohol col,  portal ht,  hma, uti",co-amoxiclav,1.2,IV,TDS,4,he
+46,19/12/2019 15:11,Male,"he, alcoholic hepatitis,  col,  portal ht,  hma,  uti",rifaximin,0.55,Oral,BD,28,he
+40,19/12/2019 16:20,Male,"he, col, portal hypertension, hrs, koch's lung",ceftriaxone,1,IV,BD,1,he
+40,19/12/2019 16:21,Male,"he, col, portal hypertension, hrs, koch's lung",rifampicin,0.55,Oral,BD,1,he
+54,19/12/2019 14:34,Male,"he, hypokalemia,  ich",ceftriaxone,2,IV,BD,2,he
+36,19/12/2019 15:57,Male,"he grade 3, cap",levofloxacin,0.5,IV,OD,4,he
+36,19/12/2019 15:59,Male,"he grade 3, cap",co-amoxiclav,1.2,IV,TDS,1,he
+60,19/12/2019 14:31,Female,"heart failure, hcv, col, ihd, ccf, chest infection",co-amoxiclav,1.2,IV,TDS,1,heart failure
+60,19/12/2019 14:33,Female,"heart failure, hcv, col, ihd, ccf, chest infection",co-amoxiclav,0.625,Oral,OD,5,heart failure
+41,19/12/2019 14:12,Male,"hepatic encephalopathy, col, hypokalaemia",ceftriaxone,1,IV,BD,3,hepatic encephalopathy
+41,19/12/2019 14:13,Male,"hepatic encephalopathy, col, hypokalaemia",rifaximin,0.55,Oral,BD,3,hepatic encephalopathy
+41,19/12/2019 14:13,Male,"hepatic encephalopathy, col, hypokalaemia",cefixime,0.2,Oral,BD,3,hepatic encephalopathy
+45,19/12/2019 15:38,Male,"hepatic encephalopathy, col, upper gi bleeding",metronidazole,0.75,IV,TDS,1,hepatic encephalopathy
+45,19/12/2019 15:37,Male,"hepatic encephalopathy, col, upper gi bleeding",ceftriaxone,1,IV,BD,2,hepatic encephalopathy
+44,19/12/2019 14:36,Male,"col, hepatitis,  sbp, he, hk",ceftriaxone,1,IV,BD,1,hepatitis
+40,19/12/2019 13:51,Male,"hepatitis, leptospirosis, typhoid",ceftriaxone,1,IV,BD,1,hepatitis
+31,19/12/2019 14:26,Female,"rvi stage 4, art noise, hepatitis, bone marrow depression",septrin,0.96,Oral,OD,1,hepatitis
+31,19/12/2019 14:28,Female,"rvi stage 4, art noise, hepatitis, bone marrow depression",ceftriaxone,1,IV,BD,5,hepatitis
+31,19/12/2019 14:30,Female,"rvi, stage4, art noise, hepatitis, bone marrow depression",cefipime,1,IV,BD,4,hepatitis
+18,19/12/2019 14:51,Male,"hepatitis b,",amoxicillin+flucloxacillin,1,Oral,TDS,5,hepatitis
+18,19/12/2019 14:51,Male,"hepatitis b,",amoxicillin+flucloxacillin,1,Oral,TDS,5,hepatitis
+62,19/12/2019 16:28,Female,hcv(+)col,levofloxacin,0.5,IV,OD,6,hepatitis encephalopathy
+62,19/12/2019 16:29,Female,hcv(+)col,ceftriaxone,1,IV,BD,6,hepatitis encephalopathy
+70,19/12/2019 14:53,Male,"septic shock, miliary tb, cerebral infarct, herpes encephalitis",meropenem,0.5,IV,BD,2,herpes encephalitis
+70,19/12/2019 14:54,Male,"septic shock, miliary tb, cerebral infarct, herpes encephalitis",septrin,0.48,Oral,OD,1,herpes encephalitis
+48,19/12/2019 15:37,Female,"he, rvi with col",ceftriaxone,1,IV,OD,8,high fever
+48,19/12/2019 15:40,Female,"he,  rvi with col",levofloxacin,0.25,IV,OD,3,high fever
+48,19/12/2019 15:34,Female,"he,  rvi with col",ceftriaxone,1,IV,BD,8,high fever
+48,19/12/2019 15:38,Female,"he, rvi with col",levofloxacin,0.5,IV,OD,8,high fever
+66,19/12/2019 16:30,Male,"alcoholic gastritis, col, ugi tract bleeding, hiv",ceftriaxone,1,IV,BD,4,hiv
+66,19/12/2019 16:32,Male,"alcoholic gastritis, col, ugi tract bleeding, hiv",mirox,0.5,Oral,BD,3,hiv
+44,19/12/2019 14:36,Male,"col, hepatitis,  sbp, he, hk",ceftriaxone,1,IV,BD,1,hk
+40,19/12/2019 16:20,Male,"he, col, portal hypertension, hrs, koch's lung",ceftriaxone,1,IV,BD,1,hrs
+40,19/12/2019 16:21,Male,"he, col, portal hypertension, hrs, koch's lung",rifampicin,0.55,Oral,BD,1,hrs
+82,19/12/2019 15:48,Male,"type-2dm, ihd, col, copd, ht",ofloxacin,0.4,IV,BD,3,ht
+82,19/12/2019 15:50,Male,"type-2 dm, ihd, col, copd, ht",cefipime,1,IV,BD,5,ht
+82,19/12/2019 15:52,Male,"type-2 dm, ihd, col, copd, ht",azithromycin,0.5,Oral,OD,3,ht
+82,19/12/2019 15:53,Male,"type-2 dm, ihd, col, copd, ht",ceftazidime,1,IV,TDS,3,ht
+52,19/12/2019 14:37,Female,"rvi stage 3, ht disease, renal impairment, koch's lungs, ccf, increased lft",septrin,0.96,Oral,OD,1,ht
+52,19/12/2019 14:38,Female,"rvi stage 3, ht disease, renal impairment, koch's lungs, ccf, increased lft",coamoxiclav,0.6,IV,OD,5,ht
+52,19/12/2019 14:39,Female,"rvi stage 3, ht disease, renal impairment, koch's lungs, ccf, increased lft",co-amoxiclav,1.2,IV,BD,2,ht
+60,19/12/2019 14:47,Female,"chest infection, multinodular goiter, rt, hudronephrosis, thyrotoxicosis",co-amoxiclav,0.625,Oral,TDS,2,hydronephrosis
+60,19/12/2019 14:45,Female,"chest infection, multinodular goiter, rt, hydronephrosis, thyrotoxicosis",co-amoxiclav,1.2,IV,TDS,5,hydronephrosis
+54,19/12/2019 14:45,Female,"hydropneumothorax, empyema, type 2 dm, myoma uterus",metronidazole,0.75,IV,TDS,1,hydropneumothorax
+54,19/12/2019 14:47,Female,"hydropneumothorax, empyema, type 2 dm, myoma uterus",co-amoxiclav,1.2,IV,TDS,14,hydropneumothorax
+85,19/12/2019 14:41,Female,"ccf, hypertension, ida, ckd(stage 5), ?icm,",ceftriaxone,1,IV,BD,7,hypertension
+66,19/12/2019 16:22,Male,"alcoholic gastritis, early col, hypertension",amoxicillin,0.5,Oral,BD,14,hypertension
+66,19/12/2019 16:23,Male,"alcoholic gastritis, early col, hypertension",clarithromycin,0.5,Oral,BD,14,hypertension
+78,19/12/2019 14:23,Female,"anteroseptal mi, klebsiella pneumonia, hypertension, type 2 dm, old stroke",co-amoxiclav,1.2,IV,TDS,8,hypertension
+85,19/12/2019 14:41,Female,"ccf, hypertension, ida, ckd(stage 5), ?icm,",ceftriaxone,1,IV,BD,7,hypertension
+74,19/12/2019 16:09,Male,"left sided hemiparesis, acute cerebral infarct, hypertension, ihd",ceftriaxone,1,IV,BD,1,hypertension
+74,19/12/2019 16:11,Male,"left sided hemiparesis, acute cerebral infarct, hypertension, ihd",metronidazole,0.75,IV,TDS,1,hypertension
+62,19/12/2019 14:00,Female,"urinary tract infection,  type 2DM, AF,  hypertension",co-amoxiclav,1.2,IV,TDS,1,hypertension
+62,19/12/2019 14:01,Female,"urinay tract infection,  Type 2DM,  AF,  hypertension",cefepime,1,IV,BD,5,hypertension
+78,19/12/2019 15:21,Female,"type 2 dm, hypoglycaemia, ihr",cefixime,0.2,Oral,BD,5,hypoglycaemia
+41,19/12/2019 14:12,Male,"hepatic encephalopathy, col, hypokalaemia",ceftriaxone,1,IV,BD,3,hypokalaemia
+41,19/12/2019 14:13,Male,"hepatic encephalopathy, col, hypokalaemia",rifaximin,0.55,Oral,BD,3,hypokalaemia
+41,19/12/2019 14:13,Male,"hepatic encephalopathy, col, hypokalaemia",cefixime,0.2,Oral,BD,3,hypokalaemia
+54,19/12/2019 14:34,Male,"he, hypokalemia,  ich",ceftriaxone,2,IV,BD,2,hypokalemia
+73,19/12/2019 14:41,Female,"svt,  chest infection,  old Koch'lung,  hypokalemia",co-amoxiclav,1.2,IV,TDS,4,hypokalemia
+44,19/12/2019 15:18,Female,"ureteric stone, uti",ceftriaxone,1,IV,BD,7,i/t for generalized edema
+54,19/12/2019 14:34,Male,"he, hypokalemia,  ich",ceftriaxone,2,IV,BD,2,ich
+85,19/12/2019 14:41,Female,"ccf, hypertension, ida, ckd(stage 5), ?icm,",ceftriaxone,1,IV,BD,7,icm
+85,19/12/2019 14:41,Female,"ccf, hypertension, ida, ckd(stage 5), ?icm,",ceftriaxone,1,IV,BD,7,ida
+85,19/12/2019 14:41,Female,"ccf, hypertension, ida, ckd(stage 5), ?icm,",ceftriaxone,1,IV,BD,7,ida
+64,19/12/2019 14:42,Female,"acute pulmonary edema, ihd, uti, type 2 dm, chest infection",gentamicin,0.8,IV,BD,6,ihd
+64,19/12/2019 14:42,Female,"acute pulmonary edema, ihd, uti, type 2 dm, chest infection",ceftriaxone,1,IV,BD,5,ihd
+67,19/12/2019 13:56,Male,"copd, cor pulmonale, ihd, koch’s lung",ceftazidime,1,IV,TDS,5,ihd
+60,19/12/2019 14:31,Female,"heart failure, hcv, col, ihd, ccf, chest infection",co-amoxiclav,1.2,IV,TDS,1,ihd
+60,19/12/2019 14:33,Female,"heart failure, hcv, col, ihd, ccf, chest infection",co-amoxiclav,0.625,Oral,OD,5,ihd
+68,19/12/2019 15:30,Female,ihd,co-amoxiclav,1.2,IV,TDS,4,ihd
+68,19/12/2019 15:31,Female,ihd,cefixime,0.2,Oral,BD,1,ihd
+78,19/12/2019 15:21,Female,"type 2 dm, hypoglycaemia, ihr",cefixime,0.2,Oral,BD,5,ihd
+74,19/12/2019 16:09,Male,"left sided hemiparesis, acute cerebral infarct, hypertension, ihd",ceftriaxone,1,IV,BD,1,ihd
+74,19/12/2019 16:11,Male,"left sided hemiparesis, acute cerebral infarct, hypertension, ihd",metronidazole,0.75,IV,TDS,1,ihd
+56,19/12/2019 14:44,Male,"uti, type 2 dm, ihd, hbs ag(+)",ceftriaxone,1,IV,BD,1,ihd
+56,19/12/2019 14:45,Male,"uti, type 2 dm, ihd, hbs ag(+)",levofloxacin,0.2,Oral,OD,7,ihd
+62,19/12/2019 14:06,Female,"ulcer at left leg,  impaired glucose tolerance",cefixime,0.2,Oral,BD,5,impaired glucose tolerance
+62,19/12/2019 14:04,Female,"ulcer at left leg, impaired glucose tolerance",metronidazole,0.75,IV,TDS,6,impaired glucose tolerance
+62,19/12/2019 14:02,Female,"ulcer at left leg,  impaired glucose tolerence",ceftazidime,1,IV,TDS,6,impaired glucose tolerence
+52,19/12/2019 14:37,Female,"rvi stage 3, ht disease, renal impairment, koch's lungs, ccf, increased lft",septrin,0.96,Oral,OD,1,increased lft
+52,19/12/2019 14:38,Female,"rvi stage 3, ht disease, renal impairment, koch's lungs, ccf, increased lft",coamoxiclav,0.6,IV,OD,5,increased lft
+52,19/12/2019 14:39,Female,"rvi stage 3, ht disease, renal impairment, koch's lungs, ccf, increased lft",co-amoxiclav,1.2,IV,BD,2,increased lft
+19,19/12/2019 15:26,Male,"dka, otita media, cellulitis, type 2 dm",vancomycin,1,IV,BD,10,infection
+19,19/12/2019 15:26,Male,"dka, otita media, cellulitis, type 2 dm",levofloxacin,0.5,IV,BD,11,infection
+19,19/12/2019 15:27,Male,"dka, otita media, cellulitis, type 2 dm",clindamycin,0.3,IV,TDS,10,infection
+19,19/12/2019 15:29,Male,"dka, otita media, cellulitis, type 2 dm",metronidazole,0.75,IV,TDS,8,infection
+19,19/12/2019 15:29,Male,"dka, otita media, cellulitis, type 2 dm",cefepime,1,IV,TDS,2,infection
+50,19/12/2019 14:57,Male,intracerebral haemorrhage,metronidazole,0.75,IV,TDS,1,intracerebral haemorrhage
+50,19/12/2019 14:57,Male,intracerebral haemorrhage,ceftriaxone,1,IV,BD,1,intracerebral haemorrhage
+50,19/12/2019 16:27,Male,"thyrotoxicosis, joint pain, puo",ceftriaxone,1,IV,BD,4,joint pain
+78,19/12/2019 14:23,Female,"anteroseptal mi, klebsiella pneumonia, hypertension, type 2 dm, old stroke",co-amoxiclav,1.2,IV,TDS,8,klebsiella pneumonia
+45,19/12/2019 16:13,Male,"lung abscess, koch lung, chronic alcoholic",metronidazole,0.75,IV,TDS,1,koch's lung
+45,19/12/2019 16:15,Male,"lung abscess, koch lung, chronic alcoholic",ceftriaxone,1,IV,BD,1,koch's lung
+52,19/12/2019 16:22,Female,"upper gi bleeding d/t analgesis, art defaultes, rvi, chest infection, koch's lung",co-amoxiclav,1.2,IV,TDS,6,koch's lung
+40,19/12/2019 16:20,Male,"he, col, portal hypertension, hrs, koch's lung",ceftriaxone,1,IV,BD,1,koch's lung
+40,19/12/2019 16:21,Male,"he, col, portal hypertension, hrs, koch's lung",rifampicin,0.55,Oral,BD,1,koch's lung
+65,19/12/2019 14:49,Male,koch's lung,co-amoxiclav,0.625,Oral,TDS,5,koch's lung
+42,19/12/2019 15:08,Female,"koch's lung, hbv infection",cefixime,0.2,Oral,BD,5,koch's lung
+52,19/12/2019 14:37,Female,"rvi stage 3, ht disease, renal impairment, koch's lungs, ccf, increased lft",septrin,0.96,Oral,OD,1,koch's lung
+52,19/12/2019 14:38,Female,"rvi stage 3, ht disease, renal impairment, koch's lungs, ccf, increased lft",coamoxiclav,0.6,IV,OD,5,koch's lung
+52,19/12/2019 14:39,Female,"rvi stage 3, ht disease, renal impairment, koch's lungs, ccf, increased lft",co-amoxiclav,1.2,IV,BD,2,koch's lung
+72,19/12/2019 14:37,Female,"copd ppt chest infection, old Koch,s lung",co-amoxiclav,1.2,IV,TDS,1,koch's lung
+57,19/12/2019 16:28,Male,"abscess on chin, uncontrolled type 2 dm, koch's lung",co-amoxiclav,1.2,IV,TDS,4,koch's lung
+57,19/12/2019 16:31,Male,"abscess on chin, uncontrolled type 2 dm, koch's lung",clindamycin,0.2,Oral,TDS,7,koch's lung
+72,19/12/2019 14:36,Female,"copd ppt chest infection, koch's lung",ceftriaxone,1,IV,TDS,5,koch's lung
+65,19/12/2019 16:22,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",co-amoxiclav,1,IV,TDS,1,koch's lung
+65,19/12/2019 16:24,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",co-amoxiclav,0.625,Oral,TDS,2,koch's lung
+65,19/12/2019 16:25,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",clarithromycin,0.5,Oral,BD,4,koch's lung
+65,19/12/2019 16:25,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",ceftriaxone,1,IV,BD,2,koch's lung
+53,19/12/2019 16:10,Female,"dm, acute ge, koch's lung",ceftriaxone,1,IV,BD,3,koch's lung
+53,19/12/2019 16:11,Female,"dm, acute ge, koch's lung",ciprofloxacin,0.5,Oral,BD,2,koch's lung
+67,19/12/2019 13:56,Male,"copd, cor pulmonale, ihd, koch’s lung",ceftazidime,1,IV,TDS,5,koch’s lung
+64,19/12/2019 14:24,Male,"hcv(+), col, koch’s lung",ceftriaxone,1,IV,BD,1,koch’s lung
+73,19/12/2019 14:41,Female,"svt,  chest infection,  old Koch'lung,  hypokalemia",co-amoxiclav,1.2,IV,TDS,4,kochs'lung
+24,19/12/2019 14:20,Male,"left empyema , HCV infection",ceftiaxone,1,IV,BD,1,left empyema
+24,19/12/2019 14:21,Male,"left empyema , HCV infection",co-amoxiclav,1.5,IV,TDS,1,left empyema
+60,19/12/2019 15:46,Male,left moderate pleural effusion,co-amoxiclav,1.2,IV,TDS,5,left moderate pleural effusion
+44,19/12/2019 15:25,Male,"alcohol hepatitis, left pleural effusion",cefexime,0.5,Oral,BD,3,left pleural effusion
+76,19/12/2019 14:59,Female,"acute pulmonary edema, left sided hemiparesis, aortic dissection",co-amoxiclav,1.2,IV,TDS,1,left sided hemiparesis
+76,19/12/2019 15:01,Female,"acute pulmonary edema, left sided hemiparesis, aortic dissection",metronidazole,0.75,IV,TDS,1,left sided hemiparesis
+74,19/12/2019 16:09,Male,"left sided hemiparesis, acute cerebral infarct, hypertension, ihd",ceftriaxone,1,IV,BD,1,left sided hemiparesis
+74,19/12/2019 16:11,Male,"left sided hemiparesis, acute cerebral infarct, hypertension, ihd",metronidazole,0.75,IV,TDS,1,left sided hemiparesis
+23,19/12/2019 14:28,Female,left sided massive tuberculous pleural effusion,co-amoxiclav,0.625,Oral,TDS,1,left sided massive tuberculous pleural effusion
+46,19/12/2019 15:15,Male,pleural effusion,co-amoxiclav,0.625,Oral,TDS,5,left sided pleural effusion
+17,19/12/2019 15:18,Female,left sided tension pneumothorax,co-amoxiclav,1.2,IV,TDS,7,left sided tension pneumothorax
+40,19/12/2019 13:51,Male,"hepatitis, leptospirosis, typhoid",ceftriaxone,1,IV,BD,1,leptospirosis
+32,19/12/2019 15:30,Male,"prolonged fever ē, hypotension(leptospirosis)",ceftriaxone,1,IV,BD,4,leptospirosis
+48,19/12/2019 14:17,Female,"confusion, liver impairment,esophagocutaneous fistula",amoxicillin+flucloxacillin,0.5,Oral,TDS,7,liver impairment
+48,19/12/2019 14:18,Female,"confusion, liver impairment,esophagocutaneous fistula",streptomycin,1,IM,OD,1,liver impairment
+48,19/12/2019 14:18,Female,"confusion, liver impairment,esophagocutaneous fistula",levofloxacin,0.75,Oral,OD,1,liver impairment
+38,19/12/2019 15:26,Male,"alcohol withdrawal, extensive koch's lung, septic shock ē lrti",cefoparazone+sulbactam,2,IV,BD,10,lrti
+61,19/12/2019 15:37,Male,"ca lung, lung abscess",co-amoxiclav,1.2,IV,TDS,3,lung abscess
+61,19/12/2019 15:38,Male,"ca lung, lung abscess",co-amoxiclav,0.625,Oral,TDS,3,lung abscess
+45,19/12/2019 16:13,Male,"lung abscess, koch lung, chronic alcoholic",metronidazole,0.75,IV,TDS,1,lung abscess
+45,19/12/2019 16:15,Male,"lung abscess, koch lung, chronic alcoholic",ceftriaxone,1,IV,BD,1,lung abscess
+78,19/12/2019 14:13,Male,"lung condilation(rlz), CPOD",clarithromycin,0.5,Oral,BD,10,lung consodilation(rlz)
+78,19/12/2019 14:12,Male,"lung consodilation(rlz) , COPD",co-amoxiclav,1.2,IV,TDS,1,lung consodilation(rlz)
+25,19/12/2019 15:27,Male,tuberculous lymphadenitis,ceftriaxone,1,IV,BD,5,lymphadenitis
+25,19/12/2019 15:28,Male,tuberculous lymphadenitis,cefixime,0.2,Oral,BD,5,lymphadenitis
+13,19/12/2019 13:53,Male,"haematological,  maglinancy",cefaziclime,1,IV,TDS,5,maglinancy
+13,19/12/2019 13:54,Male,"haematological,  maglinancy",amikacin,0.25,IV,BD,5,maglinancy
+37,19/12/2019 16:31,Male,"massive ascites, col, portal hypertension",ceftriaxone,1,IV,BD,4,massive ascites
+37,19/12/2019 16:32,Male,"massive ascites, col, portal hypertension",septrin,0.96,Oral,OD,1,massive ascites
+28,19/12/2019 14:02,Female,measle koch’s lung,cefixime,0.2,Oral,BD,7,measle koch’s lung
+23,19/12/2019 15:55,Male,"discharge fits, dental caries, facial injury, menilly sinusitis",clindamycin,150,Oral,TDS,5,menilly sinusitis
+23,19/12/2019 15:50,Male,"discharge fits, dental caries, facial injury, menilly sinusitis",ceftriaxone,1,IV,BD,1,menilly sinusitis
+22,19/12/2019 16:06,Male,meningoencephalitis,ceftriaxone,1,IV,BD,3,meningoencephalitis
+22,19/12/2019 16:05,Male,meningoencephilitis,ceftriaxone,2,IV,BD,1,meningoencephilitis
+67,19/12/2019 14:39,Female,"uti , mi,  dm,  ckd,  cuf, cff ppt by chest infection",ceftriaxone,1,IV,BD,7,mi
+48,19/12/2019 16:25,Male,"miliary tb, acute ge",metronidazole,0.75,IV,TDS,1,miliary tb
+48,19/12/2019 16:26,Male,"miliary tb, acute ge",ceftriaxone,1,IV,BD,1,miliary tb
+48,19/12/2019 16:27,Male,"miliary tb, acute ge",coamoxiclav,0.625,Oral,TDS,5,miliary tb
+70,19/12/2019 14:53,Male,"septic shock, miliary tb, cerebral infarct, herpes encephalitis",meropenem,0.5,IV,BD,2,miliary tb
+70,19/12/2019 14:54,Male,"septic shock, miliary tb, cerebral infarct, herpes encephalitis",septrin,0.48,Oral,OD,1,miliary tb
+60,19/12/2019 14:47,Female,"chest infection, multinodular goiter, rt, hudronephrosis, thyrotoxicosis",co-amoxiclav,0.625,Oral,TDS,2,multinodular goiter
+60,19/12/2019 14:45,Female,"chest infection, multinodular goiter, rt, hydronephrosis, thyrotoxicosis",co-amoxiclav,1.2,IV,TDS,5,multinodular goiter
+65,19/12/2019 15:40,Male,"multiple myeloma, acute ge",co-amoxiclav,0.6,IV,BD,2,multiple myeloma
+65,19/12/2019 15:44,Male,"multiple myeloma, acute ge",levofloxacin,0.5,Oral,OD,10,multiple myeloma
+65,19/12/2019 15:46,Male,"multiple myeloma, acute ge",levofloxacin,0.5,IV,OD,10,multiple myeloma
+65,19/12/2019 15:47,Male,"multiple myeloma, acute ge",cefoperazone,1,IV,BD,10,multiple myeloma
+78,19/12/2019 14:09,Male,"severe anaemia,  multiple myeloma,  CKD,  chest infection",co-amoxiclav,1.2,IV,TDS,1,multiple myeloma
+78,19/12/2019 14:10,Male,"severe anaemia,  multiple myeloma,  CKD,  chest infection",clarthromycin,0.5,Oral,BD,1,multiple myeloma
+78,19/12/2019 14:11,Male,"severe anaemia,  multiple myeloma,  CKD,  chest infection",co-amoxiclav,0.625,Oral,TDS,1,multiple myeloma
+78,19/12/2019 14:13,Male,"severe anaemia,  multiple myeloma,  CKD,  chest infection",ceftriaxone,1,IV,BD,1,multiple myeloma
+54,19/12/2019 14:45,Female,"hydropneumothorax, empyema, type 2 dm, myoma uterus",metronidazole,0.75,IV,TDS,1,myoma uterus
+54,19/12/2019 14:47,Female,"hydropneumothorax, empyema, type 2 dm, myoma uterus",co-amoxiclav,1.2,IV,TDS,14,myoma uterus
+70,19/12/2019 14:04,Female,"neutropenia, fever, anaemia, ca buffalo mucosa, type 2 dm",ceftriaxone,1,IV,BD,2,neutropenia
+70,19/12/2019 14:05,Female,"neutropenia, fever, anaemia, ca buffalo mucosa, type 2 dm",amikacin,0.5,IV,BD,8,neutropenia
+70,19/12/2019 14:06,Female,"neutropenia, fever, anaemia, ca buffalo mucosa, type 2 dm",ceftazidime,2,IV,TDS,2,neutropenia
+78,19/12/2019 14:23,Female,"anteroseptal mi, klebsiella pneumonia, hypertension, type 2 dm, old stroke",co-amoxiclav,1.2,IV,TDS,8,old stroke
+87,19/12/2019 16:35,Female,"pad(lt u.l), be amputation,/post op, akt",ceftriaxone,1,IV,BD,1,pad(lt u.l)
+31,19/12/2019 14:50,Male,"pancreatitis, chronic alcoholics",ceftriaxone,1,IV,BD,4,pancreatitis
+40,19/12/2019 14:09,Male,"pcp, septic shock",co-amoxiclav,1.2,IV,TDS,1,pcp
+40,19/12/2019 14:10,Male,"pcp, septic shock",septrin,0.96,Oral,TDS,1,pcp
+31,19/12/2019 14:17,Female,PE in distal branches of left lung pul arteries,clarithromycin,0.5,Oral,BD,7,PE in distal branches of left lung pul arteries
+31,19/12/2019 14:18,Female,PE in distal branches of left lung pul arteries,ceftriaxone,1,IV,BD,2,PE in distal branches of left lung pul arteries
+31,19/12/2019 14:16,Female,pe in distal bronchi of left lung pulmonary arteries,co-amoxiclav,1.2,IV,TDS,10,pe in distal bronchi of left lung pulmonary arteries
+17,19/12/2019 16:10,Male,anaphylaxis (?penicillin),clindamycin,0.3,Oral,TDS,1,penicillin allergy(wound infection)
+28,19/12/2019 13:54,Female,"chikungunya, rash",ceftriaxone,1,IV,BD,5,penicillin induced drug reaction
+56,19/12/2019 15:03,Male,"alcoholic hepatitis, col, he, hypokalaemia",ceftriaxone,1,IV,BD,4,periodic hypokalaemic paralysis
+58,19/12/2019 14:14,Male,"copd, piles, cva",ceftazidime,1,IV,TDS,6,piles
+35,19/12/2019 14:38,Male,pleural effusion,co-amoxiclav,0.625,IV,OD,1,pleural effusion
+35,19/12/2019 14:39,Male,pleural effusion,septrin,0.96,Oral,OD,1,pleural effusion
+71,19/12/2019 14:20,Male,"rvi stage 2, polyerythremia",septrin,960,Oral,OD,1,polyerythremia
+40,19/12/2019 16:20,Male,"he, col, portal hypertension, hrs, koch's lung",ceftriaxone,1,IV,BD,1,portal hypertension
+40,19/12/2019 16:21,Male,"he, col, portal hypertension, hrs, koch's lung",rifampicin,0.55,Oral,BD,1,portal hypertension
+37,19/12/2019 16:31,Male,"massive ascites, col, portal hypertension",ceftriaxone,1,IV,BD,4,portal hypertension
+37,19/12/2019 16:32,Male,"massive ascites, col, portal hypertension",septrin,0.96,Oral,OD,1,portal hypertension
+49,19/12/2019 14:39,Female,"bppv, type2 DM, postural hypertension",ceftriaxone,1,IV,BD,1,postural hypertension
+49,19/12/2019 14:40,Female,"bppv, type2 DM, postural hypertension",cefixime,1,Oral,BD,5,postural hypertension
+50,19/12/2019 14:40,Male,"treated hcv, pott’s spine",cefixime,0.2,Oral,BD,5,pott’s spine
+65,19/12/2019 16:22,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",co-amoxiclav,1,IV,TDS,1,pre-diabetes
+65,19/12/2019 16:24,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",co-amoxiclav,0.625,Oral,TDS,2,pre-diabetes
+65,19/12/2019 16:25,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",clarithromycin,0.5,Oral,BD,4,pre-diabetes
+65,19/12/2019 16:25,Male,"ccf, koch's lung, copd, chest infection, pre-diabetes",ceftriaxone,1,IV,BD,2,pre-diabetes
+49,19/12/2019 15:09,Male,"haematemesis, chronic alcoholic, he, acute gastric erosion",ceftriaxone,1,IV,BD,1,prevention of infection
+71,19/12/2019 15:12,Female,"dka, type 2 dm, ihd",ceftriaxone,1,IV,BD,1,prevention of infection
+32,19/12/2019 15:18,Male,"hepatitis, hypokalaemia, hcc, lichen amyloidosis",pentoxyfylline,0.4,Oral,TDS,1,prevention of infection
+50,19/12/2019 15:32,Male,"acute ge, pancytopenia",metronidazole,0.75,IV,TDS,4,prevention of infection
+43,19/12/2019 15:00,Female,supine bite,amoxicillin+flucloxacillin,0.5,Oral,TDS,5,prevention of infection
+35,19/12/2019 15:06,Female,green snake bite,amoxicillin+flucloxacillin,0.5,Oral,TDS,5,prevention of infection
+21,19/12/2019 15:27,Male,lung abscess,co-amoxiclav,1.2,IV,TDS,4,prevention of infection
+21,19/12/2019 15:27,Male,lung abscess,metronidazole,0.75,IV,TDS,9,prevention of infection
+21,19/12/2019 15:28,Male,lung abscess,imipenem,0.5,IV,QID,7,prevention of infection
+73,19/12/2019 15:15,Female,"chest infection,  copd",co-amoxiclav,1.2,IV,TDS,1,prevention of infection
+73,19/12/2019 15:16,Female,"chest infection,  copd",clarithromycin,0.5,Oral,BD,5,prevention of infection
+17,19/12/2019 15:18,Male,"viral encephalitis,  depressive d/o",ceftriaxone,1,IV,BD,7,prevention of infection
+17,19/12/2019 15:19,Male,"viral hepatitis,  depressive d/o",ceftriaxone,1,IV,BD,5,prevention of infection
+52,19/12/2019 15:14,Male,hmac nsaid induced piles gastritis,cefixime,0.2,Oral,BD,5,prevention of infection
+15,19/12/2019 15:14,Male,avi,cefixime,0.2,Oral,BD,2,prevention of infection
+56,19/12/2019 15:18,Male,"rvi satge iv, rt-sided pleural effusion, 1st line art resistence, on anti-tb",streptomycin,0.75,IM,OD,7,prevention of infection
+56,19/12/2019 15:20,Male,"rvi satge iv, rt-sided pleural effusion, 1st line art resistence, on anti-tb",levofloxacin,0.5,Oral,OD,7,prevention of infection
+56,19/12/2019 15:23,Male,"rvi satge iv, rt-sided pleural effusion, 1st line art resistence, on anti-tb",septrin,0.96,Oral,OD,7,prevention of infection
+42,19/12/2019 15:27,Male,"stroke, newly diagnosis rvi, hbv infection",ceftriaxone,1,IV,BD,1,prevention of infection
+23,19/12/2019 15:32,Female,"acute hepatitis, clinical malaria",doxycyclin,0.1,Oral,BD,7,prevention of infection
+49,19/12/2019 15:35,Female,"pleural effusion, icm, ca breast",ceftriaxone,1,IV,BD,1,prevention of infection
+55,19/12/2019 15:39,Female,"chest infection, dm, ckd, traction retinal detachment",co-amoxiclav,0.6,IV,BD,7,prevention of infection
+22,19/12/2019 15:04,Female,chikangunya,azithromycin,0.5,Oral,OD,5,fever
+45,19/12/2019 15:21,Female,"skin infection, staphylococcal infection, tb",levefloxacin,0.5,IV,OD,5,fever
+32,19/12/2019 15:30,Male,"prolonged fever ē, hypotension(leptospirosis)",ceftriaxone,1,IV,BD,4,fever
+45,19/12/2019 15:19,Female,"skin infection, staphylococcal infection, tb",amoxicillin+flucoxacillin,1,IV,QID,1,fever
+45,19/12/2019 15:20,Female,"skin infection, staphylococcal infection, tb",metronidazole,0.75,IV,TDS,11,fever
+50,19/12/2019 16:27,Male,"thyrotoxicosis, joint pain, puo",ceftriaxone,1,IV,BD,4,puo
+18,19/12/2019 13:57,Male,pyexia of unknown origin,ceftriaxone,1,IV,BD,2,pyexia of unknown origin
+45,19/12/2019 15:28,Female,"recurrent uti, type 2 dm",meropenem,500,IV,TDS,4,uti
+52,19/12/2019 14:37,Female,"rvi stage 3, ht disease, renal impairment, koch's lungs, ccf, increased lft",septrin,0.96,Oral,OD,1,renal impairment
+52,19/12/2019 14:38,Female,"rvi stage 3, ht disease, renal impairment, koch's lungs, ccf, increased lft",coamoxiclav,0.6,IV,OD,5,renal impairment
+52,19/12/2019 14:39,Female,"rvi stage 3, ht disease, renal impairment, koch's lungs, ccf, increased lft",co-amoxiclav,1.2,IV,BD,2,renal impairment
+43,19/12/2019 14:56,Male,acute severe asthma,co-amoxiclav,1.2,IV,TDS,1,respiratory infection
+32,19/12/2019 16:14,Female,"general debility e excessive vomitting, uraemic gastritis, hcv aki ckd, retro(+)",co-amoxiclav,1.2,IV,TDS,2,retro(+)
+32,19/12/2019 16:15,Female,"general debility e excessive vomitting, uraemic gastritis, hcv aki ckd, retro(+)",co-amoxiclav,0.6,Oral,OD,2,retro(+)
+32,19/12/2019 16:17,Female,"general debility e excessive vomitting, uraemic gastritis, hcv aki ckd, retro(+)",septrin,0.96,Oral,OD,1,retro(+)
+35,19/12/2019 15:19,Female,rheumatic heart disease with atrial flutter,pen v,0.25,Oral,QID,7,rheumatic fever
+42,19/12/2019 14:59,Female,"acute ge, rhd( severe ms mild mr) e af on warfrin",cifran,0.75,IV,BD,3,rheumatic heart disease
+42,19/12/2019 15:04,Female,"acute ge, rhd(severe ms mild mr) e af on warfrin",metronidazole,0.75,IV,TDS,3,rheumatic heart disease
+42,19/12/2019 15:06,Female,"acute ge, rhd(severe ms mild mr) e af on warfrin",pen v,0.25,Oral,BD,3,rheumatic heart disease
+69,19/12/2019 14:04,Female,"gi bleeding, cap, right cerebral infarct, deep vein thrombosis of left leg",metronidazole,0.75,IV,TDS,5,right cerebral infarct
+69,19/12/2019 14:08,Female,"gi bleeding, cap, right cerebral infarct, deep vein thrombosis of left leg",cefipime,1,IV,BD,1,right cerebral infarct
+29,19/12/2019 14:51,Female,"right lobe consolidation chest infection,  thrombocytopenia",clarithromycin,0.5,Oral,BD,5,right lobe consolidation
+29,19/12/2019 14:47,Female,"right lower lobe consolidation chest infection,  thrombocytopenia",co-amoxiclav,0.625,Oral,TDS,3,right lower lobe consolidation
+38,19/12/2019 14:50,Male,"right sided hemiplegia, uncontrolled dm, chronic pancreatitis, chronix diarrhoea",ceftriaxone,1,IV,BD,2,right sided hemiplegia
+60,19/12/2019 14:47,Female,"chest infection, multinodular goiter, rt, hudronephrosis, thyrotoxicosis",co-amoxiclav,0.625,Oral,TDS,2,rt
+60,19/12/2019 14:45,Female,"chest infection, multinodular goiter, rt, hydronephrosis, thyrotoxicosis",co-amoxiclav,1.2,IV,TDS,5,rt
+31,19/12/2019 14:30,Female,"rvi, stage4, art noise, hepatitis, bone marrow depression",cefipime,1,IV,BD,4,rvi
+48,19/12/2019 15:37,Female,"he, rvi with col",ceftriaxone,1,IV,OD,8,rvi
+48,19/12/2019 15:40,Female,"he,  rvi with col",levofloxacin,0.25,IV,OD,3,rvi
+48,19/12/2019 15:34,Female,"he,  rvi with col",ceftriaxone,1,IV,BD,8,rvi
+48,19/12/2019 15:38,Female,"he, rvi with col",levofloxacin,0.5,IV,OD,8,rvi
+71,19/12/2019 14:20,Male,"rvi stage 2, polyerythremia",septrin,960,Oral,OD,1,rvi
+52,19/12/2019 14:37,Female,"rvi stage 3, ht disease, renal impairment, koch's lungs, ccf, increased lft",septrin,0.96,Oral,OD,1,rvi
+52,19/12/2019 14:38,Female,"rvi stage 3, ht disease, renal impairment, koch's lungs, ccf, increased lft",coamoxiclav,0.6,IV,OD,5,rvi
+52,19/12/2019 14:39,Female,"rvi stage 3, ht disease, renal impairment, koch's lungs, ccf, increased lft",co-amoxiclav,1.2,IV,BD,2,rvi
+31,19/12/2019 14:26,Female,"rvi stage 4, art noise, hepatitis, bone marrow depression",septrin,0.96,Oral,OD,1,rvi
+31,19/12/2019 14:28,Female,"rvi stage 4, art noise, hepatitis, bone marrow depression",ceftriaxone,1,IV,BD,5,rvi
+57,19/12/2019 15:13,Male,"pre-renal aki, rvi stage 4 on art, koch's lung",ceftriaxone,1,IV,BD,5,rvi
+31,19/12/2019 14:30,Female,"rvi, stage4, art noise, hepatitis, bone marrow depression",cefipime,1,IV,BD,4,rvi
+44,19/12/2019 14:36,Male,"col, hepatitis,  sbp, he, hk",ceftriaxone,1,IV,BD,1,sbp
+57,19/12/2019 16:27,Male,"acute ge,  septic shock",cefepime,1,IV,TDS,4,septic shock
+57,19/12/2019 16:27,Male,"acute ge,  septic shock",metronidazole,0.75,IV,TDS,4,septic shock
+57,19/12/2019 16:28,Male,"acute ge,  septic shock",cefixime,0.2,Oral,BD,2,septic shock
+57,19/12/2019 16:30,Male,"acute ge,  septic shock",metronidazole,250,Oral,TDS,2,septic shock
+38,19/12/2019 15:26,Male,"alcohol withdrawal, extensive koch's lung, septic shock ē lrti",cefoparazone+sulbactam,2,IV,BD,10,septic shock
+40,19/12/2019 14:09,Male,"pcp, septic shock",co-amoxiclav,1.2,IV,TDS,1,septic shock
+40,19/12/2019 14:10,Male,"pcp, septic shock",septrin,0.96,Oral,TDS,1,septic shock
+70,19/12/2019 14:53,Male,"septic shock, miliary tb, cerebral infarct, herpes encephalitis",meropenem,0.5,IV,BD,2,septic shock
+70,19/12/2019 14:54,Male,"septic shock, miliary tb, cerebral infarct, herpes encephalitis",septrin,0.48,Oral,OD,1,septic shock
+78,19/12/2019 14:09,Male,"severe anaemia,  multiple myeloma,  CKD,  chest infection",co-amoxiclav,1.2,IV,TDS,1,severe anaemia
+78,19/12/2019 14:10,Male,"severe anaemia,  multiple myeloma,  CKD,  chest infection",clarthromycin,0.5,Oral,BD,1,severe anaemia
+78,19/12/2019 14:11,Male,"severe anaemia,  multiple myeloma,  CKD,  chest infection",co-amoxiclav,0.625,Oral,TDS,1,severe anaemia
+78,19/12/2019 14:13,Male,"severe anaemia,  multiple myeloma,  CKD,  chest infection",ceftriaxone,1,IV,BD,1,severe anaemia
+77,19/12/2019 15:20,Female,"cardioembolic, stroke",ceftriaxone,1,IV,BD,1,severe ms
+77,19/12/2019 15:22,Female,"cardioembolic, stroke",metronidazole,0.75,IV,TDS,1,severe ms
+77,19/12/2019 15:23,Female,"cardioembolic, stroke",pen v,0.25,Oral,BD,1,severe ms
+39,19/12/2019 14:31,Female,severe neutropia with bone marrow supression with ART,menopem,0.5,IV,BD,1,severe neutropia with bone marrow supression with ART
+39,19/12/2019 14:34,Female,severe neutropia with bone marrow supression with ART,azithromycin,0.5,Oral,BD,1,severe neutropia with bone marrow supression with ART
+39,19/12/2019 14:32,Female,severe neutropia with bone marrow with supression with ART,amikacin,0.5,IV,BD,1,severe neutropia with bone marrow supression with ART
+55,19/12/2019 15:58,Male,"dehydration, skin infection, dm, peripheral neuropathy, hypertension, ihd",amoxicillin+flucloxacillin,0.05,IV,TDS,5,skin infection
+55,19/12/2019 14:18,Female,"type 2 dm, ischaemic heart disease",clindamycin,0.3,Oral,TDS,1,skin infection
+55,19/12/2019 14:32,Female,"type 2 dm, ischaemic heart disease",amoxicillin+flucloxacillin,0.5,Oral,TDS,1,skin infection
+55,19/12/2019 14:35,Female,"type 2 dm, ischaemic heart disease",co-amoxiclav,0.6,IV,BD,7,skin infection
+29,19/12/2019 16:14,Female,"avi,  sle",cefixime,0.2,Oral,BD,6,sle
+29,19/12/2019 16:14,Female,"avi,  sle",ceftriaxone,1,IV,BD,8,sle
+15,19/12/2019 15:33,Female,"sle, chest infection",ceftriaxone,0.5,IV,OD,4,sle
+32,19/12/2019 14:35,Male,"food poisoing, acute GE, some dehydration",norfloxacin,0.4,Oral,BD,3,some dehydration
+72,19/12/2019 15:25,Male,"sputum(+) tb on anti-tb, prolapsed pile, electrolyte imbalance",cifran,0.5,Oral,BD,3,sputum(+) koch's lung on anti- tb
+35,19/12/2019 15:01,Male,"anaemia, chest infection",ceftriaxone,1,IV,BD,1,surgery
+35,19/12/2019 15:04,Male,"anaemia, chest infection",pentoxifylline,0.4,Oral,TDS,1,surgery
+65,19/12/2019 15:37,Female,"type 2 respiratory failure, hypothyroid, pleural effusion, osa, hypotension",ceftriaxone,1,IV,BD,2,surgery
+27,19/12/2019 15:36,Male,"col, ascities, mild phg",ceftriaxone,1,IV,BD,4,surgery
+73,19/12/2019 14:41,Female,"svt,  chest infection,  old Koch'lung,  hypokalemia",co-amoxiclav,1.2,IV,TDS,4,svt
+48,19/12/2019 14:23,Male,"symptomatic hypoglycemia,  chest infection,  alcoholic COL,  Addison's disease",ceftriaxone,1,IV,OD,1,symptomatic hypoglycemia
+48,19/12/2019 14:25,Male,"symptomatic hypoglycemia,  chest infection,  alcoholic COL,  Addison's disease",co-amoxiclav,1.2,IV,TDS,1,symptomatic hypoglycemia
+48,19/12/2019 14:26,Male,"systematic hypoglycemia,  chest infection,  alcoholic COL,  Addision's disease",metronidazole,0.75,IV,TDS,1,systematic hypoglycemia
+13,19/12/2019 14:16,Male,"T/T for prolong fever,  dengue fever",ceftriaxone,0.5,IV,BD,4,T/T for prolong fever
+13,19/12/2019 14:18,Male,"T/T for prolong fever,  dengue fever",cefixime,0.2,Oral,BD,3,T/T for prolong fever
+25,19/12/2019 16:05,Male,"tb,  hbv",cefepime,0.5,IV,OD,1,tb
+25,19/12/2019 16:06,Male,"tb,  hbv",co-amoxiclav,0.6,IV,TDS,8,tb
+86,19/12/2019 14:08,Female,"haemoptysis, TB , degenerative mr",co-amoxiclav,1.2,IV,TDS,3,tb
+23,19/12/2019 15:38,Female,right moderate pleural effusion(tuberculous),co-amoxiclav,1.2,IV,TDS,7,tb
+29,19/12/2019 14:51,Female,"right lobe consolidation chest infection,  thrombocytopenia",clarithromycin,0.5,Oral,BD,5,thrombocytopenia
+29,19/12/2019 14:47,Female,"right lower lobe consolidation chest infection,  thrombocytopenia",co-amoxiclav,0.625,Oral,TDS,3,thrombocytopenia
+60,19/12/2019 14:47,Female,"chest infection, multinodular goiter, rt, hudronephrosis, thyrotoxicosis",co-amoxiclav,0.625,Oral,TDS,2,thyrotoxicosis
+60,19/12/2019 14:45,Female,"chest infection, multinodular goiter, rt, hydronephrosis, thyrotoxicosis",co-amoxiclav,1.2,IV,TDS,5,thyrotoxicosis
+50,19/12/2019 16:27,Male,"thyrotoxicosis, joint pain, puo",ceftriaxone,1,IV,BD,4,thyrotoxicosis
+50,19/12/2019 14:40,Male,"treated hcv, pott’s spine",cefixime,0.2,Oral,BD,5,treated hcv
+64,19/12/2019 14:42,Female,"acute pulmonary edema, ihd, uti, type 2 dm, chest infection",gentamicin,0.8,IV,BD,6,type 2 dm
+64,19/12/2019 14:42,Female,"acute pulmonary edema, ihd, uti, type 2 dm, chest infection",ceftriaxone,1,IV,BD,5,type 2 dm
+78,19/12/2019 14:23,Female,"anteroseptal mi, klebsiella pneumonia, hypertension, type 2 dm, old stroke",co-amoxiclav,1.2,IV,TDS,8,type 2 dm
+54,19/12/2019 14:45,Female,"hydropneumothorax, empyema, type 2 dm, myoma uterus",metronidazole,0.75,IV,TDS,1,type 2 dm
+54,19/12/2019 14:47,Female,"hydropneumothorax, empyema, type 2 dm, myoma uterus",co-amoxiclav,1.2,IV,TDS,14,type 2 dm
+78,19/12/2019 15:21,Female,"type 2 dm, hypoglycaemia, ihr",cefixime,0.2,Oral,BD,5,type 2 dm
+70,19/12/2019 14:04,Female,"neutropenia, fever, anaemia, ca buffalo mucosa, type 2 dm",ceftriaxone,1,IV,BD,2,type 2 dm
+70,19/12/2019 14:05,Female,"neutropenia, fever, anaemia, ca buffalo mucosa, type 2 dm",amikacin,0.5,IV,BD,8,type 2 dm
+70,19/12/2019 14:06,Female,"neutropenia, fever, anaemia, ca buffalo mucosa, type 2 dm",ceftazidime,2,IV,TDS,2,type 2 dm
+56,19/12/2019 14:44,Male,"uti, type 2 dm, ihd, hbs ag(+)",ceftriaxone,1,IV,BD,1,type 2 dm
+56,19/12/2019 14:45,Male,"uti, type 2 dm, ihd, hbs ag(+)",levofloxacin,0.2,Oral,OD,7,type 2 dm
+62,19/12/2019 14:00,Female,"urinary tract infection,  type 2DM, AF,  hypertension",co-amoxiclav,1.2,IV,TDS,1,type 2 dm
+62,19/12/2019 14:01,Female,"urinay tract infection,  Type 2DM,  AF,  hypertension",cefepime,1,IV,BD,5,type 2 dm
+49,19/12/2019 14:39,Female,"bppv, type2 DM, postural hypertension",ceftriaxone,1,IV,BD,1,type 2 dm
+49,19/12/2019 14:40,Female,"bppv, type2 DM, postural hypertension",cefixime,1,Oral,BD,5,type 2 dm
+82,19/12/2019 15:48,Male,"type-2dm, ihd, col, copd, ht",ofloxacin,0.4,IV,BD,3,type 2 dm
+82,19/12/2019 15:50,Male,"type-2 dm, ihd, col, copd, ht",cefipime,1,IV,BD,5,type 2 dm
+82,19/12/2019 15:52,Male,"type-2 dm, ihd, col, copd, ht",azithromycin,0.5,Oral,OD,3,type 2 dm
+82,19/12/2019 15:53,Male,"type-2 dm, ihd, col, copd, ht",ceftazidime,1,IV,TDS,3,type 2 dm
+53,19/12/2019 16:10,Female,"dm, acute ge, koch's lung",ceftriaxone,1,IV,BD,3,type 2 dm
+53,19/12/2019 16:11,Female,"dm, acute ge, koch's lung",ciprofloxacin,0.5,Oral,BD,2,type 2 dm
+67,19/12/2019 14:39,Female,"uti , mi,  dm,  ckd,  cuf, cff ppt by chest infection",ceftriaxone,1,IV,BD,7,type 2 dm
+38,19/12/2019 14:50,Male,"right sided hemiplegia, uncontrolled dm, chronic pancreatitis, chronix diarrhoea",ceftriaxone,1,IV,BD,2,type 2 dm
+57,19/12/2019 16:28,Male,"abscess on chin, uncontrolled type 2 dm, koch's lung",co-amoxiclav,1.2,IV,TDS,4,type 2 dm
+57,19/12/2019 16:31,Male,"abscess on chin, uncontrolled type 2 dm, koch's lung",clindamycin,0.2,Oral,TDS,7,type 2 dm
+40,19/12/2019 13:51,Male,"hepatitis, leptospirosis, typhoid",ceftriaxone,1,IV,BD,1,typhoid
+66,19/12/2019 16:30,Male,"alcoholic gastritis, col, ugi tract bleeding, hiv",ceftriaxone,1,IV,BD,4,ugi tract bleeding
+66,19/12/2019 16:32,Male,"alcoholic gastritis, col, ugi tract bleeding, hiv",mirox,0.5,Oral,BD,3,ugi tract bleeding
+62,19/12/2019 14:06,Female,"ulcer at left leg,  impaired glucose tolerance",cefixime,0.2,Oral,BD,5,ulcer at left leg
+62,19/12/2019 14:02,Female,"ulcer at left leg,  impaired glucose tolerence",ceftazidime,1,IV,TDS,6,ulcer at left leg
+62,19/12/2019 14:04,Female,"ulcer at left leg, impaired glucose tolerance",metronidazole,0.75,IV,TDS,6,ulcer at left leg
+60,19/12/2019 14:35,Male,"acute ge, underlying  heart disease",metronidazole,0.75,IV,TDS,2,underlying  heart disease
+45,19/12/2019 13:59,Female,unknown bite of right hand,amoxicillin+flucloxacillin,0.5,Oral,TDS,1,unknown bite
+15,19/12/2019 14:19,Female,unknown bite,amoxicillin+flucloxacillin,0.5,Oral,TDS,5,unknown bite
+62,19/12/2019 16:25,Female,snake bite at right foot,amoxicillin+flucloxacillin,0.5,IV,TDS,1,snake bite
+62,19/12/2019 16:26,Female,snake bite at right foot,amoxicillin+flucloxiacillin,0.25,Oral,TDS,5,snake bite
+38,19/12/2019 14:24,Female,unknown snake bite,amoxicillin+flucloxacillin,0.5,Oral,TDS,5,snake bite
+25,19/12/2019 15:00,Female,unknown snake bite,amoxicillin+flucloxacillin,0.5,Oral,TDS,4,snake bite
+44,19/12/2019 16:02,Female,unknown snake bite,flucloxacillin,0.5,Oral,TDS,5,snake bite
+25,19/12/2019 14:11,Female,unknown snake bite,amoxicillin+flucloxacillin,0.5,Oral,TDS,1,snake bite
+40,19/12/2019 14:22,Female,unknown snake bite,amoxicillin+flucloxacillin,0.5,Oral,TDS,5,snake bite
+45,19/12/2019 15:38,Male,"hepatic encephalopathy, col, upper gi bleeding",metronidazole,0.75,IV,TDS,1,upper gi bleeding
+45,19/12/2019 15:37,Male,"hepatic encephalopathy, col, upper gi bleeding",ceftriaxone,1,IV,BD,2,upper gi bleeding
+32,19/12/2019 16:14,Female,"general debility e excessive vomitting, uraemic gastritis, hcv aki ckd, retro(+)",co-amoxiclav,1.2,IV,TDS,2,uraemic gastritis
+32,19/12/2019 16:15,Female,"general debility e excessive vomitting, uraemic gastritis, hcv aki ckd, retro(+)",co-amoxiclav,0.6,Oral,OD,2,uraemic gastritis
+32,19/12/2019 16:17,Female,"general debility e excessive vomitting, uraemic gastritis, hcv aki ckd, retro(+)",septrin,0.96,Oral,OD,1,uraemic gastritis
+30,19/12/2019 14:10,Male,"chikungunya, renal stone",ceftriaxone,1,IV,BD,1,uti
+62,19/12/2019 14:00,Female,"urinary tract infection,  type 2DM, AF,  hypertension",co-amoxiclav,1.2,IV,TDS,1,uti
+62,19/12/2019 14:01,Female,"urinay tract infection,  Type 2DM,  AF,  hypertension",cefepime,1,IV,BD,5,uti
+64,19/12/2019 14:42,Female,"acute pulmonary edema, ihd, uti, type 2 dm, chest infection",gentamicin,0.8,IV,BD,6,uti
+64,19/12/2019 14:42,Female,"acute pulmonary edema, ihd, uti, type 2 dm, chest infection",ceftriaxone,1,IV,BD,5,uti
+37,19/12/2019 14:24,Male,"anaphyatic, UTI",ceftriaxone,1,IV,BD,3,uti
+37,19/12/2019 14:29,Male,"anaphylatic shock, UTI",cefixime,2,Oral,BD,5,uti
+64,19/12/2019 16:22,Male,"ccf precipated by chest infection,  ckd,  uti",cefepime,1,IV,BD,5,uti
+64,19/12/2019 16:22,Male,"ccf precipated by chest infection, old anterior mi, ckd, uti",ceftriaxone,1,IV,BD,2,uti
+55,19/12/2019 14:18,Female,"type 2 dm, ischaemic heart disease",clindamycin,0.3,Oral,TDS,1,uti
+55,19/12/2019 14:32,Female,"type 2 dm, ischaemic heart disease",amoxicillin+flucloxacillin,0.5,Oral,TDS,1,uti
+55,19/12/2019 14:35,Female,"type 2 dm, ischaemic heart disease",co-amoxiclav,0.6,IV,BD,7,uti
+36,19/12/2019 14:14,Female,"recurrrent uti, intra renal stone",ciprofloxacin,0.5,IV,BD,4,uti
+36,19/12/2019 14:15,Female,"recurrent uti, intra renal stone",meropenem,0.5,IV,TDS,5,uti
+50,19/12/2019 15:14,Female,"dka, uti, poor drug compliance",ceftriaxone,1,IV,BD,1,uti
+31,19/12/2019 16:06,Female,uti,meropenem,0.5,IV,TDS,5,uti
+31,19/12/2019 16:09,Female,uti,levofloxacin,0.5,IV,OD,5,uti
+52,19/12/2019 16:13,Female,"complicated uti, renal stone, akt, poorly controlled dm",pipercillin+tazobactam,2.25,IV,BD,7,uti
+52,19/12/2019 16:15,Female,"complicated uti, renal stone, akt, poorly controlled dm",nitrofurantoin,0.1,IV,BD,7,uti
+64,19/12/2019 16:18,Female,"septic shock, complicated uti, dm, hypertension",cefepime,0.5,IV,OD,2,uti
+64,19/12/2019 16:19,Female,"septic shock, complicated uti, dm, hypertension",cefepime,1,IV,BD,1,uti
+25,19/12/2019 16:23,Female,"hepatitis, uti",ceftriaxone,1,IV,BD,3,uti
+25,19/12/2019 16:25,Female,"hepatitis, uti",cefixime,0.2,Oral,BD,5,uti
+67,19/12/2019 14:39,Female,"uti , mi,  dm,  ckd,  cuf, cff ppt by chest infection",ceftriaxone,1,IV,BD,7,uti
+46,19/12/2019 16:07,Male,"early col, uti, chest infection",ceftriaxone,1,IV,BD,4,uti
+46,19/12/2019 16:08,Male,"early col, uti, chest infection",cefixime,0.2,Oral,BD,5,uti
+56,19/12/2019 14:44,Male,"uti, type 2 dm, ihd, hbs ag(+)",ceftriaxone,1,IV,BD,1,uti
+56,19/12/2019 14:45,Male,"uti, type 2 dm, ihd, hbs ag(+)",levofloxacin,0.2,Oral,OD,7,uti
+76,19/12/2019 15:29,Male,"uti,  operated spinal cord,  hematoma and paraplegia",levofloxacin,0.5,Oral,OD,5,uti
+48,19/12/2019 15:41,Female,"he,  rvi with col",rifaximin,0.55,Oral,BD,1,vil
+15,19/12/2019 16:14,Male,"glandular fever, measles, viral encephalitis, fever with confusion",ceftriaxone,2,IV,BD,2,viral encephalitis
+15,19/12/2019 16:16,Male,"glandular fever, measles, viral encephalitis, fever with confusion",cefixime,0.2,Oral,BD,1,viral encephalitis
+15,19/12/2019 16:17,Male,"glandular fever, measles, viral encephalitis, fever with confusion",ceftriaxone,1,IV,BD,2,viral encephalitis
+85,19/12/2019 14:41,Female,"ccf, hypertension, ida, ckd(stage 5), ?icm,",ceftriaxone,1,IV,BD,7,
