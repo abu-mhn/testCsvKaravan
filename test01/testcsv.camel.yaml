@@ -17,3 +17,8 @@
         - process:
             id: process-a61a
             ref: GithubGetProcessor
+        - to:
+            id: to-4950
+            uri: mock
+            parameters:
+              name: test01:8080

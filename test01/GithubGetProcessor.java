@@ -19,6 +19,8 @@ import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 @Component("GithubGetProcessor")
 public class GithubGetProcessor implements Processor {
 
@@ -32,13 +34,18 @@ public class GithubGetProcessor implements Processor {
         String body = exchange.getIn().getBody(String.class);
         JsonNode jsonNode = objectMapper.readTree(body);
 
-        // Extract URL and table name from headers or body
+        // Extract URL from JSON
         String fileUrl = jsonNode.get("url").asText().trim();
-        String tableName = jsonNode.get("tableName").asText().trim();
+
+        // Extract the file name from the URL
+        String fileName = fileUrl.substring(fileUrl.lastIndexOf('/') + 1);
+
+        // Decode URL encoding, remove the file extension, and replace spaces with underscores
+        String tableName = fileName.replace(".csv", "").replace("%20", "_");
 
         // Log extracted values
         System.out.println("Processing file from URL: " + fileUrl);
-        System.out.println("Table name to be created: " + tableName);
+        System.out.println("Table name to be created: " + tableName); // Expected output: Student_Mental_health
 
         HttpURLConnection connection = null;
         try {
@@ -62,12 +69,14 @@ public class GithubGetProcessor implements Processor {
 
                             // Create table with inferred data types on the first data line
                             if (dataRows.isEmpty()) {
-                                createTableIfNotExists(tableName, lineArray, dataLineArray);
+                                try {
+                                    createTableIfNotExists(tableName, lineArray, dataLineArray);
+                                } catch (Exception e) { // Catch a more general exception
+                                    System.err.println("Skipping line due to table creation error: " + Arrays.toString(dataLineArray));
+                                    e.printStackTrace();
+                                    continue; // Skip this line
+                                }
                             }
-
-                            // Log lengths for debugging
-                            System.out.println("Line Array Length: " + lineArray.length);
-                            System.out.println("Data Line Array Length: " + dataLineArray.length);
 
                             // Check for length match
                             if (dataLineArray.length != lineArray.length) {
@@ -77,8 +86,14 @@ public class GithubGetProcessor implements Processor {
                                 continue; // Skip to the next line
                             }
 
-                            // Insert the current line data into the database
-                            insertDataIntoTable(tableName, lineArray, dataLineArray);
+                            // Attempt to insert the current line data into the database
+                            try {
+                                insertDataIntoTable(tableName, lineArray, dataLineArray);
+                            } catch (Exception e) { // Catch a more general exception
+                                System.err.println("Skipping line due to data insertion error: " + Arrays.toString(dataLineArray));
+                                e.printStackTrace();
+                                continue; // Skip this line
+                            }
 
                             // Convert data line to JSON object and add it to the list
                             ObjectNode dataRow = objectMapper.createObjectNode();
@@ -208,19 +223,18 @@ public class GithubGetProcessor implements Processor {
             return "VARCHAR(255)"; // Default to VARCHAR for empty values
         }
 
-        // Check if the value is an integer
-        if (value.matches("-?\\d+")) {
-            return "INTEGER";
+        // Check if the value is a number (integer or double)
+        if (value.matches("-?\\d+(\\.\\d+)?")) {
+            return "DECIMAL";
         }
-        // Check if the value is a double
-        else if (value.matches("-?\\d+(\\.\\d+)?")) {
-            return "DOUBLE PRECISION";
-        }
+
         // Check if the value is a boolean
         else if (value.equalsIgnoreCase("true") || value.equalsIgnoreCase("false")) {
             return "BOOLEAN";
         }
+
         // Otherwise, return VARCHAR
         return "VARCHAR(255)";
     }
+
 }
