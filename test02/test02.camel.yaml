@@ -1,0 +1,44 @@
+- rest:
+    id: rest-c55e
+    get:
+      - id: get-d7ab
+        path: /testA
+        to: direct:testA
+    post:
+      - id: post-a5b9
+        path: /testB
+        to: direct:testB
+- route:
+    id: route-7447
+    nodePrefixId: route-95c
+    from:
+      id: from-aafd
+      uri: direct
+      parameters:
+        name: testB
+      steps:
+        - unmarshal:
+            id: unmarshal-f5a9
+            json:
+              id: json-0343
+        - setBody:
+            id: setBody-35b6
+            expression:
+              js:
+                id: js-ddaa
+                expression: "let now = new Date();\r\n\r\n// Add 8 hours to the current time\r\nnow.setHours(now.getHours() + 8);\r\n\r\n// Format the time as HH:mm:ss.SSSSSS\r\nlet hours = now.getHours().toString().padStart(2, '0');\r\nlet minutes = now.getMinutes().toString().padStart(2, '0');\r\nlet seconds = now.getSeconds().toString().padStart(2, '0');\r\nlet milliseconds = now.getMilliseconds().toString().padStart(3, '0');\r\n\r\n// Combine everything to match the desired format\r\nlet formattedTime = `${hours}:${minutes}:${seconds}.${milliseconds.padEnd(6, '0')}`;\r\n\r\nlet jsonstring = {\r\n    \"message\": body.message,\r\n    \"title\": body.title,\r\n    \"icon\": body.icon,\r\n    \"image\": body.image,\r\n    \"category\": body.category,\r\n    \"sound\": body.sound,\r\n    \"path\": body.path,\r\n    \"id\": body.id,\r\n    \"time\": formattedTime\r\n};\r\n\r\njsonstring = JSON.stringify(jsonstring);\r\n"
+        - process:
+            id: process-7ef3
+            ref: HttpPostProcessor
+- route:
+    id: route-3b01
+    nodePrefixId: route-ceb
+    from:
+      id: from-357d
+      uri: direct
+      parameters:
+        name: testA
+      steps:
+        - process:
+            id: process-9f0b
+            ref: ReactiveProcessor
