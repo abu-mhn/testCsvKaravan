@@ -1,0 +1,25 @@
+- rest:
+    id: rest-b790
+    get:
+      - id: get-f4ba
+        path: /test03
+        to: direct:test03
+- route:
+    id: route-3c9e
+    nodePrefixId: route-6c7
+    from:
+      id: from-d10d
+      uri: direct
+      parameters:
+        name: test03
+      steps:
+        - process:
+            id: process-4f7e
+            ref: MongoDbGet
+        - unmarshal:
+            id: unmarshal-5240
+            json:
+              id: json-27be
+        - process:
+            id: process-2376
+            ref: PostgresPost
