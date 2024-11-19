@@ -100,7 +100,42 @@
                                 id: process-36c2
                                 ref: GetDeviceProcessor
                             - stop:
-                                id: stop-b31e
+                                id: stop-9447
+                            - unmarshal:
+                                id: unmarshal-d2cc
+                                json:
+                                  id: json-8656
+                            - setProperty:
+                                id: setProperty-1d03
+                                name: totalGet
+                                expression:
+                                  simple:
+                                    id: simple-d4b3
+                                    expression: ${body[total]}
+                            - choice:
+                                id: choice-f5cd
+                                when:
+                                  - id: when-2cce
+                                    expression:
+                                      simple:
+                                        id: simple-f337
+                                        expression: ${exchangeProperty.totalGet} == 0
+                                    steps:
+                                      - setProperty:
+                                          id: setProperty-7ce8
+                                          name: responseCode
+                                          expression:
+                                            simple:
+                                              id: simple-26a5
+                                              expression: ${body}
+                                  - id: when-4670
+                                    expression:
+                                      simple:
+                                        id: simple-bb59
+                                        expression: ${exchangeProperty.totalGet} != 0
+                                    steps:
+                                      - stop:
+                                          id: stop-b31e
         - setBody:
             id: setBody-6f57
             expression:
