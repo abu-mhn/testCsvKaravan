@@ -1,0 +1,116 @@
+- restConfiguration:
+    component: platform-http
+    host: localhost
+    port: "8331"
+    useXForwardHeaders: false
+    contextPath: /api/v1
+    apiContextPath: /api-doc
+    bindingMode: auto
+    inlineRoutes: true
+- rest:
+    id: rest-4e3a
+    description: Insurance Claim Submission
+    path: /claim-submission
+    consumes: application/json
+    produces: application/json
+    bindingMode: auto
+    post:
+      - id: post-6804
+        to: direct:toConvoy
+        consumes: application/json
+        produces: application/json
+        param:
+          - description: Claim Type
+            name: Claim-Type
+            type: header
+- route:
+    id: route-0aba
+    nodePrefixId: route-734
+    from:
+      id: from-1ebd
+      uri: direct
+      parameters:
+        name: toConvoy
+      steps:
+        - choice:
+            id: choice-4ca1
+            when:
+              - id: when-9071
+                expression:
+                  simple:
+                    id: simple-038a
+                    expression: ${header.Claim-Type} == 'outpatient'
+                steps:
+                  - setProperty:
+                      id: setProperty-9ddb
+                      name: bodyRequest
+                      expression:
+                        simple:
+                          id: simple-7610
+                          expression: ${body}
+                  - setProperty:
+                      id: setProperty-4a05
+                      name: eventCoding
+                      expression:
+                        simple:
+                          id: simple-6c2e
+                          expression: ${body[entry][0][resource][eventCoding][code]}
+                  - marshal:
+                      id: marshal-016e
+                      json:
+                        id: json-0ea3
+                  - process:
+                      id: process-6b13
+                      ref: HttpPostProcessor
+                  - unmarshal:
+                      id: unmarshal-faaa
+                      json:
+                        id: json-f177
+                  - process:
+                      id: process-a618
+                      ref: ConvoyPost
+                  - unmarshal:
+                      id: unmarshal-295b
+                      json:
+                        id: json-8d31
+              - id: when-e842
+                expression:
+                  simple:
+                    id: simple-aec5
+                    expression: ${header.Claim-Type} == null
+                steps:
+                  - setBody:
+                      id: setBody-a90a
+                      expression:
+                        simple:
+                          id: simple-557a
+                          expression: >-
+                            The request cannot be sent. Make sure your header
+                            for Claim-Type exists and has the value
+                            'outpatient'.
+              - id: when-4c5e
+                expression:
+                  simple:
+                    id: simple-4612
+                    expression: ${header.Claim-Type} == ''
+                steps:
+                  - setBody:
+                      id: setBody-5271
+                      expression:
+                        simple:
+                          id: simple-1b7f
+                          expression: >-
+                            The request cannot be sent. Make sure your header
+                            for Claim-Type does not have an empty value and has
+                            the value 'outpatient'.
+            otherwise:
+              id: otherwise-7933
+              steps:
+                - setBody:
+                    id: setBody-6d02
+                    expression:
+                      simple:
+                        id: simple-0449
+                        expression: >-
+                          The request cannot be sent. Make sure your header for
+                          Claim-Type has the value 'outpatient'.

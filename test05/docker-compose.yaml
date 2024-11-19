@@ -1,0 +1,8 @@
+services:
+  test05:
+    image: test05
+    restart: always
+    ports:
+      - "8085:8080"
+    networks:
+      - karavan
