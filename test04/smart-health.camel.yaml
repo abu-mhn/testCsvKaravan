@@ -1,0 +1,92 @@
+- rest:
+    id: rest-e6d7
+    path: /api
+    get:
+      - id: get-d901
+        path: /
+        to: direct:emptyEndpoint
+      - id: get-a27f
+        path: /{endpoint}
+        to: direct:mongoDB
+      - id: get-82eb
+        path: /{endpoint}/{id}
+        to: direct:mongoDB2
+        produces: application/json
+    put:
+      - id: put-16bd
+        path: /ips_manifest/update
+        to: direct:updateManifest
+        consumes: application/json
+        produces: application/json
+- route:
+    id: route-73ad
+    nodePrefixId: route-154
+    from:
+      id: from-c522
+      uri: direct
+      parameters:
+        name: emptyEndpoint
+      steps:
+        - setHeader:
+            id: setHeader-a98c
+            name: CamelHttpResponseCode
+            expression:
+              constant:
+                id: constant-3525
+                expression: "400"
+        - setBody:
+            id: setBody-81d6
+            expression:
+              simple:
+                id: simple-2892
+                expression: "{\r\n    \"Message\": \"Endpoint is required\"\r\n}"
+- route:
+    id: route-9519
+    nodePrefixId: route-4f2
+    from:
+      id: from-1d39
+      uri: direct
+      parameters:
+        name: mongoDB
+      steps:
+        - setHeader:
+            id: setHeader-8be6
+            name: Content-Type
+            expression:
+              simple:
+                id: simple-1b15
+                expression: application/json
+        - process:
+            id: process-4cbd
+            ref: TotalProcessor
+- route:
+    id: route-5636
+    nodePrefixId: route-c8b
+    from:
+      id: from-96cb
+      uri: direct
+      parameters:
+        name: mongoDB2
+      steps:
+        - setHeader:
+            id: setHeader-2eca
+            name: Content-Type
+            expression:
+              constant:
+                id: constant-72c6
+                expression: application/json
+        - process:
+            id: process-9cdc
+            ref: IdFilterProcessor
+- route:
+    id: route-be71
+    nodePrefixId: route-0a1
+    from:
+      id: from-1046
+      uri: direct
+      parameters:
+        name: updateManifest
+      steps:
+        - process:
+            id: process-a5bc
+            ref: UpdateStatusProcessor
