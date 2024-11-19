@@ -1,0 +1,118 @@
+- rest:
+    id: rest-0b05
+    path: /eccsmobileapi/api/Kiosk/v2/
+    post:
+      - id: post-347b
+        path: /transactions
+        to: direct:health-kiosk-v2
+- route:
+    id: route-5003
+    nodePrefixId: route-cfb
+    from:
+      id: from-5eba
+      uri: direct
+      parameters:
+        name: health-kiosk-v2
+      steps:
+        - setProperty:
+            id: setProperty-8017
+            name: payload
+            expression:
+              simple:
+                id: simple-7b8a
+                expression: ${body}
+        - process:
+            id: process-dd51
+            ref: DateTime
+        - setProperty:
+            id: setProperty-4be6
+            name: timeLog
+            expression:
+              simple:
+                id: simple-91f9
+                expression: ${body}
+        - setBody:
+            id: setBody-3d68
+            expression:
+              simple:
+                id: simple-a68f
+                expression: ${exchangeProperty.payload}
+        - process:
+            id: process-cf18
+            ref: AuthorizationProcessor
+        - removeHeaders:
+            id: removeHeaders-c867
+            pattern: X-Kiosk-Client-Id, X-Kiosk-Client-API-Key
+        - choice:
+            id: choice-6018
+            when:
+              - id: when-c700
+                expression:
+                  simple:
+                    id: simple-c254
+                    expression: ${header.CamelHttpResponseCode} != 200
+                steps:
+                  - setProperty:
+                      id: setProperty-53fb
+                      name: responseCode
+                      expression:
+                        simple:
+                          id: simple-3394
+                          expression: ${body}
+              - id: when-c9b8
+                expression:
+                  simple:
+                    id: simple-265d
+                    expression: ${header.CamelHttpResponseCode} == 200
+                steps:
+                  - setBody:
+                      id: setBody-d8b4
+                      expression:
+                        simple:
+                          id: simple-a5ba
+                          expression: ${exchangeProperty.payload}
+                  - process:
+                      id: process-6c1d
+                      ref: PayloadValidatorProcessor
+                  - choice:
+                      id: choice-1844
+                      when:
+                        - id: when-d442
+                          expression:
+                            simple:
+                              id: simple-a459
+                              expression: ${header.CamelHttpResponseCode} != 200
+                          steps:
+                            - setProperty:
+                                id: setProperty-63e4
+                                name: responseCode
+                                expression:
+                                  simple:
+                                    id: simple-d005
+                                    expression: ${body}
+                        - id: when-9ea1
+                          expression:
+                            simple:
+                              id: simple-5c90
+                              expression: ${header.CamelHttpResponseCode} == 200
+                          steps:
+                            - process:
+                                id: process-36c2
+                                ref: GetDeviceProcessor
+                            - stop:
+                                id: stop-b31e
+        - setBody:
+            id: setBody-6f57
+            expression:
+              simple:
+                id: simple-16fc
+                expression: "{\r\n    \"timeLog\": \"${exchangeProperty.timeLog}\",\r\n    \"payload\" : ${exchangeProperty.payload},\r\n    \"endpoint\" : \"${header.CamelHttpUri}\",\r\n    \"statusCode\": \"${header.CamelHttpResponseCode}\",\r\n    \"responseCode\": ${exchangeProperty.responseCode}\r\n}"
+        - process:
+            id: process-21ad
+            ref: MongoDbProcessor
+        - setBody:
+            id: setBody-72cf
+            expression:
+              simple:
+                id: simple-0bf8
+                expression: ${exchangeProperty.responseCode}
