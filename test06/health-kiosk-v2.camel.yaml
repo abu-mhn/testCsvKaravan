@@ -40,9 +40,6 @@
         - process:
             id: process-cf18
             ref: AuthorizationProcessor
-        - removeHeaders:
-            id: removeHeaders-c867
-            pattern: X-Kiosk-Client-Id, X-Kiosk-Client-API-Key
         - choice:
             id: choice-6018
             when:
@@ -99,19 +96,6 @@
                             - process:
                                 id: process-36c2
                                 ref: GetDeviceProcessor
-                            - stop:
-                                id: stop-9447
-                            - unmarshal:
-                                id: unmarshal-d2cc
-                                json:
-                                  id: json-8656
-                            - setProperty:
-                                id: setProperty-1d03
-                                name: totalGet
-                                expression:
-                                  simple:
-                                    id: simple-d4b3
-                                    expression: ${body[total]}
                             - choice:
                                 id: choice-f5cd
                                 when:
@@ -119,7 +103,7 @@
                                     expression:
                                       simple:
                                         id: simple-f337
-                                        expression: ${exchangeProperty.totalGet} == 0
+                                        expression: ${header.CamelHttpResponseCode} != 200
                                     steps:
                                       - setProperty:
                                           id: setProperty-7ce8
@@ -132,10 +116,97 @@
                                     expression:
                                       simple:
                                         id: simple-bb59
-                                        expression: ${exchangeProperty.totalGet} != 0
+                                        expression: ${header.CamelHttpResponseCode} == 200
                                     steps:
-                                      - stop:
-                                          id: stop-b31e
+                                      - unmarshal:
+                                          id: unmarshal-928d
+                                          json:
+                                            id: json-0998
+                                      - setProperty:
+                                          id: setProperty-0986
+                                          name: managingOrganization
+                                          expression:
+                                            simple:
+                                              id: simple-956b
+                                              expression: >-
+                                                ${body[entry][0][resource][owner][reference]}
+                                      - setProperty:
+                                          id: setProperty-e23e
+                                          name: deviceName
+                                          expression:
+                                            simple:
+                                              id: simple-6021
+                                              expression: >-
+                                                ${body[entry][0][resource][deviceName][0][name]}
+                                      - setProperty:
+                                          id: setProperty-9c2e
+                                          name: idFhirDevice
+                                          expression:
+                                            simple:
+                                              id: simple-cde1
+                                              expression: >-
+                                                Device/${body[entry][0][resource][id]}/_history/${body[entry][0][resource][meta][versionId]}
+                                      - setBody:
+                                          id: setBody-2b6d
+                                          expression:
+                                            simple:
+                                              id: simple-4fbe
+                                              expression: ${exchangeProperty.payload}
+                                      - unmarshal:
+                                          id: unmarshal-da55
+                                          json:
+                                            id: json-6c79
+                                      - setProperty:
+                                          id: setProperty-c4dc
+                                          name: patientJson
+                                          expression:
+                                            js:
+                                              id: js-ee65
+                                              expression: "let idNumber = body.sfz.idnumber;\r\nlet patientName = body.sfz.name;\r\nlet genderCode = body.sfz.sex;\r\nlet birthday = body.sfz.birthday;\r\nlet nation = body.sfz.nation;\r\nlet managingOrganization = exchange.getProperty(\"managingOrganization\");\r\n\r\nlet gender;\r\n\r\nif (genderCode === \"M\" || genderCode === \"Male\" || genderCode === \"male\") {\r\n    gender = \"male\";\r\n} else if (genderCode === \"F\" || genderCode === \"Female\" || genderCode === \"female\") {\r\n    gender = \"female\";\r\n} else {\r\n    gender = \"unknown\";\r\n}\r\n\r\nfunction isValidMyKad(myKad) {\r\n    // Remove any non-digit characters (spaces, hyphens, etc.)\r\n    const cleanedMyKad = myKad.replace(/\\D/g, '');\r\n\r\n    // Check if the cleaned myKad number is exactly 12 digits\r\n    return cleanedMyKad.length === 12 && !isNaN(cleanedMyKad);\r\n}\r\n\r\nlet isStringNum = isValidMyKad(idNumber);\r\n\r\nfunction isValidDateOfBirth(dob) {\r\n    // Define a regex pattern for the \"day-month-year\" format\r\n    const pattern = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2]|JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC|1[0-2])-(\\d{4}|\\d{2})$/i;\r\n\r\n    // Check if the dob matches the pattern\r\n    if (!pattern.test(dob)) {\r\n        return false;\r\n    }\r\n\r\n    // Split the dob into components\r\n    const [day, month, year] = dob.split('-');\r\n\r\n    // Check if the day is valid for the month\r\n    const monthIndex = month.toUpperCase() === 'JAN' ? 0 :\r\n                       month.toUpperCase() === 'FEB' ? 1 :\r\n                       month.toUpperCase() === 'MAR' ? 2 :\r\n                       month.toUpperCase() === 'APR' ? 3 :\r\n                       month.toUpperCase() === 'MAY' ? 4 :\r\n                       month.toUpperCase() === 'JUN' ? 5 :\r\n                       month.toUpperCase() === 'JUL' ? 6 :\r\n                       month.toUpperCase() === 'AUG' ? 7 :\r\n                       month.toUpperCase() === 'SEP' ? 8 :\r\n                       month.toUpperCase() === 'OCT' ? 9 :\r\n                       month.toUpperCase() === 'NOV' ? 10 :\r\n                       month.toUpperCase() === 'DEC' ? 11 : parseInt(month) - 1;\r\n\r\n    const yearValue = year.length === 2 ? parseInt(year) + 2000 : parseInt(year);\r\n\r\n    // Create a date object and check if it matches the input\r\n    const date = new Date(yearValue, monthIndex, day);\r\n    return date.getDate() === parseInt(day) && date.getMonth() === monthIndex && date.getFullYear() === yearValue;\r\n}\r\n\r\nlet isValidDoB = isValidDateOfBirth(birthday);\r\n\r\nlet idNum = processIdNumber(idNumber);\r\n\r\nfunction extractBirthdate(idCardNumber) {\r\n    if (!idCardNumber || idCardNumber.length < 6) {\r\n        throw new Error(\"Invalid idCardNumber provided\");\r\n    }\r\n    const year = idCardNumber.slice(0, 2);\r\n    const month = idCardNumber.slice(2, 4);\r\n    const day = idCardNumber.slice(4, 6);\r\n\r\n    const currentYear = new Date().getFullYear() % 100;\r\n    const fullYear = year <= currentYear ? `20${year}` : `19${year}`;\r\n\r\n    const birthdate = `${fullYear}-${month}-${day}`;\r\n\r\n    return birthdate;\r\n}\r\n\r\nfunction extractBirthday(birthday) {\r\n    let [day, month, year] = birthday.split(\"-\");\r\n\r\n    let monthToNumber;\r\n    const monthMap = {\r\n        \"JAN\": \"01\", \"FEB\": \"02\", \"MAR\": \"03\", \"APR\": \"04\", \"MAY\": \"05\",\r\n        \"JUN\": \"06\", \"JUL\": \"07\", \"AUG\": \"08\", \"SEP\": \"09\", \"OCT\": \"10\",\r\n        \"NOV\": \"11\", \"DEC\": \"12\"\r\n    };\r\n\r\n    if (month.length === 2) {\r\n        monthToNumber = month; // Use numeric month if it's already in that format\r\n    } else {\r\n        monthToNumber = monthMap[month.toUpperCase()];\r\n        if (!monthToNumber) {\r\n            throw new Error(\"Invalid month format\");\r\n        }\r\n    }\r\n\r\n    const shortYear = year.length === 4 ? year.slice(-2) : year;\r\n    const currentYearLastTwoDigits = new Date().getFullYear() % 100;\r\n    const fullYear = shortYear <= currentYearLastTwoDigits ? `20${shortYear}` : `19${shortYear}`;\r\n\r\n    const birthdate = `${fullYear}-${monthToNumber}-${day}`;\r\n\r\n    return birthdate;\r\n}\r\n\r\nfunction isMalaysian(nation) {\r\n    return String(nation).toLowerCase() === 'malaysia' || String(nation).toLowerCase() === 'malaysian';\r\n}\r\n\r\nlet birthDate;\r\n\r\nif (!isValidDoB && isStringNum) {\r\n    birthDate = extractBirthdate(idNumber); // Fixed: Use idNumber instead of idCardNumber\r\n} else if (isValidDoB) {\r\n    birthDate = extractBirthday(birthday);\r\n}\r\n\r\nfunction processIdNumber(idNumber) {\r\n    // Check if it contains a hyphen\r\n    if (idNumber.includes('-')) {\r\n        // Split by hyphen and join without it\r\n        const result = idNumber.split('-').join('');\r\n        return result;\r\n    }\r\n    return idNumber; // Return the original ID if no hyphen is present\r\n}\r\n\r\nlet jsonId;\r\n\r\nif (isStringNum && (isMalaysian(nation) || !isMalaysian(nation))) {\r\n    jsonId = {\r\n        \"use\": \"official\",\r\n        \"system\": \"http://fhir.hie.moh.gov.my/sid/my-kad-no\",\r\n        \"value\": idNum\r\n    };\r\n} else if (!isStringNum && (isMalaysian(nation) || !isMalaysian(nation))) {\r\n    jsonId = {\r\n        \"use\": \"official\",\r\n        \"system\": \"http://fhir.hie.moh.gov.my/sid/passport-no\",\r\n        \"value\": idNum\r\n    };\r\n}\r\n\r\nlet jsonstring = {\r\n    \"resourceType\": \"Bundle\",\r\n    \"type\": \"transaction\",\r\n    \"entry\": [\r\n        {\r\n            \"fullUrl\": \"https://veinscdr.mhnexus.com/baseR4/Patient\",\r\n            \"request\": {\r\n                \"method\": \"POST\"\r\n            },\r\n            \"resource\": {\r\n                \"resourceType\": \"Patient\",\r\n                \"meta\": {\r\n                    \"source\": \"http://provider.hie.moh.gov.my\",\r\n                    \"profile\": [\r\n                        \"http://fhir.hie.moh.gov.my/StructureDefinition/Patient-my-core\"\r\n                    ]\r\n                },\r\n                \"identifier\": [\r\n                    jsonId\r\n                ],\r\n                \"active\": true,\r\n                \"name\": [\r\n                    {\r\n                        \"use\": \"official\",\r\n                        \"text\": patientName,\r\n                        \"given\": [\r\n                            patientName\r\n                        ]\r\n                    }\r\n                ],\r\n                \"gender\": gender,\r\n                \"birthDate\": birthDate,\r\n                \"managingOrganization\": {\r\n                    \"reference\": managingOrganization\r\n                }\r\n            }\r\n        }\r\n    ]\r\n};\r\n\r\njsonstring = JSON.stringify(jsonstring);\r\n"
+                                      - setBody:
+                                          id: setBody-a138
+                                          expression:
+                                            simple:
+                                              id: simple-ad71
+                                              expression: ${exchangeProperty.payload}
+                                      - process:
+                                          id: process-4d87
+                                          ref: GetIdNumberProcessor
+                                      - choice:
+                                          id: choice-57fa
+                                          when:
+                                            - id: when-a903
+                                              expression:
+                                                simple:
+                                                  id: simple-091e
+                                                  expression: ${header.total} == 0
+                                              steps:
+                                                - setBody:
+                                                    id: setBody-f5fb
+                                                    expression:
+                                                      simple:
+                                                        id: simple-4c51
+                                                        expression: "1"
+                                                - stop:
+                                                    id: stop-eded
+                                          otherwise:
+                                            id: otherwise-5549
+                                            steps:
+                                              - setProperty:
+                                                  id: setProperty-9b18
+                                                  name: idGet
+                                                  expression:
+                                                    simple:
+                                                      id: simple-8d32
+                                                      expression: Patient/${body[entry][0][resource][id]}
+                                              - setBody:
+                                                  id: setBody-6dca
+                                                  expression:
+                                                    simple:
+                                                      id: simple-13d0
+                                                      expression: ${exchangeProperty.idGet}
+                                              - stop:
+                                                  id: stop-b31e
         - setBody:
             id: setBody-6f57
             expression:
