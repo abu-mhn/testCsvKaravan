@@ -11,15 +11,13 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
-@Component("FhirPostProcessor")
-public class FhirPostProcessor implements Processor {
+@Component("FhirPostJsonProcessor")
+public class FhirPostJsonProcessor implements Processor {
 
     private static final String URL = "https://veinscdr.mhnexus.com/baseR4/";
     private static final MediaType JSON = MediaType.parse("application/fhir+json");
@@ -53,7 +51,7 @@ public class FhirPostProcessor implements Processor {
             if (!response.isSuccessful()) {
                 // Handle error response
                 String responseBody = response.body() != null ? response.body().string() : "No response body";
-                
+
                 ObjectMapper objectMapper = new ObjectMapper();
                 JsonNode responseJson = objectMapper.readTree(responseBody);
                 JsonNode diagnosticsNode = responseJson.path("issue").get(0).path("diagnostics");
@@ -63,29 +61,9 @@ public class FhirPostProcessor implements Processor {
                 exchange.getIn().setBody(errorMessage);
                 exchange.getIn().setHeader(Exchange.HTTP_RESPONSE_CODE, response.code());
             } else {
-                // Parse the response body to extract the 'total' field
+                // Simply return the full FHIR response body for a successful response
                 String responseBody = response.body() != null ? response.body().string() : "{}";
-                ObjectMapper objectMapper = new ObjectMapper();
-                JsonNode responseJson = objectMapper.readTree(responseBody);
-                int total = responseJson.path("total").asInt(0); // Default to 0 if 'total' is missing
-
-                if (total == 0) {
-                    // If total is 0, return the original FHIR response
-                    exchange.getIn().setBody(responseBody);
-                } else if (total > 0) {
-                    // If total is more than 0, return the default success message
-                    String timestamp = generateTimestamp();
-                    String successMessage = String.format(
-                        "{\n" +
-                        "  \"details\": \"Data Captured from kiosk system\",\n" +
-                        "  \"errorMessage\": \"\",\n" +
-                        "  \"statusCode\": \"OK\",\n" +
-                        "  \"timeStamp\": \"%s\"\n" +
-                        "}", timestamp);
-
-                    exchange.getIn().setBody(successMessage);
-                }
-
+                exchange.getIn().setBody(responseBody);
                 exchange.getIn().setHeader(Exchange.HTTP_RESPONSE_CODE, 200); // OK
             }
         } catch (IOException e) {
