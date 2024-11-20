@@ -2973,3 +2973,9 @@
               simple:
                 id: simple-0bf8
                 expression: ${exchangeProperty.responseCode}
+        - removeHeaders:
+            id: removeHeaders-7e30
+            pattern: X-Kiosk-Client-*
+        - removeHeader:
+            id: removeHeader-534d
+            name: total
