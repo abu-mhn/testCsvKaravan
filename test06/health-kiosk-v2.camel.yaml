@@ -37,6 +37,20 @@
               simple:
                 id: simple-a68f
                 expression: ${exchangeProperty.payload}
+        - setProperty:
+            id: setProperty-ae3e
+            name: validClientId
+            expression:
+              simple:
+                id: simple-436a
+                expression: "{{valid.clientId}}"
+        - setProperty:
+            id: setProperty-8394
+            name: validClientApiKey
+            expression:
+              simple:
+                id: simple-8fe4
+                expression: "{{valid.clientApiKey}}"
         - process:
             id: process-cf18
             ref: AuthorizationProcessor
