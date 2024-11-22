@@ -1,0 +1,728 @@
+- rest:
+    id: rest-c130
+    post:
+      - id: post-ace2
+        path: /{endpoint}
+        to: direct:eccs-api-route
+- route:
+    id: route-2c2e
+    nodePrefixId: route-ac1
+    from:
+      id: from-8ea6
+      uri: direct
+      parameters:
+        name: eccs-api-route
+      steps:
+        - setProperty:
+            id: setProperty-4d9b
+            name: payloadBody
+            expression:
+              simple:
+                id: simple-eca5
+                expression: ${body}
+        - unmarshal:
+            id: unmarshal-6ef2
+            json:
+              id: json-9ffa
+        - setHeader:
+            id: setHeader-6e28
+            name: Authorization
+            expression:
+              simple:
+                id: simple-2eee
+                expression: bearer {{bearer.token}}
+        - setBody:
+            id: setBody-ffe9
+            expression:
+              simple:
+                id: simple-e95f
+                expression: |-
+                  { 
+                      "pstUsrID": "STtuKs2LoZtR9KpaqI5DxQ==",
+                      "pstPassword": "vTFhyoo1EMMy/gZn29b3OA==",
+                      "pstProvidercode": "GPSEL1334",
+                      "pstAppID": "nPc6+IrS8o4gDX5ISFkEsOxW/9uJvLzY/LMMi2gOi4I="
+                  }
+        - setProperty:
+            id: setProperty-7d52
+            name: urlAccessToken
+            expression:
+              simple:
+                id: simple-19cc
+                expression: "{{url.accessToken}}"
+        - process:
+            id: process-6122
+            ref: AccessToken
+        - unmarshal:
+            id: unmarshal-4f79
+            json:
+              id: json-de14
+        - setHeader:
+            id: setHeader-7742
+            name: Authorization
+            expression:
+              simple:
+                id: simple-b54b
+                expression: bearer ${body[Token][0][Token]}
+        - setBody:
+            id: setBody-8c1c
+            expression:
+              simple:
+                id: simple-10e2
+                expression: ${exchangeProperty.payloadBody}
+        - unmarshal:
+            id: unmarshal-b09d
+            json:
+              id: json-dcc6
+        - choice:
+            id: choice-b4dc
+            when:
+              - id: when-0053
+                expression:
+                  simple:
+                    id: simple-60bb
+                    expression: ${header.endpoint} == 'PostMemberData'
+                steps:
+                  - setBody:
+                      id: setBody-1dcb
+                      expression:
+                        simple:
+                          id: simple-9043
+                          expression: |-
+                            { 
+                                "pstName": "${body[entry][1][resource][parameter][0][part][0][valueString]}",
+                                "pstNric": "${body[entry][1][resource][parameter][0][part][1][valueString]}",
+                                "pstCardno": "${body[entry][1][resource][parameter][0][part][2][valueString]}",
+                                "pstStaffId": "${body[entry][1][resource][parameter][0][part][3][valueString]}",
+                                "pstProvidercode":"${body[entry][1][resource][parameter][0][part][4][valueString]}"
+                            }
+              - id: when-dd63
+                expression:
+                  simple:
+                    id: simple-7c3e
+                    expression: ${header.endpoint} == 'PostEligilbilityVerification'
+                steps:
+                  - setBody:
+                      id: setBody-2f06
+                      expression:
+                        simple:
+                          id: simple-665b
+                          expression: |-
+                            {
+                              "pstCardNo":"${body[entry][1][resource][parameter][0][part][0][valueString]}",
+                              "pstProvidercode":"${body[entry][1][resource][parameter][0][part][1][valueString]}"
+                            }
+              - id: when-846f
+                expression:
+                  simple:
+                    id: simple-2d22
+                    expression: ${header.endpoint} == 'PostBillingSummary'
+                steps:
+                  - setBody:
+                      id: setBody-145b
+                      expression:
+                        js:
+                          id: js-7f80
+                          expression: "const formatDate = new Intl.DateTimeFormat(\"en-GB\", {\r\n  day: \"2-digit\",\r\n  month: \"2-digit\",\r\n  year: \"numeric\"\r\n});\r\n\r\nlet jsonstring = {\r\n  pstCardno: body.entry[1].resource.parameter[0].resource.patient.display,\r\n  pstProvidercode: body.entry[1].resource.parameter[0].resource.provider.display,\r\n  pstVisitdate: \"2023-05-28\", // Default date in case visitdt is invalid\r\n  pstDiagnosis1: \"\",\r\n  pstDiagnosis2: \"\",\r\n  pstDiagnosis3: \"\",\r\n  pstDiagnosis4: \"\",\r\n  pstDiagnosis5: \"\",\r\n  pstDiagnosis6: \"\",\r\n  pstDiagnosis7: \"\",\r\n  pstDiagnosis8: \"\",\r\n  pstDiagnosis9: \"\",\r\n  pstDiagnosis10: \"\",\r\n  pstBen34TotalAmt: \"\",\r\n  pstBen35TotalAmt: \"\",\r\n  pstBen36TotalAmt: \"\",\r\n  pstBen37TotalAmt: \"\",\r\n  pstBen38TotalAmt: \"\",\r\n  pstMcDays: \"0\",\r\n  pstMcStartDt: \"\",\r\n  pstMcEndDt: \"\",\r\n  pstReferral: \"\",\r\n  pstReferralProvider: \"\",\r\n  pstReferralSpeciality: \"\",\r\n  pstReferralReason: \"\",\r\n  pstTotalBillAmt: body.entry[1].resource.parameter[0].resource.total.value,\r\n  pstClaimId: \"\"\r\n};\r\n\r\n// Extracting visit date and validating it\r\nlet visitdt = body.entry[1].resource.parameter[0].resource.supportingInfo.timeDate;\r\n\r\n// Check if visitdt is valid\r\nif (!visitdt || isNaN(new Date(visitdt))) {\r\n  jsonstring.pstVisitdate = \"\"; // Set to empty or handle gracefully if invalid\r\n} else {\r\n  try {\r\n    // Format the date if it's valid\r\n    jsonstring.pstVisitdate = formatDate.format(new Date(visitdt));\r\n  } catch (error) {\r\n    console.error(\"Error formatting date:\", error);\r\n    jsonstring.pstVisitdate = \"\"; // Set to empty or handle gracefully if an error occurs\r\n  }\r\n}\r\n\r\n// Loop to process diagnosis codes\r\nfor (let i = 0; i < body.entry[1].resource.parameter[0].resource.diagnosis.length; i++) {\r\n  const code = body.entry[1].resource.parameter[0].resource.diagnosis[i].diagnosisCodeableConcept.coding[0].code;\r\n  jsonstring[`pstDiagnosis${i + 1}`] = code;\r\n}\r\n\r\n// Loop to process item codes and amounts\r\nfor (let j = 0; j < body.entry[1].resource.parameter[0].resource.item.length; j++) {\r\n  let code = body.entry[1].resource.parameter[0].resource.item[j].productOrService.coding[0].code;\r\n  let value = body.entry[1].resource.parameter[0].resource.item[j].unitPrice.value;\r\n\r\n  // Assign the total amount based on the code\r\n  if (code === \"34\") {\r\n    jsonstring.pstBen34TotalAmt = value;\r\n  } else if (code === \"35\") {\r\n    jsonstring.pstBen35TotalAmt = value;\r\n  } else if (code === \"36\") {\r\n    jsonstring.pstBen36TotalAmt = value;\r\n  } else if (code === \"37\") {\r\n    jsonstring.pstBen37TotalAmt = value;\r\n  } else if (code === \"38\") {\r\n    jsonstring.pstBen38TotalAmt = value;\r\n  }\r\n}\r\n\r\n// Convert the jsonstring object to JSON format\r\njsonstring = JSON.stringify(jsonstring);\r\n"
+              - id: when-3c12
+                expression:
+                  simple:
+                    id: simple-f6e1
+                    expression: ${header.endpoint} == 'PostBillingDetail'
+                steps:
+                  - setBody:
+                      id: setBody-b904
+                      expression:
+                        js:
+                          id: js-a06c
+                          expression: "let jsonstring = {\r\n  ClaimDetails: [],\r\n  pstClaimId: body.entry[1].resource.parameter[1].value,\r\n  pstRefTrxNo: body.entry[1].resource.parameter[2].value\r\n};\r\n\r\nfor (let i = 0; i < body.entry[1].resource.parameter[0].part.length; i++) {\r\n  let detailstrg = {\r\n    _id: body.entry[1].resource.parameter[0].part[i].part[0].value,\r\n    pstBenCd: body.entry[1].resource.parameter[0].part[i].part[1].value,\r\n    pstItemCd: body.entry[1].resource.parameter[0].part[i].part[2].value,\r\n    pstItemDesc: body.entry[1].resource.parameter[0].part[i].part[3].value,\r\n    pstQty: body.entry[1].resource.parameter[0].part[i].part[4].value,\r\n    pstGrossAmt: body.entry[1].resource.parameter[0].part[i].part[5].value,\r\n    pstDiscAmt: body.entry[1].resource.parameter[0].part[i].part[6].value,\r\n    pstTaxAmt: body.entry[1].resource.parameter[0].part[i].part[7].value,\r\n    pstNetAmt: body.entry[1].resource.parameter[0].part[i].part[8].value,\r\n    pstFrequency: body.entry[1].resource.parameter[0].part[i].part[9].value,\r\n    pstMedicationDays: body.entry[1].resource.parameter[0].part[i].part[10].value,\r\n    pstDosePerDay: body.entry[1].resource.parameter[0].part[i].part[11].value,\r\n    pstDoseUnit: body.entry[1].resource.parameter[0].part[i].part[12].value,\r\n    pstRemarks: body.entry[1].resource.parameter[0].part[i].part[13].value\r\n  }\r\n  jsonstring.ClaimDetails.push(detailstrg);\r\n}\r\n\r\njsonstring = JSON.stringify(jsonstring);"
+                  - unmarshal:
+                      id: unmarshal-329f
+                      json:
+                        id: json-4b90
+                  - marshal:
+                      id: marshal-7f70
+                      json:
+                        id: json-52a5
+              - id: when-3b98
+                expression:
+                  simple:
+                    id: simple-3d62
+                    expression: ${header.endpoint} == 'CancelClaim'
+                steps:
+                  - setBody:
+                      id: setBody-e715
+                      expression:
+                        simple:
+                          id: simple-b8ec
+                          expression: |-
+                            {
+                                "pstClaimId": "${body[entry][1][resource][parameter][0][part][0][valueString]}"
+                            }
+            otherwise:
+              id: otherwise-b6f4
+              steps:
+                - setBody:
+                    id: setBody-aad2
+                    expression:
+                      simple:
+                        id: simple-04f0
+                        expression: fail
+                - stop:
+                    id: stop-3f77
+        - to:
+            id: to-c878
+            uri: http
+            parameters:
+              httpUri: "{{url.main}}"
+              bridgeEndpoint: true
+              throwExceptionOnFailure: false
+        - log:
+            id: log-ca94
+            message: ${body}
+        - choice:
+            id: choice-6767
+            when:
+              - id: when-06dc
+                expression:
+                  simple:
+                    id: simple-f4cd
+                    expression: ${header.CamelHttpResponseCode} != 200
+                steps:
+                  - log:
+                      id: log-d4ba
+                      message: ${body}
+              - id: when-17aa
+                expression:
+                  simple:
+                    id: simple-11f7
+                    expression: ${header.CamelHttpResponseCode} == 200
+                steps:
+                  - unmarshal:
+                      id: unmarshal-e0d1
+                      json:
+                        id: json-efb5
+                  - choice:
+                      id: choice-941b
+                      when:
+                        - id: when-5111
+                          expression:
+                            simple:
+                              id: simple-6ad6
+                              expression: ${header.endpoint} == 'PostMemberData'
+                          steps:
+                            - setBody:
+                                id: setBody-65db
+                                expression:
+                                  js:
+                                    id: js-e53a
+                                    expression: |-
+                                      var claimsResponObj;
+                                      var messageHeaderObj =
+                                      {
+                                          "fullUrl": "urn:uuid:267b18ce-3d37-4581-9baa-6fada338038b",
+                                          "resource": {
+                                              "resourceType": "MessageHeader",
+                                              "eventCoding": {
+                                                  "code": "getMemberData"
+                                              },
+                                             "destination": [
+                                                          {
+                                                              "endpoint": "https://medilinkuat.medibridgeasia.tech/EccsProviderApi/api/clinic/PostMemberData",
+                                                              "target":"",
+                                                              "receiver": {
+                                                                  "identifier": {
+                                                                      "type": {
+                                                                          "coding": [
+                                                                              {
+                                                                                  "code": "medilink",
+                                                                                  "display": "Medilink-Global(Asia)"
+                                                                              }
+                                                                          ]
+                                                                      }
+                                                                  }
+                                                              }
+                                                          }
+                                                      ],
+                                              "response": {
+                                                  "identifier": "efdd254b-0e09-4164-883e-35cf3871715f",
+                                                  "code": body.StatusCode,
+                                                  "details": {
+                                                      "display": body.Message
+                                                  }
+                                              },
+                                               "focus": [
+                                                          {
+                                                              "reference": "http://acme.com/ehr/fhir/,Parameter/member-req-para-001"
+                                                          }
+                                                      ]
+                                          }
+                                      }
+
+                                      var parameterObj = {};
+
+                                      if (body.MemberDetails !== null) {
+                                          parameterObj ={
+                                              "fullUrl": "https://veinscdr.mhnexus.com/baseR4/Parameter/member-req-para-001",
+                                                  "resource": {
+                                                      "resourceType": "Parameters",
+                                                      "parameter": [
+                                                          {
+                                                              "name": "StatusCode",
+                                                              "value": "200"
+                                                          },
+                                                          {
+                                                              "name": "Message",
+                                                              "value": ""
+                                                          },
+                                                          {
+                                                              "name": "MemberDetails",
+                                                              "part": [
+                                                                  {
+                                                                      "name": "Contract",
+                                                                      "resource": {
+                                                                          "resourceType": "Contract",
+                                                                          "id": "contract-example",
+                                                                          "identifier": [
+                                                                              {
+                                                                                  "type": "Nric",
+                                                                                  "value": body.MemberDetails[0].Nric
+                                                                              },
+                                                                              {
+                                                                                  "type": "CardNo",
+                                                                                  "value": body.MemberDetails[0].Cardno
+                                                                              },
+                                                                              {
+                                                                                  "type": "PayorMemberId",
+                                                                                  "value": body.MemberDetails[0].PayorMemberId
+                                                                              },
+                                                                              {
+                                                                                  "type": "PolicyNo",
+                                                                                  "value": body.MemberDetails[0].PolicyNo
+                                                                              }
+                                                                          ],
+                                                                          "applies":body.MemberDetails[0].PolicyStartDate,
+                                                                          "name": body.MemberDetails[0].Name,
+                                                                          "status": body.MemberDetails[0].EmployementStatus,
+                                                                          "legalState": {
+                                                                              "coding": {
+                                                                                  "code": body.MemberDetails[0].EligibilityStatus,
+                                                                                  "display": body.MemberDetails[0].EligibilityStatusDesc
+                                                                              },
+                                                                              "text": body.MemberDetails[0].Fdesc
+                                                                          },
+                                                                          "authority": [
+                                                                              {
+                                                                                  "identifier": {
+                                                                                      "type": "CorpCode",
+                                                                                      "value": body.MemberDetails[0].CorpCd,
+                                                                                      "display": body.MemberDetails[0].CorpCode
+                                                                                  }
+                                                                              }
+                                                                          ],
+                                                                          "author": {
+                                                                              "identifier": {
+                                                                                  "type": "PayorCode",
+                                                                                  "value": body.MemberDetails[0].PayorCode
+                                                                              }
+                                                                          },
+                                                                          "action":[{
+                                                                              "type":{
+                                                                                  "coding":[
+                                                                                      {   
+                                                                                          "code":"ActiveFlag",
+                                                                                          "display":body.MemberDetails[0].ActiveFlag
+                                                                                      }
+                                                                                  ]
+                                                                              }
+                                                                          },
+                                                                          {
+                                                                              "type":{
+                                                                                  "coding":[
+                                                                                      {
+                                                                                          "code":"Cancellation"
+                                                                                      }
+                                                                                  ],
+                                                                              },
+                                                                              "occurrence":{
+                                                                                  "occurrenceDateTime": body.MemberDetails[0].cancellationDate
+                                                                              }
+                                                                          }
+                                                                          ]
+                                                                      }
+                                                                  },
+                                                                   {
+                                                                      "name":"Relationship",
+                                                                      "value":body.MemberDetails[0].RelationShip
+                                                                  },
+                                                                   {
+                                                                      "name":"DateofBirth",
+                                                                      "value":body.MemberDetails[0].DateofBirth
+                                                                  },
+                                                                  {
+                                                                      "name":"Gender",
+                                                                      "value":body.MemberDetails[0].Gender
+                                                                  },
+                                                                  {
+                                                                      "name":"Department",
+                                                                      "value":body.MemberDetails[0].Department
+                                                                  },
+                                                                  {
+                                                                      "name":"Race",
+                                                                      "value":body.MemberDetails[0].Race
+                                                                  },
+                                                                  {
+                                                                      "name":"Position",
+                                                                      "value":body.MemberDetails[0].Position
+                                                                  },
+                                                                  {
+                                                                      "name":"Area",
+                                                                      "value":body.MemberDetails[0].Area
+                                                                  },
+                                                                  {
+                                                                      "name":"AreaDesc",
+                                                                      "value":body.MemberDetails[0].AreaDesc
+                                                                  },
+                                                                  {
+                                                                      "name":"EmploymentType",
+                                                                      "value":body.MemberDetails[0].EmploymentType
+                                                                  },
+                                                                   {
+                                                                      "name":"CostCenter",
+                                                                      "value":body.MemberDetails[0].CostCenter
+                                                                  },
+                                                                   {
+                                                                      "name":"EmploymentStatus",
+                                                                      "value":body.MemberDetails[0].EmploymentStatus
+                                                                  }
+                                                              ]
+                                                          }
+                                                      ]
+                                                  }
+                                          }
+                                      }   
+
+                                      var bundleObj = {
+                                          "resourceType": "Bundle",
+                                          "id": "bundle-req-0001",
+                                          "type": "message",
+                                          "timestamp": "2024-02-20T11:15:33+10:00",
+                                          "entry": []
+                                      }
+
+                                      bundleObj.entry.push(messageHeaderObj);
+                                      bundleObj.entry.push(parameterObj);
+
+                                      bundleObj = JSON.stringify(bundleObj);
+                        - id: when-6e0d
+                          expression:
+                            simple:
+                              id: simple-7c6d
+                              expression: >-
+                                ${header.endpoint} ==
+                                'PostEligilbilityVerification'
+                          steps:
+                            - setBody:
+                                id: setBody-80a0
+                                expression:
+                                  simple:
+                                    id: simple-640f
+                                    expression: |-
+                                      {
+                                          "resourceType": "Bundle",
+                                          "id": "bundle-req-0001",
+                                          "type": "message",
+                                          "timestamp": "2024-02-20T11:15:33+10:00",
+                                          "entry": [
+                                              {
+                                                  "fullUrl": "urn:uuid:267b18ce-3d37-4581-9baa-6fada338038b",
+                                                  "resource": {
+                                                      "resourceType": "MessageHeader",
+                                                      "eventCoding": {
+                                                          "system": "http://example.org/fhir/message-events",
+                                                          "code": "PostEligilbilityVerification"
+                                                      },
+                                                      "destination": [
+                                                          {
+                                                              "name": "Post Eligilbility Verification",
+                                                              "endpoint": "https://medilinkuat.medibridgeasia.tech/EccsProviderApi/api/clinic/PostEligilbilityVerification"
+                                                          }
+                                                      ],
+                                                      "source": {
+                                                          "endpoint": "https://medilinkuat.medibridgeasia.tech/EccsProviderApi/api/clinic/PostEligilbilityVerification"
+                                                      },
+                                                      "reason": {
+                                                          "coding": [
+                                                              {
+                                                                  "system": "http://terminology.hl7.org/CodeSystem/message-reasons-encounter",
+                                                                  "code": "PostEligilbilityVerification"
+                                                              }
+                                                          ]
+                                                      },
+                                                      "response": {
+                                                          "code": "${body[StatusCode]}",
+                                                          "details": {
+                                                              "display": "${body[Message]}"
+                                                          }
+                                                      },
+                                                      "focus": [
+                                                          {
+                                                              "reference": "http://acme.com/ehr/fhir/CoverageEligibilityResponse/covresp-001"
+                                                          }
+                                                      ]
+                                                  }
+                                              },
+                                           {
+                                                  "fullUrl": "http://acme.com/ehr/fhir/Parameter/req-para-001",
+                                                  "resource": {
+                                                      "resourceType": "Parameter",
+                                                      "id": "req-para-001",
+                                                      "parameter": [
+                                                          {
+                                                              "name": "responseParam",
+                                                              "part": [
+                                                                  {
+                                                                      "name": "ApprovalCode",
+                                                                      "valueString": "${body[VerifyMemberDetails][ApprovalCode]}"
+                                                                  },
+                                                                  {
+                                                                      "name": "Msgtxt",
+                                                                      "valueString": "${body[VerifyMemberDetails][Msgtext]}"
+                                                                  },
+                                                                  {
+                                                                      "name": "ClaimId",
+                                                                      "valueString": "${body[VerifyMemberDetails][ClaimId]}"
+                                                                  },
+                                                                  {
+                                                                      "name": "TrxRefNo",
+                                                                      "valueString": "${body[VerifyMemberDetails][TrxRefNo]}"
+                                                                  }
+                                                              ]
+                                                          }
+                                                      ]
+                                                  }
+                                              }
+                                          ]
+                                      }
+                        - id: when-e3d8
+                          expression:
+                            simple:
+                              id: simple-f56d
+                              expression: ${header.endpoint} == 'PostBillingSummary'
+                          steps:
+                            - setBody:
+                                id: setBody-1293
+                                expression:
+                                  js:
+                                    id: js-3579
+                                    expression: >-
+                                      // function getRandomClaimId() {
+
+                                      //     const min = 10000000; 
+
+                                      //     const max = 99999999; 
+
+                                      //     return Math.floor(Math.random() *
+                                      (max - min + 1)) + min;
+
+                                      // }
+
+
+                                      // let randomClaimId =
+                                      getRandomClaimId().toString();
+
+
+                                      let jsonstring ={
+                                          resourceType: "Bundle",
+                                          id: "bundle-req-0001",
+                                          type: "message",
+                                          timestamp: "2024-02-20T11:15:33+10:00",
+                                          entry: [
+                                              {
+                                                  fullUrl: "urn:uuid:267b18ce-3d37-4581-9baa-6fada338038b",
+                                                  resource: {
+                                                      resourceType: "MessageHeader",
+                                                      eventCoding: {
+                                                          system: "http://example.org/fhir/message-events",
+                                                          code: "accessToken"
+                                                      },
+                                                      destination: [
+                                                          {
+                                                              name: "Get Access Token",
+                                                              endpoint: "https://medilinkuat.medibridgeasia.tech/EccsProviderApi/api/clinic/GetAccessToken"
+                                                          }
+                                                      ],
+                                                      source: {
+                                                          endpoint: "https://medilinkuat.medibridgeasia.tech/EccsProviderApi/api/clinic/GetAccessToken"
+                                                      },
+                                                      reason: {
+                                                          coding: [
+                                                              {
+                                                                  system: "http://terminology.hl7.org/CodeSystem/message-reasons-encounter",
+                                                                  code: "getAccessToken"
+                                                              }
+                                                          ]
+                                                      },
+                                                      response: {
+                                                          identifier: "efdd254b-0e09-4164-883e-35cf3871715f",
+                                                          code: "ok",
+                                                          details: {
+                                                              reference: "OperationOutcome/03f9aa7d-b395-47b9-84e0-053678b6e4e3"
+                                                          }
+                                                      },
+                                                      focus: [
+                                                          {
+                                                              reference: "http://acme.com/ehr/fhir/Parameter/resp-para-001"
+                                                          }
+                                                      ]
+                                                  }
+                                              },
+                                              {
+                                                  fullUrl: "http://acme.com/ehr/fhir/Parameter/req-para-001",
+                                                  resource: {
+                                                      resourceType: "Parameter",
+                                                      id: "resp-para-001",
+                                                      parameter: [
+                                                           {
+                                                              name: "verifyMemberDetails",
+                                                              part: [
+                                                                  {
+                                                                      name: "ApprovalCode",
+                                                                      valueString: body.VerifyMemberDetails.ApprovalCode
+                                                                  },
+                                                                  {
+                                                                      name: "Msgtext",
+                                                                      valueString: body.VerifyMemberDetails.Msgtext
+                                                                  },
+                                                                  {
+                                                                      name: "ClaimId",
+                                                                      valueString: body.VerifyMemberDetails.ClaimId
+                                                                  },
+                                                                  {
+                                                                      name: "TrxRefNo",
+                                                                      valueString: body.VerifyMemberDetails.TrxRefNo
+                                                                  }
+                                                              ]
+                                                          }
+                                                      ]
+                                                  }
+                                              }
+                                          ]
+                                      }
+
+
+                                      jsonstring = JSON.stringify(jsonstring);
+                        - id: when-e725
+                          expression:
+                            simple:
+                              id: simple-fa2d
+                              expression: ${header.endpoint} == 'PostBillingDetail'
+                          steps:
+                            - setBody:
+                                id: setBody-aa19
+                                expression:
+                                  js:
+                                    id: js-f124
+                                    expression: "let jsonstring = {\n    \"resourceType\": \"Bundle\",\n    \"id\": \"bundle-req-0001\",\n    \"type\": \"message\",\n    \"timestamp\": \"2024-02-20T11:15:33+10:00\",\n    \"entry\": [\n        {\n            \"fullUrl\": \"urn:uuid:267b18ce-3d37-4581-9baa-6fada338038b\",\n            \"resource\": {\n                \"resourceType\": \"MessageHeader\",\n                \"eventCoding\": {\n                    \"system\": \"http://example.org/fhir/message-events\",\n                    \"code\": \"PostBillingDetail\"\n                },\n                \"destination\": [\n                    {\n                        \"name\": \"Submit GP Detail\",\n                        \"endpoint\": \"https://medilinkuat.medibridgeasia.tech/EccsProviderApi/api/clinic/PostBillingDetail\",\n                        \"target\": \"localhost:8081\",\n                        \"receiver\": {\n                            \"identifier\": {\n                                \"type\": {\n                                    \"coding\": [\n                                        {\n                                            \"code\": \"medilink\",\n                                            \"display\": \"Medilink-Global(Asia)\"\n                                        }\n                                    ]\n                                }\n                            }\n                        }\n                    }\n                ],\n                \"source\": {\n                    \"endpoint\": \"https://veinssso.mhnexus.com/\"\n                },\n                \"response\": {\n                    \"identifier\": \"efdd254b-0e09-4164-883e-35cf3871715f\",\n                    \"code\": \"ok\",\n                    \"details\": {\n                        \"reference\": \"OperationOutcome/03f9aa7d-b395-47b9-84e0-053678b6e4e3\"\n                    }\n                },\n                \"focus\": [\n                    {\n                        \"reference\": \"http://acme.com/ehr/fhir/Claims/claims-para-001\"\n                    }\n                ]\n            }\n        },\n        {\n            \"resource\": {\n                \"resourceType\": \"Parameters\",\n                \"parameter\": [\n                    {\n                        \"name\": \"StatusCode\",\n                        \"value\": body.StatusCode\n                    },\n                    {\n                        \"name\": \"Message\",\n                        \"value\": body.Message\n                    },\n                    {\n                        \"name\": \"BillingDetails\",\n                        \"part\": [\n                            {\n                                \"name\": \"Incurred\",\n                                \"value\": body.BillingDetails.Incurred\n                            },\n                            {\n                                \"name\": \"Approved\",\n                                \"value\": body.BillingDetails.Approved\n                            },\n                            {\n                                \"name\": \"NotApproved\",\n                                \"value\": body.BillingDetails.NotApproved\n                            },\n                            {\n                                \"name\": \"ClaimsAssessement\",\n                                \"resource\": {\n                                    \"resourceType\": \"ClaimResponse\",\n                                    \"id\": \"100150\",\n                                    \"identifier\": \"60594001\",\n                                    \"status\": \"active\",\n                                    \"type\": {\n                                        \"coding\": [\n                                            {\n                                                \"system\": \"http://terminology.hl7.org/CodeSystem/claim-type\",\n                                                \"code\": \"institutional\"\n                                            }\n                                        ]\n                                    },\n                                    \"use\": \"claim\",\n                                    \"patient\": {\n                                        \"type\": \"Patient\",\n                                        \"display\": \"8000145903285498\"\n                                    },\n                                    \"created\": \"2024-02-01\",\n                                    \"insurer\": {\n                                        \"reference\": \"Organization/2\"\n                                    },\n                                    \"provider\": {\n                                        \"type\": \"Provider\",\n                                        \"display\": \"GPSEL1334\"\n                                    },\n                                    \"requestor\": {\n                                        \"reference\": \"Organization/1\",\n                                        \"type\": \"organization\",\n                                        \"display\": \"\"\n                                    },\n                                    \"request\": {\n                                        \"type\": \"claims\",\n                                        \"display\": \"60594001\"\n                                    },\n                                    \"outcome\": \"complete\",\n                                    \"addItem\": [\n                                        {\n                                            \"itemSequence\": \"1\",\n                                            \"productOrService\": {\n                                                \"coding\": [\n                                                    {\n                                                        \"system\": \"http://example.org/fhir/benefitCode\",\n                                                        \"code\": \"34\",\n                                                        \"text\": body.BillingDetails.ClaimsAssessment.Ben34.Description\n                                                    }\n                                                ]\n                                            },\n                                            \"unitPrice\": {\n                                                \"value\": 10.00,\n                                                \"currency\": \"RM\"\n                                            },\n                                            \"net\": {\n                                                \"value\": 10.00,\n                                                \"currency\": \"RM\"\n                                            },\n                                            \"adjudication\": [\n                                                {\n                                                    \"category\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"code\": \"incurred\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"amount\": {\n                                                        \"value\": body.BillingDetails.ClaimsAssessment.Ben34.Incurred,\n                                                        \"currency\": \"RM\"\n                                                    }\n                                                },\n                                                {\n                                                    \"category\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"code\": \"approved\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"amount\": {\n                                                        \"value\": body.BillingDetails.ClaimsAssessment.Ben34.Approved,\n                                                        \"currency\": \"RM\"\n                                                    }\n                                                },\n                                                {\n                                                    \"category\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"code\": \"notApproved\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"amount\": {\n                                                        \"value\": body.BillingDetails.ClaimsAssessment.Ben34.NotApproved,\n                                                        \"currency\": \"RM\"\n                                                    }\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"itemSequence\": \"2\",\n                                            \"productOrService\": {\n                                                \"coding\": [\n                                                    {\n                                                        \"system\": \"http://example.org/fhir/benefitCode\",\n                                                        \"code\": \"35\",\n                                                        \"text\": \"Medication\"\n                                                    }\n                                                ]\n                                            },\n                                            \"adjudication\": [\n                                                {\n                                                    \"category\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"code\": \"inccurred\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"amount\": {\n                                                        \"value\": 20.00,\n                                                        \"currency\": \"RM\"\n                                                    }\n                                                },\n                                                {\n                                                    \"category\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"code\": \"approved\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"amount\": {\n                                                        \"value\": 20.00,\n                                                        \"currency\": \"RM\"\n                                                    }\n                                                },\n                                                {\n                                                    \"category\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"code\": \"notApproved\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"amount\": {\n                                                        \"value\": 0.00,\n                                                        \"currency\": \"RM\"\n                                                    }\n                                                }\n                                            ],\n                                            \"detail\": [\n                                                {\n                                                    \"detailSequence\": 1,\n                                                    \"productOrService\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"system\": \"http://example.org/fhir/drugCode\",\n                                                                \"code\": \"MED7975\",\n                                                                \"text\": \"PANADOL\_COLD\_AND\_FLU\_CAPLETS\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"adjudication\": [\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"netAmt\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 10.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        },\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"approvedAmt\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 10.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        },\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"notApprovedAm\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 0.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        }\n                                                    ]\n                                                },\n                                                {\n                                                    \"detailSequence\": 2,\n                                                    \"productOrService\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"system\": \"http://example.org/fhir/drugCode\",\n                                                                \"code\": \"MED4197\",\n                                                                \"text\": \"POLARAX\_TABLET\_2MG\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"adjudication\": [\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"netAmt\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 10.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        },\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"approvedAmt\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 10.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        },\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"notApprovedAm\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 0.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        }\n                                                    ]\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"itemSequence\": \"3\",\n                                            \"productOrService\": {\n                                                \"coding\": [\n                                                    {\n                                                        \"system\": \"http://example.org/fhir/benefitCode\",\n                                                        \"code\": \"36\",\n                                                        \"text\": \"Injection\"\n                                                    }\n                                                ]\n                                            },\n                                            \"adjudication\": [\n                                                {\n                                                    \"category\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"code\": \"inccurred\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"amount\": {\n                                                        \"value\": 10.00,\n                                                        \"currency\": \"RM\"\n                                                    }\n                                                },\n                                                {\n                                                    \"category\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"code\": \"approved\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"amount\": {\n                                                        \"value\": 10.00,\n                                                        \"currency\": \"RM\"\n                                                    }\n                                                },\n                                                {\n                                                    \"category\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"code\": \"notApproved\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"amount\": {\n                                                        \"value\": 0.00,\n                                                        \"currency\": \"RM\"\n                                                    }\n                                                }\n                                            ],\n                                            \"detail\": [\n                                                {\n                                                    \"detailSequence\": 1,\n                                                    \"productOrService\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"system\": \"http://example.org/fhir/serviceCode\",\n                                                                \"code\": \"INJ0031\",\n                                                                \"text\": \"GENTAMICIN\_INJECTION\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"adjudication\": [\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"netAmt\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 5.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        },\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"approvedAmt\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 5.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        },\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"notApprovedAm\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 0.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        }\n                                                    ]\n                                                },\n                                                {\n                                                    \"detailSequence\": 2,\n                                                    \"productOrService\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"system\": \"http://example.org/fhir/serviceCode\",\n                                                                \"code\": \"INJ0049\",\n                                                                \"text\": \"KANAMYCIN\_1GM\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"adjudication\": [\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"netAmt\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 5.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        },\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"approvedAmt\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 5.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        },\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"notApprovedAm\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 0.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        }\n                                                    ]\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"itemSequence\": \"4\",\n                                            \"productOrService\": {\n                                                \"coding\": [\n                                                    {\n                                                        \"system\": \"http://example.org/fhir/benefitCode\",\n                                                        \"code\": \"37\",\n                                                        \"text\": \"Investigation\"\n                                                    }\n                                                ]\n                                            },\n                                            \"adjudication\": [\n                                                {\n                                                    \"category\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"code\": \"inccurred\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"amount\": {\n                                                        \"value\": 5.00,\n                                                        \"currency\": \"RM\"\n                                                    }\n                                                },\n                                                {\n                                                    \"category\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"code\": \"approved\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"amount\": {\n                                                        \"value\": 5.00,\n                                                        \"currency\": \"RM\"\n                                                    }\n                                                },\n                                                {\n                                                    \"category\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"code\": \"notApproved\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"amount\": {\n                                                        \"value\": 0.00,\n                                                        \"currency\": \"RM\"\n                                                    }\n                                                }\n                                            ],\n                                            \"detail\": [\n                                                {\n                                                    \"detailSequence\": 1,\n                                                    \"productOrService\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"system\": \"http://example.org/fhir/serviceCode\",\n                                                                \"code\": \"INX0066\",\n                                                                \"text\": \"FULL BLOOD COUNT\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"adjudication\": [\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"netAmt\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 5.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        },\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"approvedAmt\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 5.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        },\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"notApprovedAm\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 0.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        }\n                                                    ]\n                                                },\n                                                {\n                                                    \"detailSequence\": 2,\n                                                    \"productOrService\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"system\": \"http://example.org/fhir/serviceCode\",\n                                                                \"code\": \"INX0104\",\n                                                                \"text\": \"PLATELET COUNT\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"adjudication\": [\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"netAmt\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 5.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        },\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"approvedAmt\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 5.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        },\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"notApprovedAm\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 0.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        }\n                                                    ]\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"itemSequence\": \"5\",\n                                            \"productOrService\": {\n                                                \"coding\": [\n                                                    {\n                                                        \"system\": \"http://example.org/fhir/benefitCode\",\n                                                        \"code\": \"38\",\n                                                        \"text\": \"Procedure\"\n                                                    }\n                                                ]\n                                            },\n                                            \"adjudication\": [\n                                                {\n                                                    \"category\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"code\": \"inccurred\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"amount\": {\n                                                        \"value\": 5.00,\n                                                        \"currency\": \"RM\"\n                                                    }\n                                                },\n                                                {\n                                                    \"category\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"code\": \"approved\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"amount\": {\n                                                        \"value\": 5.00,\n                                                        \"currency\": \"RM\"\n                                                    }\n                                                },\n                                                {\n                                                    \"category\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"code\": \"notApproved\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"amount\": {\n                                                        \"value\": 0.00,\n                                                        \"currency\": \"RM\"\n                                                    }\n                                                }\n                                            ],\n                                            \"detail\": [\n                                                {\n                                                    \"detailSequence\": 1,\n                                                    \"productOrService\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"system\": \"http://example.org/fhir/serviceCode\",\n                                                                \"code\": \"PRO0012\",\n                                                                \"text\": \"DRESSING\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"adjudication\": [\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"netAmt\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 5.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        },\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"approvedAmt\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 5.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        },\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"notApprovedAm\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 0.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        }\n                                                    ]\n                                                },\n                                                {\n                                                    \"detailSequence\": 2,\n                                                    \"productOrService\": {\n                                                        \"coding\": [\n                                                            {\n                                                                \"system\": \"http://example.org/fhir/serviceCode\",\n                                                                \"code\": \"PRO0002\",\n                                                                \"text\": \"AEROCHAMBER\"\n                                                            }\n                                                        ]\n                                                    },\n                                                    \"adjudication\": [\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"netAmt\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 5.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        },\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"approvedAmt\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 0.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        },\n                                                        {\n                                                            \"category\": {\n                                                                \"coding\": [\n                                                                    {\n                                                                        \"code\": \"notApprovedAm\"\n                                                                    }\n                                                                ]\n                                                            },\n                                                            \"amount\": {\n                                                                \"value\": 5.00,\n                                                                \"currency\": \"RM\"\n                                                            }\n                                                        }\n                                                    ]\n                                                }\n                                            ]\n                                        }\n                                    ],\n                                    \"adjudication\": [\n                                        {\n                                            \"category\": {\n                                                \"coding\": [\n                                                    {\n                                                        \"code\": \"inccurred\"\n                                                    }\n                                                ]\n                                            },\n                                            \"amount\": {\n                                                \"value\": 50.00,\n                                                \"currency\": \"RM\"\n                                            }\n                                        },\n                                        {\n                                            \"category\": {\n                                                \"coding\": [\n                                                    {\n                                                        \"code\": \"approved\"\n                                                    }\n                                                ]\n                                            },\n                                            \"amount\": {\n                                                \"value\": 50.00,\n                                                \"currency\": \"RM\"\n                                            }\n                                        },\n                                        {\n                                            \"category\": {\n                                                \"coding\": [\n                                                    {\n                                                        \"code\": \"notApproved\"\n                                                    }\n                                                ]\n                                            },\n                                            \"amount\": {\n                                                \"value\": 0.00,\n                                                \"currency\": \"RM\"\n                                            }\n                                        }\n                                    ]\n                                }\n                            }\n                        ]\n                    }\n                ]\n            }\n        },\n        {\n            \"fullUrl\": \"http://acme.com/ehr/fhir/Parameter/claims-para-001\",\n            \"resource\": {\n                \"resourceType\": \"ClaimResponse\",\n                \"id\": \"100150\",\n                \"identifier\": \"60594001\",\n                \"status\": \"active\",\n                \"type\": {\n                    \"coding\": [\n                        {\n                            \"system\": \"http://terminology.hl7.org/CodeSystem/claim-type\",\n                            \"code\": \"institutional\"\n                        }\n                    ]\n                },\n                \"use\": \"claim\",\n                \"patient\": {\n                    \"type\": \"Patient\",\n                    \"display\": \"8000145903285498\"\n                },\n                \"created\": \"2024-02-01\",\n                \"insurer\": {\n                    \"reference\": \"Organization/2\"\n                },\n                \"provider\": {\n                    \"type\": \"Provider\",\n                    \"display\": \"GPSEL1334\"\n                },\n                \"requestor\": {\n                    \"reference\": \"Organization/1\",\n                    \"type\": \"organization\",\n                    \"display\": \"\"\n                },\n                \"request\": {\n                    \"type\": \"claims\",\n                    \"display\": \"60594001\"\n                },\n                \"outcome\": \"complete\",\n                \"disposition\": \"Claim settled as per contract.\",\n                \"payeeType\": {\n                    \"coding\": [\n                        {\n                            \"system\": \"http://terminology.hl7.org/CodeSystem/payeetype\",\n                            \"code\": \"provider\"\n                        }\n                    ]\n                },\n                \"addItem\": [\n                    {\n                        \"itemSequence\": \"1\",\n                        \"productOrService\": {\n                            \"coding\": [\n                                {\n                                    \"system\": \"http://example.org/fhir/benefitCode\",\n                                    \"code\": \"34\",\n                                    \"text\": \"Consultation\"\n                                }\n                            ]\n                        },\n                        \"unitPrice\": {\n                            \"value\": 10.00,\n                            \"currency\": \"RM\"\n                        },\n                        \"net\": {\n                            \"value\": 10.00,\n                            \"currency\": \"RM\"\n                        },\n                        \"adjudication\": [\n                            {\n                                \"category\": {\n                                    \"coding\": [\n                                        {\n                                            \"code\": \"inccurred\"\n                                        }\n                                    ]\n                                },\n                                \"amount\": {\n                                    \"value\": 10.00,\n                                    \"currency\": \"RM\"\n                                }\n                            },\n                            {\n                                \"category\": {\n                                    \"coding\": [\n                                        {\n                                            \"code\": \"approved\"\n                                        }\n                                    ]\n                                },\n                                \"amount\": {\n                                    \"value\": 10.00,\n                                    \"currency\": \"RM\"\n                                }\n                            },\n                            {\n                                \"category\": {\n                                    \"coding\": [\n                                        {\n                                            \"code\": \"notApproved\"\n                                        }\n                                    ]\n                                },\n                                \"amount\": {\n                                    \"value\": 0.00,\n                                    \"currency\": \"RM\"\n                                }\n                            }\n                        ]\n                    },\n                    {\n                        \"itemSequence\": \"2\",\n                        \"productOrService\": {\n                            \"coding\": [\n                                {\n                                    \"system\": \"http://example.org/fhir/benefitCode\",\n                                    \"code\": \"35\",\n                                    \"text\": \"Medication\"\n                                }\n                            ]\n                        },\n                        \"adjudication\": [\n                            {\n                                \"category\": {\n                                    \"coding\": [\n                                        {\n                                            \"code\": \"inccurred\"\n                                        }\n                                    ]\n                                },\n                                \"amount\": {\n                                    \"value\": 20.00,\n                                    \"currency\": \"RM\"\n                                }\n                            },\n                            {\n                                \"category\": {\n                                    \"coding\": [\n                                        {\n                                            \"code\": \"approved\"\n                                        }\n                                    ]\n                                },\n                                \"amount\": {\n                                    \"value\": 20.00,\n                                    \"currency\": \"RM\"\n                                }\n                            },\n                            {\n                                \"category\": {\n                                    \"coding\": [\n                                        {\n                                            \"code\": \"notApproved\"\n                                        }\n                                    ]\n                                },\n                                \"amount\": {\n                                    \"value\": 0.00,\n                                    \"currency\": \"RM\"\n                                }\n                            }\n                        ],\n                        \"detail\": [\n                            {\n                                \"detailSequence\": 1,\n                                \"productOrService\": {\n                                    \"coding\": [\n                                        {\n                                            \"system\": \"http://example.org/fhir/drugCode\",\n                                            \"code\": \"MED7975\",\n                                            \"text\": \"PANADOL\_COLD\_AND\_FLU\_CAPLETS\"\n                                        }\n                                    ]\n                                },\n                                \"adjudication\": [\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"netAmt\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 10.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    },\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"approvedAmt\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 10.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    },\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"notApprovedAm\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 0.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    }\n                                ]\n                            },\n                            {\n                                \"detailSequence\": 2,\n                                \"productOrService\": {\n                                    \"coding\": [\n                                        {\n                                            \"system\": \"http://example.org/fhir/drugCode\",\n                                            \"code\": \"MED4197\",\n                                            \"text\": \"POLARAX\_TABLET\_2MG\"\n                                        }\n                                    ]\n                                },\n                                \"adjudication\": [\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"netAmt\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 10.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    },\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"approvedAmt\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 10.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    },\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"notApprovedAm\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 0.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    }\n                                ]\n                            }\n                        ]\n                    },\n                    {\n                        \"itemSequence\": \"3\",\n                        \"productOrService\": {\n                            \"coding\": [\n                                {\n                                    \"system\": \"http://example.org/fhir/benefitCode\",\n                                    \"code\": \"36\",\n                                    \"text\": \"Injection\"\n                                }\n                            ]\n                        },\n                        \"adjudication\": [\n                            {\n                                \"category\": {\n                                    \"coding\": [\n                                        {\n                                            \"code\": \"inccurred\"\n                                        }\n                                    ]\n                                },\n                                \"amount\": {\n                                    \"value\": 10.00,\n                                    \"currency\": \"RM\"\n                                }\n                            },\n                            {\n                                \"category\": {\n                                    \"coding\": [\n                                        {\n                                            \"code\": \"approved\"\n                                        }\n                                    ]\n                                },\n                                \"amount\": {\n                                    \"value\": 10.00,\n                                    \"currency\": \"RM\"\n                                }\n                            },\n                            {\n                                \"category\": {\n                                    \"coding\": [\n                                        {\n                                            \"code\": \"notApproved\"\n                                        }\n                                    ]\n                                },\n                                \"amount\": {\n                                    \"value\": 0.00,\n                                    \"currency\": \"RM\"\n                                }\n                            }\n                        ],\n                        \"detail\": [\n                            {\n                                \"detailSequence\": 1,\n                                \"productOrService\": {\n                                    \"coding\": [\n                                        {\n                                            \"system\": \"http://example.org/fhir/serviceCode\",\n                                            \"code\": \"INJ0031\",\n                                            \"text\": \"GENTAMICIN\_INJECTION\"\n                                        }\n                                    ]\n                                },\n                                \"adjudication\": [\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"netAmt\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 5.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    },\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"approvedAmt\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 5.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    },\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"notApprovedAm\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 0.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    }\n                                ]\n                            },\n                            {\n                                \"detailSequence\": 2,\n                                \"productOrService\": {\n                                    \"coding\": [\n                                        {\n                                            \"system\": \"http://example.org/fhir/serviceCode\",\n                                            \"code\": \"INJ0049\",\n                                            \"text\": \"KANAMYCIN\_1GM\"\n                                        }\n                                    ]\n                                },\n                                \"adjudication\": [\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"netAmt\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 5.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    },\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"approvedAmt\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 5.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    },\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"notApprovedAm\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 0.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    }\n                                ]\n                            }\n                        ]\n                    },\n                    {\n                        \"itemSequence\": \"4\",\n                        \"productOrService\": {\n                            \"coding\": [\n                                {\n                                    \"system\": \"http://example.org/fhir/benefitCode\",\n                                    \"code\": \"37\",\n                                    \"text\": \"Investigation\"\n                                }\n                            ]\n                        },\n                        \"adjudication\": [\n                            {\n                                \"category\": {\n                                    \"coding\": [\n                                        {\n                                            \"code\": \"inccurred\"\n                                        }\n                                    ]\n                                },\n                                \"amount\": {\n                                    \"value\": 5.00,\n                                    \"currency\": \"RM\"\n                                }\n                            },\n                            {\n                                \"category\": {\n                                    \"coding\": [\n                                        {\n                                            \"code\": \"approved\"\n                                        }\n                                    ]\n                                },\n                                \"amount\": {\n                                    \"value\": 5.00,\n                                    \"currency\": \"RM\"\n                                }\n                            },\n                            {\n                                \"category\": {\n                                    \"coding\": [\n                                        {\n                                            \"code\": \"notApproved\"\n                                        }\n                                    ]\n                                },\n                                \"amount\": {\n                                    \"value\": 0.00,\n                                    \"currency\": \"RM\"\n                                }\n                            }\n                        ],\n                        \"detail\": [\n                            {\n                                \"detailSequence\": 1,\n                                \"productOrService\": {\n                                    \"coding\": [\n                                        {\n                                            \"system\": \"http://example.org/fhir/serviceCode\",\n                                            \"code\": \"INX0066\",\n                                            \"text\": \"FULL BLOOD COUNT\"\n                                        }\n                                    ]\n                                },\n                                \"adjudication\": [\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"netAmt\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 5.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    },\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"approvedAmt\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 5.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    },\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"notApprovedAm\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 0.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    }\n                                ]\n                            },\n                            {\n                                \"detailSequence\": 2,\n                                \"productOrService\": {\n                                    \"coding\": [\n                                        {\n                                            \"system\": \"http://example.org/fhir/serviceCode\",\n                                            \"code\": \"INX0104\",\n                                            \"text\": \"PLATELET COUNT\"\n                                        }\n                                    ]\n                                },\n                                \"adjudication\": [\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"netAmt\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 5.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    },\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"approvedAmt\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 5.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    },\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"notApprovedAm\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 0.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    }\n                                ]\n                            }\n                        ]\n                    },\n                    {\n                        \"itemSequence\": \"5\",\n                        \"productOrService\": {\n                            \"coding\": [\n                                {\n                                    \"system\": \"http://example.org/fhir/benefitCode\",\n                                    \"code\": \"38\",\n                                    \"text\": \"Procedure\"\n                                }\n                            ]\n                        },\n                        \"adjudication\": [\n                            {\n                                \"category\": {\n                                    \"coding\": [\n                                        {\n                                            \"code\": \"inccurred\"\n                                        }\n                                    ]\n                                },\n                                \"amount\": {\n                                    \"value\": 5.00,\n                                    \"currency\": \"RM\"\n                                }\n                            },\n                            {\n                                \"category\": {\n                                    \"coding\": [\n                                        {\n                                            \"code\": \"approved\"\n                                        }\n                                    ]\n                                },\n                                \"amount\": {\n                                    \"value\": 5.00,\n                                    \"currency\": \"RM\"\n                                }\n                            },\n                            {\n                                \"category\": {\n                                    \"coding\": [\n                                        {\n                                            \"code\": \"notApproved\"\n                                        }\n                                    ]\n                                },\n                                \"amount\": {\n                                    \"value\": 0.00,\n                                    \"currency\": \"RM\"\n                                }\n                            }\n                        ],\n                        \"detail\": [\n                            {\n                                \"detailSequence\": 1,\n                                \"productOrService\": {\n                                    \"coding\": [\n                                        {\n                                            \"system\": \"http://example.org/fhir/serviceCode\",\n                                            \"code\": \"PRO0012\",\n                                            \"text\": \"DRESSING\"\n                                        }\n                                    ]\n                                },\n                                \"adjudication\": [\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"netAmt\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 5.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    },\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"approvedAmt\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 5.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    },\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"notApprovedAm\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 0.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    }\n                                ]\n                            },\n                            {\n                                \"detailSequence\": 2,\n                                \"productOrService\": {\n                                    \"coding\": [\n                                        {\n                                            \"system\": \"http://example.org/fhir/serviceCode\",\n                                            \"code\": \"PRO0002\",\n                                            \"text\": \"AEROCHAMBER\"\n                                        }\n                                    ]\n                                },\n                                \"adjudication\": [\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"netAmt\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 5.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    },\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"approvedAmt\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 0.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    },\n                                    {\n                                        \"category\": {\n                                            \"coding\": [\n                                                {\n                                                    \"code\": \"notApprovedAm\"\n                                                }\n                                            ]\n                                        },\n                                        \"amount\": {\n                                            \"value\": 5.00,\n                                            \"currency\": \"RM\"\n                                        }\n                                    }\n                                ]\n                            }\n                        ]\n                    }\n                ],\n                \"adjudication\": [\n                    {\n                        \"category\": {\n                            \"coding\": [\n                                {\n                                    \"code\": \"inccurred\"\n                                }\n                            ]\n                        },\n                        \"amount\": {\n                            \"value\": 50.00,\n                            \"currency\": \"RM\"\n                        }\n                    },\n                    {\n                        \"category\": {\n                            \"coding\": [\n                                {\n                                    \"code\": \"approved\"\n                                }\n                            ]\n                        },\n                        \"amount\": {\n                            \"value\": 50.00,\n                            \"currency\": \"RM\"\n                        }\n                    },\n                    {\n                        \"category\": {\n                            \"coding\": [\n                                {\n                                    \"code\": \"notApproved\"\n                                }\n                            ]\n                        },\n                        \"amount\": {\n                            \"value\": 0.00,\n                            \"currency\": \"RM\"\n                        }\n                    }\n                ]\n            }\n        }\n    ]\n};\n\njsonstring = JSON.stringify(jsonstring);"
+                        - id: when-cdb8
+                          expression:
+                            simple:
+                              id: simple-db2c
+                              expression: ${header.endpoint} == 'CancelClaim'
+                          steps:
+                            - setBody:
+                                id: setBody-0995
+                                expression:
+                                  js:
+                                    id: js-443c
+                                    expression: >-
+                                      let message = body.Message;
+
+                                      let parts = message.split(" - Claim Id :
+                                      ");
+
+                                      let claimId = parts[1];
+
+
+                                      let jsonstring = {
+                                          "resourceType": "Bundle",
+                                          "id": "bundle-req-0001",
+                                          "type": "message",
+                                          "timestamp": "2024-02-20T11:15:33+10:00",
+                                          "entry": [
+                                              {
+                                                  "fullUrl": "urn:uuid:267b18ce-3d37-4581-9baa-6fada338038b",
+                                                  "resource": {
+                                                      "resourceType": "MessageHeader",
+                                                      "eventCoding": {
+                                                          "system": "http://example.org/fhir/message-events",
+                                                          "code": "CancelClaim"
+                                                      },
+                                                      "destination": [
+                                                          {
+                                                              "name": "Get Access Token",
+                                                              "endpoint": "https://medilinkuat.medibridgeasia.tech/EccsProviderApi/api/clinic/CancelClaim",
+                                                              "target": "localhost:8081",
+                                                              "receiver": {
+                                                                  "identifier": {
+                                                                      "type": {
+                                                                          "coding": [
+                                                                              {
+                                                                                  "code": "medilink",
+                                                                                  "display": "Medilink-Global(Asia)"
+                                                                              }
+                                                                          ]
+                                                                      }
+                                                                  }
+                                                              }
+                                                          }
+                                                      ],
+                                                      "source": {
+                                                          "endpoint": "https://medilinkuat.medibridgeasia.tech/EccsProviderApi/api/clinic/CancelClaim"
+                                                      },
+                                                      "reason": {
+                                                          "coding": [
+                                                              {
+                                                                  "system": "http://terminology.hl7.org/CodeSystem/message-reasons-encounter",
+                                                                  "code": "CancelClaim"
+                                                              }
+                                                          ]
+                                                      },
+                                                      "response": {
+                                                          "identifier": "efdd254b-0e09-4164-883e-35cf3871715f",
+                                                          "code": "ok",
+                                                          "details": {
+                                                              "reference": "OperationOutcome/03f9aa7d-b395-47b9-84e0-053678b6e4e3",
+                                                              "text": "Claims Cancel"
+                                                          }
+                                                      },
+                                                      "focus": [
+                                                          {
+                                                              "reference": "http://acme.com/ehr/fhir/Parameter/req-para-001"
+                                                          }
+                                                      ]
+                                                  }
+                                              },
+                                              {
+                                                  "fullUrl": "http://acme.com/ehr/fhir/Parameter/req-para-001",
+                                                  "resource": {
+                                                      "resourceType": "Parameter",
+                                                      "id": "req-para-001",
+                                                      "parameter": [
+                                                          {
+                                                              "name": "requestParam",
+                                                              "part": [
+                                                                  {
+                                                                      "name": "pstClaimId",
+                                                                      "valueString": claimId
+                                                                  }
+                                                              ]
+                                                          }
+                                                      ]
+                                                  }
+                                              }
+                                          ]
+                                      };
+
+
+                                      jsonstring = JSON.stringify(jsonstring);
